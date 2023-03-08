@@ -32,4 +32,25 @@
         <tag>MYSQL</tag>
       </tags>
   </entry>
+  <entry>
+    <title>java:构造代码块 和 静态代码块的区别</title>
+    <url>/2023/03/08/java-%E6%9E%84%E9%80%A0%E4%BB%A3%E7%A0%81%E5%9D%97-%E5%92%8C-%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="java-：构造代码块-和-静态代码块"><a href="#java-：构造代码块-和-静态代码块" class="headerlink" title="java ：构造代码块 和 静态代码块"></a>java ：构造代码块 和 静态代码块</h2><p>以下是我对于二者区别浅薄的认识 ：</p>
+<p>构造代码块：</p>
+<ul>
+<li><p>{…}花括号包裹起来的代码我们称之为代码块或代码段。而只有一对花括号包裹起来的代码我们称之为构造代码块。</p>
+</li>
+<li><p>构造代码块在构造方法之前先执行，构造代码块与构造方法一样都是在类被实例化的过程中被调用的。<strong>即每调用一次构造函数，都会在构造函数之前调用 —构造代码块–</strong></p>
+</li>
+</ul>
+<p>如以下案例 ：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.plaf.basic.BasicInternalFrameTitlePane;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> gender;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span> &#123;    <span class="comment">//构造函数的重载</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是无参构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(String name, <span class="type">int</span> age, <span class="type">int</span> gender)</span> &#123;         <span class="comment">//构造函数的重载</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是含参构造方法&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;     </span><br><span class="line">        System.out.println(<span class="string">&quot;我是静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;   <span class="comment">//只有括号而没有任何前缀</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;小明&quot;</span>, <span class="number">20</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 案例运行结果：</span></span><br><span class="line">    我是静态代码块</span><br><span class="line">	我是构造代码块</span><br><span class="line">	我是无参构造方法</span><br><span class="line">	我是构造代码块</span><br><span class="line">	我是有参构造方法</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>由上述运行结果我们不难得出 staic 代码块 即 <strong>静态代码块</strong>的特点：</p>
+<ul>
+<li>静态代码块在类加载的时候运行，<strong>并且只运行一次</strong>；</li>
+<li>静态代码块的执行优先级：优于各种代码块和构造函数；</li>
+</ul>
+]]></content>
+  </entry>
 </search>
