@@ -57,7 +57,7 @@
     <title>图床：安装注意点 以及 阿里云OSS相关收费</title>
     <url>/2023/03/08/%E5%9B%BE%E5%BA%8A%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="图床：安装注意点"><a href="#图床：安装注意点" class="headerlink" title="图床：安装注意点"></a>图床：安装注意点</h2><p>最近发现一个特别明显的现象，即随着网页内容的不断增加和图片的不断插入，这导致我的blog本地文件不断的增大的同时，网页的响应速度也开始变慢，往往图片加载较长时间才会一点一点的揭开面纱。<br>这也就导致我不得不使用图床。</p>
-<p>  <strong>在这里我使用的是阿里云OSS和picgo，以下是csdn上一篇教程：<a class="link"   href="https://blog.csdn.net/m0_51321469/article/details/127340237" >教程跳转 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p> <strong>在这里我使用的是阿里云OSS和picgo，以下是csdn上一篇教程：<a class="link"   href="https://blog.csdn.net/m0_51321469/article/details/127340237" >教程跳转 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
 <h4 id="当然在这里有几点要提一下："><a href="#当然在这里有几点要提一下：" class="headerlink" title="当然在这里有几点要提一下："></a>当然在这里有几点要提一下：</h4><p> <img  
                      lazyload
                      src="/images/loading.svg"
