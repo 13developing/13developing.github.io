@@ -1068,76 +1068,11 @@
 
 
 </blockquote>
-<h5 id="2、public-外部引入"><a href="#2、public-外部引入" class="headerlink" title="2、public  外部引入"></a>2、public  外部引入</h5><h2 id="XML的初步了解-1"><a href="#XML的初步了解-1" class="headerlink" title="XML的初步了解"></a>XML的初步了解</h2><p>可扩展性标记语言，其目的是用于传输和存储数据，而 HTML 是用于展示数据。XML的标签必须是自定义，同时要注意标签名必须要有一定的含义。</p>
-<h3 id="1、基本语法-1"><a href="#1、基本语法-1" class="headerlink" title="1、基本语法"></a>1、基本语法</h3><p>对于我们的 xml ，其有着一定的语法。</p>
-<h4 id="1、根节点-1"><a href="#1、根节点-1" class="headerlink" title="1、根节点"></a>1、根节点</h4><p>对于整体的xml’内容，我们必须要有一个根标签 ( 根节点 )，也即下处的 <strong><root> </root></strong></p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>hu<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">msg</span>&gt;</span>this is a try<span class="tag">&lt;/<span class="name">msg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="2、头部声明-1"><a href="#2、头部声明-1" class="headerlink" title="2、头部声明"></a>2、头部声明</h4><p>必须位于第一行</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot; 1.0 &quot;</span>  encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="3、标签的成对-1"><a href="#3、标签的成对-1" class="headerlink" title="3、标签的成对"></a>3、标签的成对</h4><p>不同于 HTML 存在的单标签， xml 中的所有元素标签都必须是成对出现，标签大小写敏感。</p>
-<p>标签不可以如以下情况交叉</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4、注释-1"><a href="#4、注释-1" class="headerlink" title="4、注释"></a>4、注释</h4><p>语法同 html  ，注意注释是不可以进行嵌套的</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--   comment  --&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="5、符号的实体引用-（-转义字符-）-1"><a href="#5、符号的实体引用-（-转义字符-）-1" class="headerlink" title="5、符号的实体引用  （ 转义字符 ）"></a>5、符号的实体引用  （ 转义字符 ）</h4><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202308270928664.png"
-                      alt="image-20230827092810623"
-                ></p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary   &lt;     1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span>  错误</span><br><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary  <span class="symbol">&amp;lt;</span> 1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span> 正确</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6、属性与标签-1"><a href="#6、属性与标签-1" class="headerlink" title="6、属性与标签"></a>6、属性与标签</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">person</span>  <span class="attr">a</span>=<span class="string">&#x27;123&#x27;</span> <span class="attr">b</span>=<span class="string">&#x27;456&#x27;</span> &gt;</span> <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line">这里的 person 是标签，a ，b是我们的属性</span><br><span class="line">  注意每个标签可以有多个属性，但是每个属性不可以相同，属性值用引号</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="7、CDATA区-1"><a href="#7、CDATA区-1" class="headerlink" title="7、CDATA区"></a>7、CDATA区</h4><p>全称 character data</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">语法： &lt;! [ CDATA [ 我们实际的内容 ] ]</span><br></pre></td></tr></table></figure></div>
-
-<p>使用 CDATA 区域 ，编译器会直接忽略，而直接显示原始的内容。</p>
-<h3 id="2、简单的处理指令-1"><a href="#2、简单的处理指令-1" class="headerlink" title="2、简单的处理指令"></a>2、简单的处理指令</h3><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot; 1.0 &quot;</span>  encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span>  这里声明了版本和字符集  ，注意只可以放在第一行</span><br><span class="line"></span><br><span class="line">&lt;? xml-stylesheet type=&quot;text/css&quot; href=&quot;a.css&quot;?&gt;  指定的css样式表</span><br></pre></td></tr></table></figure></div>
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202308290839514.png"
-                      alt="image-20230829083937327" style="zoom: 200%;" 
-                >
-
-<p>这里的css样式的指定实际上只是普通的标签选择器。</p>
-<h3 id="3、XML的约束-1"><a href="#3、XML的约束-1" class="headerlink" title="3、XML的约束"></a>3、XML的约束</h3><p>xml 中存在着两种约束。dtd 和 schema  。</p>
-<p>约束就是规则，xml的约束就是指定 xml 文档中可以出现哪些元素以及不可以出现那些元素。</p>
-<h4 id="1、DTD-1"><a href="#1、DTD-1" class="headerlink" title="1、DTD"></a>1、DTD</h4><p>DTD（Document Type Deﬁnition），文档类型定义，用来约束XML文档。规定XML文档中元素的名称，子元素的名称及顺序，元素的属性等。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!ELEMENT <span class="title function_">students</span> <span class="params">(student+)</span>  &gt;   这里定义了一个元素 student  并且规定这里的 student出现一次或者多次，如果没有+号，则默认为只可以出现一次</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">student</span> <span class="params">(name,age,sex)</span>&gt;    意为student包含三类</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">name</span> <span class="params">(#PCDATA)</span>&gt;    #PCDATA 即直接为文本内容</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">age</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">sex</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">        &lt;!ATTLIST student number ID #REQUIRED&gt; </span><br><span class="line">student number ID : student标签中 有一个ID属性 叫做 number  ，#required 即规定必须</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<p>常见的符号：<br>问号？：表示该对象出现0次或1次<br>星号 * ：表示该对象出现0次或多次<br>加号 + ：表示该对象出现1次或多次<br>竖线 | ：表示在列出的对象中选择一个<br>逗号 , ：表示对象按照指定的顺序出现</p>
-<h4 id="3、DTD的引入-1"><a href="#3、DTD的引入-1" class="headerlink" title="3、DTD的引入"></a>3、DTD的引入</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;！DOCTYPE student SYSTEM &quot;student.dtd&quot; &gt;</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;a.css&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">students</span>  <span class="keyword">SYSTEM</span> <span class="string">&quot;student.dtd&quot;</span>&gt;</span>  system后面跟的是同目录下的文件名    students是一个父标签，后面的约束存在于他的子目录下，经过尝试后发现不可以直接使用</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span>   父级标签</span><br><span class="line">    <span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;number_123&quot;</span>&gt;</span>   这里的id属性与前端一致</span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisa<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  注意逗号是顺序，不可以调转顺序，不可以缺少</span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>26<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sex</span>&gt;</span>female<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p><strong>这里第一感受是该约束与  CSS 中的选择器极其的相似</strong></p>
-<h4 id="4、DTD的三种引入方式-1"><a href="#4、DTD的三种引入方式-1" class="headerlink" title="4、DTD的三种引入方式"></a>4、DTD的三种引入方式</h4><h5 id="1、内部引入-1"><a href="#1、内部引入-1" class="headerlink" title="1、内部引入"></a>1、内部引入</h5><blockquote>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;a.css&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE student [      <span class="comment">//  这里实际上就是所谓的内部引入  ，和前端的css引入方式有点类似  ，注意是方括号和前面的   !DOCTYPE</span></span><br><span class="line"></span><br><span class="line">&lt;!ELEMENT <span class="title function_">students</span> <span class="params">(student+)</span>  &gt;   </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">student</span> <span class="params">(name,age,sex)</span>&gt;    </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">name</span> <span class="params">(#PCDATA)</span>&gt;  </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">age</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">     &lt;!ELEMENT <span class="title function_">sex</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">     &lt;!ATTLIST student number ID #REQUIRED&gt; </span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&lt;students&gt;   父级标签</span><br><span class="line"> &lt;student number=<span class="string">&quot;number_123&quot;</span>&gt;   这里的id属性与前端一致</span><br><span class="line">     &lt;name&gt;lisa&lt;/name&gt;  注意逗号是顺序，不可以调转顺序，不可以缺少</span><br><span class="line">     &lt;age&gt;<span class="number">26</span>&lt;/age&gt;</span><br><span class="line">     &lt;sex&gt;female&lt;/sex&gt;</span><br><span class="line"> &lt;/student&gt;</span><br><span class="line">&lt;/students&gt;</span><br></pre></td></tr></table></figure></div>
+<h5 id="2、public-外部引入"><a href="#2、public-外部引入" class="headerlink" title="2、public  外部引入"></a>2、public  外部引入</h5><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">使用公共的DTD约束</span><br><span class="line">&lt; !DOCTYPE 根元素名称 PUBLIC &quot;DTD名称&quot;  &quot;DTD文档的URL&quot;  &gt;</span><br><span class="line"></span><br><span class="line">注意这里的 public  而不是 SYSTEM</span><br></pre></td></tr></table></figure></div>
 
 
-</blockquote>
-<h5 id="2、public-外部引入-1"><a href="#2、public-外部引入-1" class="headerlink" title="2、public  外部引入"></a>2、public  外部引入</h5><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202308291359461.png"
-                      alt="image-20230829135944418"
-                ></p>
-<p>注意这里的 public  而不是 SYSTEM</p>
+
 <h5 id="3、第三种即我们类似内部链接的-CSS方式"><a href="#3、第三种即我们类似内部链接的-CSS方式" class="headerlink" title="3、第三种即我们类似内部链接的  CSS方式"></a>3、第三种即我们类似内部链接的  CSS方式</h5><h4 id="2、Schema-x2F-ˈskiːmə-x2F"><a href="#2、Schema-x2F-ˈskiːmə-x2F" class="headerlink" title="2、Schema     &#x2F;ˈskiːmə&#x2F;"></a>2、Schema     &#x2F;ˈskiːmə&#x2F;</h4><ul>
-<li>Schema是新的XML文档约束, 比DTD强大很多，是DTD 替代者；</li>
-<li>Schema本身也是XML文档，但Schema文档的扩展名为xsd，而不是xml。</li>
-<li>Schema 功能更强大，内置多种简单和复杂的数据类型</li>
-<li>Schema 支持命名空间 (一个XML中可以引入多个约束文档)</li>
-</ul>
-<p>注意这里的 public  而不是 SYSTEM</p>
-<h5 id="3、第三种即我们类似内部链接的-CSS方式-1"><a href="#3、第三种即我们类似内部链接的-CSS方式-1" class="headerlink" title="3、第三种即我们类似内部链接的  CSS方式"></a>3、第三种即我们类似内部链接的  CSS方式</h5><h4 id="2、Schema-x2F-ˈskiːmə-x2F-1"><a href="#2、Schema-x2F-ˈskiːmə-x2F-1" class="headerlink" title="2、Schema     &#x2F;ˈskiːmə&#x2F;"></a>2、Schema     &#x2F;ˈskiːmə&#x2F;</h4><ul>
 <li>Schema是新的XML文档约束, 比DTD强大很多，是DTD 替代者；</li>
 <li>Schema本身也是XML文档，但Schema文档的扩展名为xsd，而不是xml。</li>
 <li>Schema 功能更强大，内置多种简单和复杂的数据类型</li>
