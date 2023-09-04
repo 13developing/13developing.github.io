@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="HJD">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2023/09/04/初识jsp/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="初识JSP">
+    <meta property="og:description" content="Hexo Theme Redefine">
+    <meta property="og:url" content="http://example.com2023/09/04/初识JSP/">
+    <meta property="og:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
+    <meta property="og:site_name" content="HJDの个人博客">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="初识JSP">
+    <meta name="twitter:description" content="Hexo Theme Redefine">
+    <meta name="twitter:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
+    <meta name="theme-color" content="#005080">
+    <link rel="shortcut icon" href="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
+    
+    <title>
+        
+            初识JSP -
+        
+        HJDの个人博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/assets/fonts.css">
+
+    
+    
+    
+    
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253296.jpg","favicon":"https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#1abc9c","dark":"#1abc9c"},"description":"WELCOME TO H-J-D の 博客","custom_font":{"enable":false,"font_family":null,"font_url":null}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true,"trigger":"auto","top_n_per_article":1,"unescape":false},"code_block":{"copy":true,"style":"mac","custom_font":{"enable":false,"font_family":null,"font_url":null}},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"1.1.6","friend_links":{"columns":2},"home_article":{"date_format":"auto","category":{"enable":true,"limit":3},"tag":{"enable":true,"limit":3}},"plugins":{"aplayer":{"enable":true,"audio":[{"name":"Gentleman","artist":"戴爱玲、刘伟德","url":"/aplayer/Gentleman.mp3","cover":"https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081248218.png"},{"name":"Alone In Lonely","artist":"羽泉","url":"/aplayer/Alone In Lonely.mp3","cover":"https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081247106.png"},{"name":"逍遥叹","artist":"胡歌","url":"/aplayer/逍遥叹.mp3","cover":"https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081248495.png"}]}}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                HJDの个人博客
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-book"></i>
+                                        
+                                        ARTICLE
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-chart-bar"></i>
+                                        
+                                        PROJECT
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-book"></i>
+                                
+                                ARTICLE
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-chart-bar"></i>
+                                
+                                PROJECT
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">初识JSP</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253296.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">HJD</span>
+                            
+                                <span class="author-label">lol</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2023-09-04 19:18:45</span>
+        <span class="mobile">2023-09-04 19:18</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="pc">2023-09-04 19:18:47</span>
+            <span class="mobile">2023-09-04 19:18</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="初识JSP"><a href="#初识JSP" class="headerlink" title="初识JSP"></a>初识JSP</h2><p>JSP是简化Servlet编写的一种技术，它将Java代码和HTML语句混合在同一个文件中编写，只对网页中要动态产生的内容采用Java代码来编写。而对固定不变的静态内容采用普通静态HTML页面方式编写。</p>
+<p>相比于 HTML 的静态页面，jsp其优点在于可以在页面中嵌套Java代码，可动态的显示页面数据。</p>
+<p>相比于 Servlet 的难以对数据进行排版，jsp 可实现较为容易得排版、显示数据。</p>
+<h3 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h3><p>显示注释 ：  （可以在客户端查看的注释)</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">即从HTML风格继承而来</span><br><span class="line">&lt;!--  注释内容 --&gt; </span><br></pre></td></tr></table></figure></div>
+
+<p>隐式注释 ：</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Java风格  的单行注释：  <span class="comment">//  ....    或者是  /*   ...   */</span></span><br><span class="line">jsp风格  注释  ：  &lt;%-- JSP注释 --%&gt;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2、Scriptlet"><a href="#2、Scriptlet" class="headerlink" title="2、Scriptlet"></a>2、Scriptlet</h3><p>即嵌套在 HTML 中的 Java 程序，一下提供三种方式，但是三种都必须使用 <code>&lt; Scriptlet &gt;</code>标记出来</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第一种 ：&lt;%    %&gt; : Java 脚本段，可以定义局部变量，编写语句</span><br><span class="line">&lt;% 这其中编写Java代码 ，声明局部变量 ，只在该标签中可以使用   %&gt;</span><br><span class="line"></span><br><span class="line">第二种 ：&lt;%!    %&gt; : 声明，可以定义全局变量，方法 和 类。</span><br><span class="line">在此声明的变量，可以再整个页面的任何位置进行引用</span><br><span class="line"></span><br><span class="line">第三种 ： &lt;%=  %&gt; : 表达式 ，数据一个变量或者具体内容 </span><br><span class="line">注意，该标签中的可以是全局变量，也可以是局部变量</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3、指令标签"><a href="#3、指令标签" class="headerlink" title="3、指令标签"></a>3、指令标签</h3><p>使用包含操作，可以将一些重复的代码包含进来继续使用</p>
+<h4 id="1、include静态包含"><a href="#1、include静态包含" class="headerlink" title="1、include静态包含"></a>1、include静态包含</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ include file=<span class="string">&quot;要包含的文件路径 &quot;</span>  %&gt;     &lt;!-- 注意这里的是相对路径--&gt;</span><br><span class="line">eg:</span><br><span class="line">    &lt;%@ <span class="type">include</span> <span class="variable">file</span> <span class="operator">=</span><span class="string">&quot; include.html &quot;</span> %&gt; ;</span><br></pre></td></tr></table></figure></div>
+
+<p>下面是一个小的实例：</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">&quot;head.jsp&quot;</span>%&gt;        <span class="comment">//include</span></span><br><span class="line">&lt;h2&gt; hello world&lt;/h2&gt;</span><br><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">&quot;footer.jsp&quot;</span> %&gt;    <span class="comment">//  include</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>静态包含是将内容进行了直接的替换，在Servlet进行引擎转译时，就把此文件包含进去，只生成一个Servlet，因此包含文件和被包含文件是不可以进有同名的变量的</strong></p>
+<h4 id="2、include动态包含"><a href="#2、include动态包含" class="headerlink" title="2、include动态包含"></a>2、include动态包含</h4><p>动态包含在代码编译的时候，包含和背包含的部分是独立的，在运行的时候才会将被包含的部分接入，类似于方法的调用,会出现多个源码文件<strong>可以出现同名变量</strong></p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page=<span class="string">&quot;被包含的页面的绝对路径&quot;</span>&gt;&lt;/jsp:incldue&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">动态包含参数</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;被包含的页面的绝对路径&quot;</span>&gt;</span><br><span class="line">    &lt;jsp:param	name=<span class="string">&quot;&quot;</span> value=<span class="string">&quot;&quot;</span>&gt;&lt;/jsp:param&gt;    <span class="comment">//  注意这里我们的name不支持表达式，value支持&lt;%=  ...  %&gt;</span></span><br><span class="line">    &lt;/jsp:incldue&gt;</span><br><span class="line"></span><br><span class="line">同时，在包含页面中，我们利用&lt;%= ...  =&gt; 进行动态的赋值，</span><br><span class="line">    在被包含页面中，利用request.getParameter（name) 对指定的name 进行获取数值</span><br><span class="line">    </span><br><span class="line">    例子如下：</span><br><span class="line">    -==========================包含页面内容：========================</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;head.jsp&quot;</span>&gt;&lt;/jsp:include&gt;</span><br><span class="line">&lt;%</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello &quot;</span>;</span><br><span class="line">    out.println(str);</span><br><span class="line">    out.print(str);</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=str + str%&gt;</span><br><span class="line">&lt;h2&gt; hello world&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;footer.jsp&quot;</span>&gt;&lt;/jsp:include&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;footer.jsp&quot;</span>&gt;</span><br><span class="line">    &lt;jsp:param name=<span class="string">&quot;uname&quot;</span> value=<span class="string">&quot;&lt;%=str%&gt;&quot;</span>/&gt;</span><br><span class="line">&lt;/jsp:include&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		-=======================被包含页面 ( footer.jsp )=======================</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h2&gt;我是底部&lt;/h2&gt;</span><br><span class="line">&lt;%</span><br><span class="line">System.out.print(request.getParameter(<span class="string">&quot;uname&quot;</span>));    </span><br><span class="line">%&gt;</span><br><span class="line">&lt;/body&gt;s</span><br></pre></td></tr></table></figure></div>
+
+<p>Ps :  更为灵活的，page后的地址内容也可以使用表达式。</p>
+<h3 id="4、使用include遇到的乱码问题"><a href="#4、使用include遇到的乱码问题" class="headerlink" title="4、使用include遇到的乱码问题"></a>4、使用include遇到的乱码问题</h3><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">&quot;head.jsp&quot;</span>%&gt;        </span><br><span class="line">&lt;%</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="string">&quot;hello &quot;</span>;</span><br><span class="line">    out.println(str);</span><br><span class="line">    out.print(str);</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line">&lt;%=str + str%&gt;</span><br><span class="line">&lt;h2&gt; hello world&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">&quot;footer.jsp&quot;</span> %&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309021007930.png"
+                      alt="image-20230902100749843" style="zoom: 50%;" 
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309021009735.png"
+                      alt="image-20230902100907706" style="zoom:50%;" 
+                ></p>
+<p>在这里是两个极为简单的测试jsp页面，head 和 foot ，在按照上述代码进行include 时，出现一下情况 </p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309021011290.png"
+                      alt="image-20230902101103262" style="zoom:50%;" 
+                >
+
+<p>但是非常奇怪的是，三个 jsp 页面，都已设置编码为  utf-8 ，这让我确实有些摸不着头脑，经网上逛圈发现，实际上我们客户端访问jsp文件要经过三个阶段：</p>
+<blockquote>
+<p>1、第一次访问，web容器（常用的有Tomcat等）将jsp编译为java文件，该阶段编译器会根据pageEncoding设置的编码进行读取jsp文件，翻译成统一的 utf-8 的Servlet类。</p>
+</blockquote>
+<blockquote>
+<p>2、之后由javac将我们的java源码编译成class字节码，javac用utf-8编码读取java源码，编译成utf-8编码的二进制文件</p>
+</blockquote>
+<blockquote>
+<p>3、web容器载入class字节码文件，将内容输出结果到客户端，这一过程的编码为contentType设置的编码</p>
+</blockquote>
+<p><strong>因此，我们这里就是第一步，pageEncoding未设置</strong>，只需要在每一个jsp文件前加一句</p>
+<p><code>&lt;%@page pageEncoding=&quot;UTF-8&quot;%&gt;</code>之后重启服务器即可。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309021025196.png"
+                      alt="image-20230902102525165" style="zoom:50%;" 
+                >
+
+<h3 id="5、四大域对象"><a href="#5、四大域对象" class="headerlink" title="5、四大域对象"></a>5、四大域对象</h3><p>JSP中使用了四种属性的保存范围，所谓的四种属性的范围，指的是一个设置的对象，可以在多个页面中保存使用。</p>
+<h4 id="1、page"><a href="#1、page" class="headerlink" title="1、page"></a>1、page</h4><p>pageContext：只在一个页面中保存属性，服务端跳转页面后无效。</p>
+<h4 id="2、request"><a href="#2、request" class="headerlink" title="2、request"></a>2、request</h4><p>request：只在一次请求中保存，服务器跳转后依然有效，注意是只可以一次请求，客户端跳转无效。</p>
+<h4 id="3、session"><a href="#3、session" class="headerlink" title="3、session"></a>3、session</h4><p>session：在一次会话范围中，无论何种跳转都可以使用。但是重新开启一个浏览器后，无法取到之前设置的session了。对于服务器而言，每一个连接到他的客户端都是一个session，若想要属性设置一次后，使用新的浏览器打开后都可以取得，则要使用 application 。</p>
+<h4 id="4、application"><a href="#4、application" class="headerlink" title="4、application"></a>4、application</h4><p>application：在整个服务器上保存，每一个用户（ session ）都可以直接访问取得，但是服务器关闭后，所有的属性都消失，需要重新设置</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309021809159.png"
+                      alt="Screenshot_2023_0902_180843"
+                ></p>
+<h3 id="6、服务端跳转和客户端跳转-（参考原文）"><a href="#6、服务端跳转和客户端跳转-（参考原文）" class="headerlink" title="6、服务端跳转和客户端跳转  （参考原文）"></a>6、服务端跳转和客户端跳转  <a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34802416/article/details/80232780" >（参考原文） <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p><code>服务器跳转（内部跳转）</code>: 客户端发送一次请求，请求当前资源，该资源在服务器内部跳转到另一个资源，再向客户端发送一个响应（客户端只响应一次）</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309030809689.png"
+                      alt="image-20230903080931580" style="zoom:67%;" 
+                >
+
+
+
+<p><code>客户端跳转（外部跳转）</code>：当客户端发送一个请求，请求当前资源，该资源向客户端发送一个请求去其他地址的回应，客户端再根据这个地址去进行下一次请求（即会发生多次请求)。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309030812678.png"
+                      alt="image-20230903081228625" style="zoom:50%;" 
+                >
+
+
+
+<ul>
+<li><p>服务器端跳转时，<strong>未超出request的属性范围</strong>，<strong>request属性能够保存到跳转页</strong>；客户端跳转时，则超出了request的属性范围，无法进行其属性的传递。</p>
+</li>
+<li><p>服务器端跳转时，JSP执行到跳转语句时会<strong>立刻进行跳转</strong>，不再执行之后的代码；客户端跳转时，则会在<strong>整个页面的代码执行完后，才执行跳转</strong>。所以在执行服务器端跳转时，一定要在跳转语句之前释放掉临界资源（如数据库连接，I\O流操作等）</p>
+</li>
+</ul>
+<h3 id="7、JSP中的跳转语句"><a href="#7、JSP中的跳转语句" class="headerlink" title="7、JSP中的跳转语句"></a>7、JSP中的跳转语句</h3><h4 id="服务器跳转"><a href="#服务器跳转" class="headerlink" title="服务器跳转"></a>服务器跳转</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">pageContext.forward();</span><br><span class="line">request.getRequestDispatcher(url).forward(request, response);</span><br><span class="line">服务器端跳转“/”代表站点根路径</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="客户端跳转"><a href="#客户端跳转" class="headerlink" title="客户端跳转"></a>客户端跳转</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">&quot;&quot;</span>&gt;\&lt;/a&gt;</span><br><span class="line">&lt;mate http-equiv=<span class="string">&quot;refresh&quot;</span>, content=<span class="string">&quot;sec;url&quot;</span>/&gt;</span><br><span class="line">表单提交</span><br><span class="line">response.senRedirect(url)</span><br><span class="line">response.setHeader(“refresh”, “sec;url”)</span><br><span class="line">客户端跳转“/”代表服务器跟路径webapps</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="8、四大域范围跳转测试实例"><a href="#8、四大域范围跳转测试实例" class="headerlink" title="8、四大域范围跳转测试实例"></a>8、四大域范围跳转测试实例</h3><h4 id="1、服务端跳转："><a href="#1、服务端跳转：" class="headerlink" title="1、服务端跳转："></a>1、服务端跳转：</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">初始页面内容：</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;% </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//以四个范围域，设置属性</span></span><br><span class="line">    pageContext.setAttribute(<span class="string">&quot;msg1&quot;</span>, <span class="string">&quot;page&quot;</span>);      </span><br><span class="line">    request.setAttribute(<span class="string">&quot;msg2&quot;</span>, <span class="string">&quot;request&quot;</span>);</span><br><span class="line">    session.setAttribute(<span class="string">&quot;msg3e&quot;</span>, <span class="string">&quot;session&quot;</span>);</span><br><span class="line">    application.setAttribute(<span class="string">&quot;msg4&quot;</span>, <span class="string">&quot;application&quot;</span>);</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line">&lt;jsp:forward page=<span class="string">&quot;getmsg.jsp&quot;</span>&gt;&lt;/jsp:forward&gt;     <span class="comment">//  服务器条跳转</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    =======================跳转页面内容=====================</span><br><span class="line">    </span><br><span class="line">    &lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    out.print(<span class="string">&quot;page范围&quot;</span> + pageContext.getAttribute(<span class="string">&quot;msg1&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    out.print(<span class="string">&quot;request范围&quot;</span> + request.getAttribute(<span class="string">&quot;msg2&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    out.print(<span class="string">&quot;session范围&quot;</span> + session.getAttribute(<span class="string">&quot;msg3&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    out.print(<span class="string">&quot;application范围&quot;</span> + application.getAttribute(<span class="string">&quot;msg4&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//   即跳转页面的内容是获取四个属性，并输出在我们的页面上</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309030838665.png"
+                      alt="image-20230903083845624"
+                ></p>
+<h4 id="2、客户端跳转"><a href="#2、客户端跳转" class="headerlink" title="2、客户端跳转"></a>2、客户端跳转</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">===========================初始页面==================</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    pageContext.setAttribute(<span class="string">&quot;msg1&quot;</span>, <span class="string">&quot;page&quot;</span>);</span><br><span class="line">    request.setAttribute(<span class="string">&quot;msg2&quot;</span>, <span class="string">&quot;request&quot;</span>);</span><br><span class="line">    session.setAttribute(<span class="string">&quot;msg3&quot;</span>, <span class="string">&quot;session&quot;</span>);</span><br><span class="line">    application.setAttribute(<span class="string">&quot;msg4&quot;</span>, <span class="string">&quot;application&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line">&lt;%--&lt;jsp:forward page=<span class="string">&quot;getmsg.jsp&quot;</span>&gt;&lt;/jsp:forward&gt;--%&gt;</span><br><span class="line">&lt;a href=<span class="string">&quot;getmsg.jsp&quot;</span>&gt;客户端跳转&lt;/a&gt;       <span class="comment">//即我们这里使用HTML的标签进行客户端跳转</span></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">=====================跳转页面=====================</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    out.print(<span class="string">&quot;page范围&quot;</span> + pageContext.getAttribute(<span class="string">&quot;msg1&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    out.print(<span class="string">&quot;request范围&quot;</span> + request.getAttribute(<span class="string">&quot;msg2&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    out.print(<span class="string">&quot;session范围&quot;</span> + session.getAttribute(<span class="string">&quot;msg3&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line">    out.print(<span class="string">&quot;application范围&quot;</span> + application.getAttribute(<span class="string">&quot;msg4&quot;</span>)+(<span class="string">&quot;&lt;br&gt;&quot;</span>));</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309030842515.png"
+                      alt="image-20230903084206462"
+                ></p>
+<h3 id="7、简易用户登录"><a href="#7、简易用户登录" class="headerlink" title="7、简易用户登录"></a>7、简易用户登录</h3><p>此处涉及三部分：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309031103101.png"
+                      alt="image-20230903110355037"
+                ></p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309031104522.png"
+                      alt="image-20230903110432456" style="zoom:50%;" 
+                >
+
+<h4 id="1、login-jsp部分"><a href="#1、login-jsp部分" class="headerlink" title="1、login.jsp部分"></a>1、login.jsp部分</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: H</span><br><span class="line"> </span><br><span class="line">  To change <span class="built_in">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;login&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=<span class="string">&quot;loginServlet&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">    </span><br><span class="line">    name:&lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;uname&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    pwd:&lt;input type=<span class="string">&quot;password&quot;</span> name=<span class="string">&quot;upwd&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    &lt;button type=<span class="string">&quot;submit&quot;</span>&gt;LOGIN&lt;/button&gt;</span><br><span class="line">    &lt;span style=<span class="string">&quot;color:red ;font-size:12px&quot;</span>&gt; &lt;%=request.getAttribute(<span class="string">&quot;msg&quot;</span>)%&gt; &lt;/span&gt;</span><br><span class="line">    &lt;%--    <span class="comment">//获取登录反馈--%&gt;</span></span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这里设置了一个表单form ，该页面都比较常规，是一个普通的HTML 页面，但是有一点值得注意：</span><br><span class="line">span中的表达式   request.getAtrribute(<span class="string">&quot;msg&quot;</span>)  ,在页面中显示  msg</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2、Welcome-jsp部分"><a href="#2、Welcome-jsp部分" class="headerlink" title="2、Welcome.jsp部分"></a>2、Welcome.jsp部分</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%--</span><br><span class="line">  Created by IntelliJ IDEA.</span><br><span class="line">  User: H</span><br><span class="line"> </span><br><span class="line">  To change <span class="built_in">this</span> template use File | Settings | File Templates.</span><br><span class="line">--%&gt;</span><br><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span> %&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;success！&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;欢迎登录成功！&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;</span><br><span class="line">    &lt;%=session.getAttribute(<span class="string">&quot;uname&quot;</span>)%&gt; 你好!&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">此处更为简单，只是一个普通的小测试页面，只是表达式值得一看：</span><br><span class="line">   &lt;%=session.getAttribute(<span class="string">&quot;uname&quot;</span>)%&gt;</span><br><span class="line">session.getAttribute(<span class="string">&quot;uname&quot;</span>) 表示从当前会话中获取名为 <span class="string">&quot;uname&quot;</span> 的属性值</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3、LoginServlet-java部分"><a href="#3、LoginServlet-java部分" class="headerlink" title="3、LoginServlet.java部分"></a>3、LoginServlet.java部分</h4><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> loginServlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.sun.net.httpserver.HttpsServer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(&quot;/loginServlet&quot;)</span>     <span class="comment">//这里实际上是对应Login.jsp中Form标签中的 action </span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LoginServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        该方法用于处理HTTP请求，并根据请求类型（GET、POST等）调用适当的方法来处理请求。这个方法是Servlet容器自动调用的，在每个请求到达时被调用。</span></span><br><span class="line"><span class="comment">    该方法接受两个参数，分别是HttpServletRequest和HttpServletResponse。HttpServletRequest对象包含了客户端发起的HTTP请求的信息，比如请求的URL、请求参数等。HttpServletResponse对象用于向客户端发送HTTP响应。</span></span><br><span class="line"><span class="comment">        </span></span><br><span class="line"><span class="comment">        在方法签名中声明了两种异常：ServletException和IOException。ServletException是通用的Servlet异常，表示在Servlet处理过程中发生了错误。IOException表示在处理请求或发送响应时发生了I/O错误。这些异常提供了对错误进行适当处理的机制。</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">      </span><br><span class="line">        request.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);     <span class="comment">//为了防止乱码，设置客户端乱码</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//接受客户端传递的参数</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">uname</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;uname&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">upwd</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;upwd&quot;</span>);</span><br><span class="line">        <span class="comment">//判断参数是否为空</span></span><br><span class="line">        <span class="keyword">if</span> (uname == <span class="literal">null</span> || <span class="string">&quot;&quot;</span>.equals(uname.trim())) &#123;</span><br><span class="line">            <span class="comment">/*  这里首先判断uname不为null  ，再使用 .trim() 方法去除变量 uname 前后的空格，并使用 .equals() 方法将去除前后空格后的 uname 与空字符串 &quot;&quot; 进行比较。*/</span></span><br><span class="line">            <span class="comment">//提示用户信息不可以为空</span></span><br><span class="line">            request.setAttribute(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;用户名不可以为空！&quot;</span>);</span><br><span class="line">            <span class="comment">//请求跳转到login.jsp</span></span><br><span class="line"></span><br><span class="line">            request.getRequestDispatcher(<span class="string">&quot;login.jsp&quot;</span>).forward(request, response);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (upwd == <span class="literal">null</span> || <span class="string">&quot;&quot;</span>.equals(upwd.trim())) &#123;</span><br><span class="line">            <span class="comment">//提示用户信息不可以为空</span></span><br><span class="line">            request.setAttribute(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;密码不可以为空！&quot;</span>);   <span class="comment">// 设置String类型msg的value</span></span><br><span class="line">            <span class="comment">//请求跳转到login.jsp</span></span><br><span class="line"></span><br><span class="line">            request.getRequestDispatcher(<span class="string">&quot;login.jsp&quot;</span>).forward(request, response);</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            在 Java Web 应用程序中，当客户端发送请求到服务器时，服务器会将请求交给相应的 Servlet 进行处理。Servlet 可以通过转发（Forward）请求将其传递给其他 Servlet、JSP 页面或者静态资源进行处理，从而实现请求的流转和处理链。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">具体到这行代码，request.getRequestDispatcher(&quot;login.jsp&quot;) 表示获取一个用于转发请求的 RequestDispatcher 对象。该对象接收一个参数，即要转发的目标页面的路径 &quot;login.jsp&quot;。这里的 &quot;login.jsp&quot; 表示项目中的一个 JSP 页面，可以是相对路径或者绝对路径。 </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">接下来，.forward(request, response) 方法将请求和响应对象作为参数传递给 RequestDispatcher 的 forward() 方法。这将导致当前 Servlet 将控制权转发给目标页面（这里是 login.jsp），目标页面将负责处理请求，并生成相应的响应。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//判断账号密码是否正确  uanme=“admin&quot;   upwd=&quot;admin&quot;</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="string">&quot;admin&quot;</span>.equals(uname) || !<span class="string">&quot;admin&quot;</span>.equals(upwd)) &#123;</span><br><span class="line">            request.setAttribute(<span class="string">&quot;msg&quot;</span>, <span class="string">&quot;登录失败&quot;</span>);</span><br><span class="line">            request.getRequestDispatcher(<span class="string">&quot;login.jsp&quot;</span>).forward(request, response);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//登录成功   跳转到欢迎页面  设置登录信息到 session 作用域</span></span><br><span class="line">        request.getSession().setAttribute(<span class="string">&quot;uname&quot;</span>,uname);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        request.getSession() 是用于获取当前请求的会话对象，其中 request 是代表客户端发起的HTTP请求的HttpServletRequest对象。通过调用 getSession() 方法，可以获得与当前请求相关联的会话对象。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">setAttribute(&quot;uname&quot;, uname) 是用于给会话对象设置属性的方法。</span></span><br><span class="line"><span class="comment">这样，当用户在后续的请求中使用相同的会话时，就可以通过 request.getSession().getAttribute(&quot;uname&quot;) 来获取之前设置的属性值。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">        <span class="comment">//跳转到欢迎页面</span></span><br><span class="line">        response.sendRedirect(<span class="string">&quot;Welcome.jsp&quot;</span>);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        response.sendRedirect(&quot;Welcome.jsp&quot;) 是用于将用户的请求重定向到另一个页面的方法。其中 response 是代表服务器响应的HttpServletResponse对象。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">此处通过调用 sendRedirect() 方法并指定目标页面的路径，服务器将会向客户端发送一个特殊的响应，告诉客户端需要跳转到指定的页面。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">当客户端接收到这个响应后，它会自动向浏览器发送一个新的请求，请求目标为所指定的页面。这样就实现了将用户的请求从当前页面重定向到目标页面的效果。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">需要注意的是，重定向会导致浏览器地址栏的URL发生改变，因为客户端会发起新的请求。而且，重定向是一种跳转方式，它不会保留原页面的任何状态信息。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="8、EL表达式"><a href="#8、EL表达式" class="headerlink" title="8、EL表达式"></a>8、EL表达式</h3><h4 id="1、概念及语法"><a href="#1、概念及语法" class="headerlink" title="1、概念及语法"></a>1、概念及语法</h4><p>EL表达式其目的是为了使得JSP更加的简单，提供了JSP中简化表达式的方法，其操作的是域对象中的数据，操作不了局部变量。</p>
+<p>注意域对象是指：<code>pageContext，request，session，application</code></p>
+<p>当需要指定的从某个特定的域对象中查找数据时，可以使用四个域对象对应的空间对象：<code>pageScope ，requestScope, sessionScope , applicationScope .</code></p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">语法：$&#123; expression &#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><strong>EL表达式的默认值是空字符串，而不是NULL</strong></li>
+<li><strong>对于同名的域对象变量，默认从小到大的范围去寻找</strong>**</li>
+</ul>
+<h4 id="2、查找指定范围的域对象"><a href="#2、查找指定范围的域对象" class="headerlink" title="2、查找指定范围的域对象"></a>2、查找指定范围的域对象</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$&#123; pageScope . uname &#125; </span><br><span class="line"> pageScope ，requestScope, sessionScope , applicationScope .</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3、EL表达式操作数据"><a href="#3、EL表达式操作数据" class="headerlink" title="3、EL表达式操作数据"></a>3、EL表达式操作数据</h4><h5 id="操作List"><a href="#操作List" class="headerlink" title="操作List"></a>操作List</h5><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">							==================定义List================</span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">			List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">			<span class="comment">//List&lt;String&gt; list=new ArrayList&lt;&gt;()</span></span><br><span class="line">			list.add(<span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">			list.add(<span class="string">&quot;bbb&quot;</span>);</span><br><span class="line">			list.add(<span class="string">&quot;ccc&quot;</span>);</span><br><span class="line">			request.setAttribute(<span class="string">&quot;list&quot;</span>, list);      <span class="comment">// 此处前者是设置了name ，后者是为list域对象赋值</span></span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;%--</span><br><span class="line">			获取List中指定下标的数据</span><br><span class="line">			$&#123;list[下标] &#125;</span><br><span class="line">			获取集合的长度</span><br><span class="line">			$&#123;list.size()&#125;</span><br><span class="line">注：</span><br><span class="line">list代表的是存在域对象中的变量名（限域变量名）</span><br><span class="line">--%&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="操作Map"><a href="#操作Map" class="headerlink" title="操作Map"></a>操作Map</h5><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">			<span class="type">Map</span> <span class="variable">map</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>();</span><br><span class="line">			map.put(<span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;111&quot;</span>) ;     <span class="comment">//   注意这里不同于List的add，而是put</span></span><br><span class="line">			map.put(<span class="string">&quot;bbb&quot;</span>, <span class="number">2222</span>) ;</span><br><span class="line">			map.put(<span class="string">&quot;ccc-a&quot;</span>, <span class="number">333</span>) ;</span><br><span class="line">			request.setAttribute(<span class="string">&quot;map&quot;</span>, map) ; </span><br><span class="line">%&gt;</span><br><span class="line">&lt;%--</span><br><span class="line">				获取Map中指定值</span><br><span class="line">				$&#123;map[<span class="string">&quot;key&quot;</span>] &#125; 或 $&#123;map.key &#125;</span><br><span class="line">	注：</span><br><span class="line">				map代表的是存在域对象中的变量名（限域变量名）</span><br><span class="line">--%&gt;</span><br><span class="line">				$&#123;map.aaa &#125;</span><br><span class="line">				$&#123;map[<span class="string">&quot;bbb&quot;</span>]&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="获取JavaBean对象"><a href="#获取JavaBean对象" class="headerlink" title="获取JavaBean对象"></a>获取JavaBean对象</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer userId;</span><br><span class="line">    <span class="keyword">private</span> String uname;</span><br><span class="line">    <span class="keyword">private</span> String upwd;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getUserId</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> userId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUserId</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userId = userId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getUname</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> uname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUname</span><span class="params">(String uname)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.uname = uname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getUpwd</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> upwd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUpwd</span><span class="params">(String upwd)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.upwd = upwd;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  				<span class="comment">//  前面都是定义了一个简单 的类User  </span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page <span class="keyword">import</span>=<span class="string">&quot;El.User&quot;</span> %&gt;</span><br><span class="line"></span><br><span class="line">&lt;%@ page contentType=<span class="string">&quot;text/html;charset=UTF-8&quot;</span> language=<span class="string">&quot;java&quot;</span>  isELIgnored=<span class="string">&quot;false&quot;</span>%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;login&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line">    User user=<span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">    user.setUserId(<span class="number">1</span>);</span><br><span class="line">    user.setUname(<span class="string">&quot;zhangsan&quot;</span>);</span><br><span class="line">    user.setUpwd(<span class="string">&quot;123456&quot;</span>);</span><br><span class="line">   application.setAttribute(<span class="string">&quot;user&quot;</span>,user);    <span class="comment">//  定义了一个域对象</span></span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;%-- JavBean中的属性字段需要提供get方法 --%&gt;</span><br><span class="line">$&#123;user&#125; &lt;%-- 获取对象 --%&gt;</span><br><span class="line">$&#123;user.uname&#125; &lt;%--获取对象中的属性--%&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="9、empty"><a href="#9、empty" class="headerlink" title="9、empty"></a>9、empty</h3><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> 判断域对象是否为空。为空，返回<span class="literal">true</span>；不为空返回<span class="literal">false</span>；</span><br><span class="line">$&#123;empty 限域变量名 &#125;</span><br><span class="line"></span><br><span class="line"> 判断对象是否不为空。 </span><br><span class="line">$&#123;!empty 限域变量名 &#125;</span><br><span class="line"></span><br><span class="line">$&#123;empty uname&#125;</span><br><span class="line">$&#123;empty list&#125;</span><br><span class="line">$&#123;empty map&#125;</span><br><span class="line">$&#123;empty user&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="10、EL表达式的运算"><a href="#10、EL表达式的运算" class="headerlink" title="10、EL表达式的运算"></a>10、EL表达式的运算</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">							==================等值比较=======================</span><br><span class="line">&lt;%--</span><br><span class="line"> 比较两个值是否相等，返回<span class="literal">true</span>或<span class="literal">false</span></span><br><span class="line">    == 或 eq </span><br><span class="line"></span><br><span class="line">--%&gt; </span><br><span class="line"></span><br><span class="line">$&#123;a == b &#125;</span><br><span class="line">$&#123;c == d &#125; </span><br><span class="line">$&#123;c eq d &#125; </span><br><span class="line">$&#123;a == <span class="number">5</span> &#125; </span><br><span class="line">$&#123;c == <span class="string">&#x27;aa&#x27;</span> &#125;</span><br><span class="line">   ===================数值运算========================</span><br><span class="line">&lt;%--</span><br><span class="line">加法： +</span><br><span class="line">减法： -</span><br><span class="line">乘法： *</span><br><span class="line">除法： / 或 div</span><br><span class="line">--%&gt;</span><br><span class="line">$&#123;a + b &#125;</span><br><span class="line">$&#123;a / b &#125; 或 $&#123;a div b &#125;</span><br><span class="line"></span><br><span class="line">   ===================大小比较========================</span><br><span class="line">&lt;%--</span><br><span class="line">大于：&gt;</span><br><span class="line">小于：&lt;</span><br><span class="line">大于等于：&gt;=</span><br><span class="line">小于等于：&lt;=</span><br><span class="line">--%&gt;</span><br><span class="line">$&#123;a &gt; b&#125;</span><br><span class="line">$&#123;a + <span class="number">1</span> &gt; <span class="number">10</span> &#125;</span><br><span class="line">$&#123;a + b &gt;= <span class="number">10</span> &#125;</span><br><span class="line">$&#123;a &gt; b &amp;&amp; b &gt; <span class="number">5</span> &#125;</span><br><span class="line">$&#123;a + b &gt; <span class="number">10</span> || a - b &gt; <span class="number">5</span> &#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>注意EL表达式只看内容不看类型类似于xml中的&#x3D;&#x3D; 和&#x3D;&#x3D;&#x3D;的区别，它属于前者</strong>**</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">String a=<span class="string">&quot;123&quot;</span>;</span><br><span class="line"><span class="type">int</span> b=<span class="number">123</span>;</span><br><span class="line">%&gt;</span><br><span class="line">$&#123;a == b &#125;</span><br><span class="line"></span><br><span class="line">这里输出的是True</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h2 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h2><h3 id="1、引入"><a href="#1、引入" class="headerlink" title="1、引入"></a>1、引入</h3><p>Java Server Pages Standard Tag Libray(JSTL)：JSP 标准标签库，是一个定制标签类库的集合，用于 解决一些常见的问题。</p>
+<p>这里介绍两种常用的标签库：核心标签库、格式化标签库。</p>
+<p><strong>核心标签库：包含Web的常见工作，例如循环、表达式赋值，基本输入输出等</strong></p>
+<p><strong>格式化标签库：用以格式化数据的工作，例如日期格式化等</strong></p>
+<p>JSP页面使用JSTL类库必须以下列格式使用 taglib 指令</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@taglib</span> uri=<span class="string">&quot;&quot;</span> prefix = <span class="string">&quot;&quot;</span> %&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>在这里还需要引进两个jar包， <a class="link"   target="_blank" rel="noopener" href="http://archive.apache.org/dist/jakarta/taglibs/standard/binaries/" >下载地址 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309041508960.png"
+                      alt="image-20230904150825857"
+                ></p>
+<p>引入：</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@taglib</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> prefix=<span class="string">&quot;c&quot;</span>%&gt;</span><br><span class="line">注意这里会有两个core核心库，这里选择jsp下的，前缀 为c  ，后面的标签引用都需要用到前缀</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="2、核心库常见标签"><a href="#2、核心库常见标签" class="headerlink" title="2、核心库常见标签"></a>2、核心库常见标签</h3><h4 id="1、if"><a href="#1、if" class="headerlink" title="1、if"></a>1、if</h4><p>如果该条件运算结果为 true, 则处理它的主体内容，测试结果保存在一 个 Boolean 对象中，并<strong>创建</strong>一个限域变量来引用 Boolean 对象。可以利用<strong>var 属性设置限域变量名</strong>， <strong>利用 scope 属性来指定其作用范围</strong>。</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;&lt;boolean&gt;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;&lt;string&gt;&quot;</span> scope=<span class="string">&quot;&lt;string&gt;&quot;</span>&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309041546428.png"
+                      alt="image-20230904154613361" style="zoom:50%;" 
+                >
+
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    request.setAttribute(<span class="string">&quot;flag&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">    request.setAttribute(<span class="string">&quot;num&quot;</span>, <span class="number">1</span>);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;flag&#125;&quot;</span>&gt;</span><br><span class="line">&lt;p&gt;结果为<span class="literal">true</span></span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &lt;/c:<span class="keyword">if</span>&gt;</span><br><span class="line">    &lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;num &gt; 0&#125;&quot;</span>&gt;</span><br><span class="line">&lt;p&gt;num的值比<span class="number">0</span>大</span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &lt;/c:<span class="keyword">if</span>&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>JSTL中没有else标签，为了模拟 else 的情景，需要使用两个 if 标签，并且这两个标签为相反的条件。</strong></p>
+<h4 id="2、choose-、when-和-otherwise"><a href="#2、choose-、when-和-otherwise" class="headerlink" title="2、choose 、when 和 otherwise"></a>2、choose 、when 和 otherwise</h4><p>choose  —  when  与 java 中的 Switch — case类似  ，otherwise 对应相应的 default</p>
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:choose&gt;</span><br><span class="line">    &lt;c:when test=<span class="string">&quot;&lt;boolean&gt;&quot;</span>&gt; ......    &lt;/c:when&gt;</span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line">    &lt;c:when test=<span class="string">&quot;&lt;boolean&gt;&quot;</span>&gt;   ...      &lt;/c:when&gt;</span><br><span class="line">    </span><br><span class="line">...</span><br><span class="line">    &lt;c:otherwise&gt;  ...   &lt;/c:otherwise&gt;</span><br><span class="line">   </span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>值得注意的是choose、otherwise标签没有属性，when标签只有test属性</strong>，同样的，otherwise可省，若存在必须放在最后一个</p>
+<h4 id="3、forEach"><a href="#3、forEach" class="headerlink" title="3、forEach"></a>3、forEach</h4><div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach</span><br><span class="line">			items=<span class="string">&quot;&lt;object&gt;&quot;</span></span><br><span class="line">			begin=<span class="string">&quot;&lt;int&gt;&quot;</span></span><br><span class="line">			end=<span class="string">&quot;&lt;int&gt;&quot;</span></span><br><span class="line">			step=<span class="string">&quot;&lt;int&gt;&quot;</span></span><br><span class="line">			<span class="keyword">var</span>=<span class="string">&quot;&lt;string&gt;&quot;</span></span><br><span class="line">			varStatus=<span class="string">&quot;&lt;string&gt;&quot;</span>&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure></div>
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309041601210.png"
+                      alt="image-20230904160133151" style="zoom: 50%;" 
+                >
+
+<div class="highlight-container" data-rel="Jsp"><figure class="iseeu highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;c : forEach begin=<span class="string">&quot;0&quot;</span> end=<span class="string">&quot;10&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;i&quot;</span> &gt;</span><br><span class="line">标题$&#123;i &#125;&lt;br&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">forEach遍历Map</span><br><span class="line">&lt;%</span><br><span class="line">  Map&lt;String,Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;String,Object&gt;();</span><br><span class="line">  map.put(<span class="string">&quot;map1&quot;</span>, <span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">  map.put(<span class="string">&quot;map2&quot;</span>, <span class="string">&quot;bbb&quot;</span>);</span><br><span class="line">  map.put(<span class="string">&quot;map3&quot;</span>, <span class="string">&quot;ccc&quot;</span>);</span><br><span class="line">  pageContext.setAttribute(<span class="string">&quot;map&quot;</span>, map);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">&quot;$&#123;map &#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;mymap&quot;</span>&gt;</span><br><span class="line"> 键：$&#123;mymap.key &#125;-值：$&#123;mymap.value &#125; &lt;br&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+            </div>
+
+            
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/08/31/%E5%88%9D%E8%AF%86-JS/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">初识  JS</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">初识JSP</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86JSP"><span class="nav-text">初识JSP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%B3%A8%E9%87%8A"><span class="nav-text">1、注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81Scriptlet"><span class="nav-text">2、Scriptlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%8C%87%E4%BB%A4%E6%A0%87%E7%AD%BE"><span class="nav-text">3、指令标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81include%E9%9D%99%E6%80%81%E5%8C%85%E5%90%AB"><span class="nav-text">1、include静态包含</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81include%E5%8A%A8%E6%80%81%E5%8C%85%E5%90%AB"><span class="nav-text">2、include动态包含</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E4%BD%BF%E7%94%A8include%E9%81%87%E5%88%B0%E7%9A%84%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-text">4、使用include遇到的乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81%E5%9B%9B%E5%A4%A7%E5%9F%9F%E5%AF%B9%E8%B1%A1"><span class="nav-text">5、四大域对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81page"><span class="nav-text">1、page</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81request"><span class="nav-text">2、request</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81session"><span class="nav-text">3、session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81application"><span class="nav-text">4、application</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%E3%80%81%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%B7%B3%E8%BD%AC%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B7%B3%E8%BD%AC-%EF%BC%88%E5%8F%82%E8%80%83%E5%8E%9F%E6%96%87%EF%BC%89"><span class="nav-text">6、服务端跳转和客户端跳转  （参考原文） </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81JSP%E4%B8%AD%E7%9A%84%E8%B7%B3%E8%BD%AC%E8%AF%AD%E5%8F%A5"><span class="nav-text">7、JSP中的跳转语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%B3%E8%BD%AC"><span class="nav-text">服务器跳转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B7%B3%E8%BD%AC"><span class="nav-text">客户端跳转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81%E5%9B%9B%E5%A4%A7%E5%9F%9F%E8%8C%83%E5%9B%B4%E8%B7%B3%E8%BD%AC%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BE%8B"><span class="nav-text">8、四大域范围跳转测试实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E6%9C%8D%E5%8A%A1%E7%AB%AF%E8%B7%B3%E8%BD%AC%EF%BC%9A"><span class="nav-text">1、服务端跳转：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B7%B3%E8%BD%AC"><span class="nav-text">2、客户端跳转</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7%E3%80%81%E7%AE%80%E6%98%93%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95"><span class="nav-text">7、简易用户登录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81login-jsp%E9%83%A8%E5%88%86"><span class="nav-text">1、login.jsp部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81Welcome-jsp%E9%83%A8%E5%88%86"><span class="nav-text">2、Welcome.jsp部分</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81LoginServlet-java%E9%83%A8%E5%88%86"><span class="nav-text">3、LoginServlet.java部分</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8%E3%80%81EL%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">8、EL表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E6%A6%82%E5%BF%B5%E5%8F%8A%E8%AF%AD%E6%B3%95"><span class="nav-text">1、概念及语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E6%9F%A5%E6%89%BE%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E7%9A%84%E5%9F%9F%E5%AF%B9%E8%B1%A1"><span class="nav-text">2、查找指定范围的域对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE"><span class="nav-text">3、EL表达式操作数据</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9CList"><span class="nav-text">操作List</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%93%8D%E4%BD%9CMap"><span class="nav-text">操作Map</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96JavaBean%E5%AF%B9%E8%B1%A1"><span class="nav-text">获取JavaBean对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9%E3%80%81empty"><span class="nav-text">9、empty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10%E3%80%81EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E8%BF%90%E7%AE%97"><span class="nav-text">10、EL表达式的运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSTL"><span class="nav-text">JSTL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%BC%95%E5%85%A5"><span class="nav-text">1、引入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%A0%B8%E5%BF%83%E5%BA%93%E5%B8%B8%E8%A7%81%E6%A0%87%E7%AD%BE"><span class="nav-text">2、核心库常见标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81if"><span class="nav-text">1、if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81choose-%E3%80%81when-%E5%92%8C-otherwise"><span class="nav-text">2、choose 、when 和 otherwise</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81forEach"><span class="nav-text">3、forEach</span></a></li></ol></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">HJD</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br> 
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.1.6</a>
+        </div>
+        
+        
+        
+            <div id="start_time_div" style="display:none">
+                2022/8/17 11:45:14
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/menu-shrink.js"></script>
+
+<script src="/js/tools/go-top-bottom.js"></script>
+
+<script src="/js/tools/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/tools/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/tools/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/layouts/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+
+    <div id="aplayer"></div>
+
+    
+<script src="/js/libs/APlayer.min.js"></script>
+
+    
+<script src="/js/plugins/aplayer.js"></script>
+
+
+
+</body>
+</html>
