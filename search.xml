@@ -3555,9 +3555,7 @@
   <entry>
     <title>记一次数据库连接失败错误</title>
     <url>/2023/09/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E9%94%99%E8%AF%AF/</url>
-    <content><![CDATA[<h1> 记一次数据库连接失败 </h2>
-记一次数据库连接失败，问题报错如下：
-
+    <content><![CDATA[<p>记一次数据库连接失败，问题报错如下：</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
@@ -3566,14 +3564,14 @@
                 >
 
 <p>网上提供了很多解决此类报错问题的具体出现原因和解决方案。</p>
-<h4 id="首先是方案一："><a href="#首先是方案一：" class="headerlink" title="首先是方案一："></a>首先是方案一：</h4><p>在 url 配置后 加上<code> useSSL=false</code>,确实我的dbutils中的配置没有写它，于是加上后——依旧没有用。</p>
+<h3 id="首先是方案一："><a href="#首先是方案一：" class="headerlink" title="首先是方案一："></a>首先是方案一：</h3><p>在 url 配置后 加上<code> useSSL=false</code>,确实我的dbutils中的配置没有写它，于是加上后——依旧没有用。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091123093.png"
                       alt="image-20230909112333009"
                 ></p>
-<h4 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h4><p>我观察到，在我阅览相关的资料时，经常会遇到一个名字——时区，阅览中，各类博客文章中指出，未经配置的 mysql 时区显示的是 System ，应该调制为 +8:00，于是又是查阅资料，使用如下命令进行设置</p>
+<h3 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h3><p>我观察到，在我阅览相关的资料时，经常会遇到一个名字——时区，阅览中，各类博客文章中指出，未经配置的 mysql 时区显示的是 System ，应该调制为 +8:00，于是又是查阅资料，使用如下命令进行设置</p>
 <p><code>set global time_zone = ‘+8:00’;</code></p>
 <img  
                      lazyload

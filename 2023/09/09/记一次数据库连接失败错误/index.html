@@ -278,8 +278,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-09-09 11:38:03</span>
-            <span class="mobile">2023-09-09 11:38</span>
+            <span class="pc">2023-09-09 11:40:55</span>
+            <span class="mobile">2023-09-09 11:40</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -299,9 +299,7 @@
             
 
             <div class="article-content markdown-body">
-                <h1> 记一次数据库连接失败 </h2>
-记一次数据库连接失败，问题报错如下：
-
+                <p>记一次数据库连接失败，问题报错如下：</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
@@ -310,14 +308,14 @@
                 >
 
 <p>网上提供了很多解决此类报错问题的具体出现原因和解决方案。</p>
-<h4 id="首先是方案一："><a href="#首先是方案一：" class="headerlink" title="首先是方案一："></a>首先是方案一：</h4><p>在 url 配置后 加上<code> useSSL=false</code>,确实我的dbutils中的配置没有写它，于是加上后——依旧没有用。</p>
+<h3 id="首先是方案一："><a href="#首先是方案一：" class="headerlink" title="首先是方案一："></a>首先是方案一：</h3><p>在 url 配置后 加上<code> useSSL=false</code>,确实我的dbutils中的配置没有写它，于是加上后——依旧没有用。</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091123093.png"
                       alt="image-20230909112333009"
                 ></p>
-<h4 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h4><p>我观察到，在我阅览相关的资料时，经常会遇到一个名字——时区，阅览中，各类博客文章中指出，未经配置的 mysql 时区显示的是 System ，应该调制为 +8:00，于是又是查阅资料，使用如下命令进行设置</p>
+<h3 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h3><p>我观察到，在我阅览相关的资料时，经常会遇到一个名字——时区，阅览中，各类博客文章中指出，未经配置的 mysql 时区显示的是 System ，应该调制为 +8:00，于是又是查阅资料，使用如下命令进行设置</p>
 <p><code>set global time_zone = ‘+8:00’;</code></p>
 <img  
                      lazyload
@@ -405,37 +403,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">记一次数据库连接失败错误</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"> 记一次数据库连接失败 
-记一次数据库连接失败，问题报错如下：
-
-
-
-网上提供了很多解决此类报错问题的具体出现原因和解决方案。
-首先是方案一：在 url 配置后 加上 useSSL&#x3D;false,确实我的dbutils中的配置没有写它，于是加上后——依旧没有用。
-
-方案二：我观察到，在我阅览相关的资料时，经常会遇到一个名字——时区，阅览中，各类博客文章中指出，未经配置的 mysql 时区显示的是 System ，应该调制为 +8:00，于是又是查阅资料，使用如下命令进行设置
-set global time_zone &#x3D; ‘+8:00’;
-
-
-但是比较有意思的是，设置完之后发现，时区貌似并不会影响数据库的链接，其主要影响的是存储和检索的时间数据将默认使用服务器的系统时区。这可能会导致数据不一致性，在不同时区的客户端使用相同的查询时，可能得到不同的结果。
-显而易见，问题依旧没有解决。
-方案三：由于我的端口号使用的是3306，因此不禁思考，是否是3306端口被防火墙拦截。
-于是，使用netstat命令去查看是否3306已经开启，并去按照 该文章 去进行端口的打开。
-
-
-重启项目，结果非常喜人 ——  没有解决。
-方案四：在查阅文章时，其中一篇文章指出，是否是依赖中 jdbc 的版本不匹配。
-由于我是跟着视频中做的，其版本为 8.0.19，因为我的版本也为8.0，一开始变没有去管他，但是使用 Mysql workbench 输入命令 select version() 去查看版本时，发现，我的竟然是 8.0.32 ，狂喜啊，真是狂喜啊，于是赶紧修改，然后运行，皇天不负有心人，果然！！！依旧报错。
-最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。
-修改完后，运行，看到结果出现的那一刻，我的眼泪掉下来 0.O
-
-END
-&gt;     总结：其实心中是慨叹万千的，但是实际上这种情况我遇到过很多次了，一个bug去耗费一个上午，但是据我了解，一个bug卡几天的也大有人在，所以倒也不值得一提，但是可能学习阶段就是这样，只有不断地去尝试，去犯错，去纠错，最后才能有所得，以及在纠错之后所获得的一种成就感。尽管在寻求解决方案时，有很多方案并没有起到作用，但往往这类看似无用的过程，也让我了解到了更多，让我学习了不少我从前未曾了解的。
-
-
-仍旧是路漫漫其修远兮。
-
-</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A"><span class="nav-text">首先是方案一：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A"><span class="nav-text">方案二：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%EF%BC%9A"><span class="nav-text">方案三：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E5%9B%9B%EF%BC%9A"><span class="nav-text">方案四：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C%E5%AE%9E%E5%9C%A8%E9%A1%B6%E4%B8%8D%E4%BD%8F%E4%BA%86%EF%BC%8C%E5%8E%BB%E5%92%B8%E9%B1%BC%E4%B8%8A%E6%89%BE%E4%BA%86%E7%A8%8B%E5%BA%8F%E5%91%98%E5%8E%BB%E5%B8%AE%E6%88%91%EF%BC%8C%E4%BB%96%E4%B8%80%E7%9C%BC%E5%B0%B1%E7%9C%8B%E5%87%BA%E6%88%91%E7%9A%84%E9%94%99%E6%88%91%EF%BC%81%E5%9C%A83306%E5%89%8D%EF%BC%8C%E6%88%91%E8%BE%93%E5%85%A5%E4%BA%86%E4%B8%A4%E4%B8%AA%E5%86%92%E5%8F%B7%EF%BC%81%EF%BC%8C%E5%A4%9A%E4%BA%86%E4%B8%80%E4%B8%AA%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E6%88%91%E7%9C%9F%E6%97%A0%E8%AF%AD%E3%80%82"><span class="nav-text">最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">END</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%9A"><span class="nav-text">首先是方案一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%9A"><span class="nav-text">方案二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E4%B8%89%EF%BC%9A"><span class="nav-text">方案三：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%A1%88%E5%9B%9B%EF%BC%9A"><span class="nav-text">方案四：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%EF%BC%8C%E5%AE%9E%E5%9C%A8%E9%A1%B6%E4%B8%8D%E4%BD%8F%E4%BA%86%EF%BC%8C%E5%8E%BB%E5%92%B8%E9%B1%BC%E4%B8%8A%E6%89%BE%E4%BA%86%E7%A8%8B%E5%BA%8F%E5%91%98%E5%8E%BB%E5%B8%AE%E6%88%91%EF%BC%8C%E4%BB%96%E4%B8%80%E7%9C%BC%E5%B0%B1%E7%9C%8B%E5%87%BA%E6%88%91%E7%9A%84%E9%94%99%E6%88%91%EF%BC%81%E5%9C%A83306%E5%89%8D%EF%BC%8C%E6%88%91%E8%BE%93%E5%85%A5%E4%BA%86%E4%B8%A4%E4%B8%AA%E5%86%92%E5%8F%B7%EF%BC%81%EF%BC%8C%E5%A4%9A%E4%BA%86%E4%B8%80%E4%B8%AA%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%EF%BC%81%E6%88%91%E7%9C%9F%E6%97%A0%E8%AF%AD%E3%80%82"><span class="nav-text">最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-text">END</span></a></li></ol>
 
     </div>
 </div>
