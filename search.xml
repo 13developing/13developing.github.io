@@ -3552,4 +3552,74 @@
 
 ]]></content>
   </entry>
+  <entry>
+    <title>记一次数据库连接失败错误</title>
+    <url>/2023/09/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E9%94%99%E8%AF%AF/</url>
+    <content><![CDATA[<h1> 记一次数据库连接失败 </h2>
+记一次数据库连接失败，问题报错如下：
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091054364.png"
+                      alt="image-20230909105355220" style="zoom:50%;" 
+                >
+
+<p>网上提供了很多解决此类报错问题的具体出现原因和解决方案。</p>
+<h4 id="首先是方案一："><a href="#首先是方案一：" class="headerlink" title="首先是方案一："></a>首先是方案一：</h4><p>在 url 配置后 加上<code> useSSL=false</code>,确实我的dbutils中的配置没有写它，于是加上后——依旧没有用。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091123093.png"
+                      alt="image-20230909112333009"
+                ></p>
+<h4 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h4><p>我观察到，在我阅览相关的资料时，经常会遇到一个名字——时区，阅览中，各类博客文章中指出，未经配置的 mysql 时区显示的是 System ，应该调制为 +8:00，于是又是查阅资料，使用如下命令进行设置</p>
+<p><code>set global time_zone = ‘+8:00’;</code></p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091104724.png"
+                      alt="image-20230909110456672" style="zoom:50%;" 
+                >
+
+<p>但是比较有意思的是，设置完之后发现，时区貌似并不会影响数据库的链接，其主要影响的是<strong>存储和检索的时间数据将默认使用服务器的系统时区。这可能会导致数据不一致性，在不同时区的客户端使用相同的查询时，可能得到不同的结果。</strong></p>
+<p>显而易见，问题依旧没有解决。</p>
+<h3 id="方案三："><a href="#方案三：" class="headerlink" title="方案三："></a>方案三：</h3><p>由于我的端口号使用的是3306，因此不禁思考，是否是3306端口被防火墙拦截。</p>
+<p>于是，使用<code>netstat</code>命令去查看是否3306已经开启，并去按照 <a class="link"   href="https://blog.csdn.net/qyt_722/article/details/117603055?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169422903716800180683098%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=169422903716800180683098&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-117603055-null-null.142%5Ev93%5Einsert_down28v1&utm_term=win%E6%89%93%E5%BC%803306%E7%AB%AF%E5%8F%A3&spm=1018.2226.3001.4187" >该文章 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>去进行端口的打开。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091111368.png"
+                      alt="image-20230909111144282" style="zoom:50%;" 
+                >
+
+<p>重启项目，结果非常喜人 ——  没有解决。<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091112564.png"
+                      alt="image-20230909111212485"
+                ></p>
+<h3 id="方案四："><a href="#方案四：" class="headerlink" title="方案四："></a>方案四：</h3><p>在查阅文章时，其中一篇文章指出，是否是依赖中 jdbc 的版本不匹配。</p>
+<p>由于我是跟着视频中做的，其版本为 8.0.19，因为我的版本也为8.0，一开始变没有去管他，但是使用 Mysql workbench 输入命令 <code>select version()</code> 去查看版本时，发现，我的竟然是 8.0.32 ，狂喜啊，真是狂喜啊，于是赶紧修改，然后运行，皇天不负有心人，果然！！！依旧报错。</p>
+<h3 id="最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。"><a href="#最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。" class="headerlink" title="最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。"></a>最后，实在顶不住了，去咸鱼上找了程序员去帮我，他一眼就看出我的错我！在3306前，我输入了两个冒号！，多了一个！！！！！！！！！！！！！我真无语。</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091122780.png"
+                      alt="image-20230909112248697"
+                ></p>
+<p>修改完后，运行，看到结果出现的那一刻，我的眼泪掉下来 0.O</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202309091125628.png"
+                      alt="image-20230909112504516"
+                ></p>
+<h3>END</h3>
+>     总结：其实心中是慨叹万千的，但是实际上这种情况我遇到过很多次了，一个bug去耗费一个上午，但是据我了解，一个bug卡几天的也大有人在，所以倒也不值得一提，但是可能学习阶段就是这样，只有不断地去尝试，去犯错，去纠错，最后才能有所得，以及在纠错之后所获得的一种成就感。尽管在寻求解决方案时，有很多方案并没有起到作用，但往往这类看似无用的过程，也让我了解到了更多，让我学习了不少我从前未曾了解的。
+
+<blockquote>
+<p>仍旧是路漫漫其修远兮。</p>
+</blockquote>
+]]></content>
+  </entry>
 </search>
