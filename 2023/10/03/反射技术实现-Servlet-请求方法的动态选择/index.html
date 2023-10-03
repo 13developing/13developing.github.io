@@ -9,18 +9,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/10/03/关于-jsp-include-和-include/"/>
+    <link rel="canonical" href="http://example.com/2023/10/03/反射技术实现-servlet-请求方法的动态选择/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="关于-Jsp-include-和-include">
+    <meta property="og:title" content="反射技术实现 Servlet 请求方法的动态选择">
     <meta property="og:description" content="Hexo Theme Redefine">
-    <meta property="og:url" content="http://example.com2023/10/03/关于-Jsp-include-和-include/">
+    <meta property="og:url" content="http://example.com2023/10/03/反射技术实现-Servlet-请求方法的动态选择/">
     <meta property="og:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <meta property="og:site_name" content="HJDの个人博客">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="关于-Jsp-include-和-include">
+    <meta name="twitter:title" content="反射技术实现 Servlet 请求方法的动态选择">
     <meta name="twitter:description" content="Hexo Theme Redefine">
     <meta name="twitter:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <!--- Icon Part-->
@@ -31,7 +31,7 @@
     
     <title>
         
-            关于-Jsp-include-和-include -
+            反射技术实现 Servlet 请求方法的动态选择 -
         
         HJDの个人博客
     </title>
@@ -249,7 +249,7 @@
             
             
                 <div class="article-title">
-                    <h1 class="article-title-regular">关于-Jsp-include-和-include</h1>
+                    <h1 class="article-title-regular">反射技术实现 Servlet 请求方法的动态选择</h1>
                 </div>
             
                 
@@ -271,15 +271,15 @@
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-10-03 07:51:12</span>
-        <span class="mobile">2023-10-03 07:51</span>
+        <span class="pc">2023-10-03 17:09:10</span>
+        <span class="mobile">2023-10-03 17:09</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-10-03 07:51:22</span>
-            <span class="mobile">2023-10-03 07:51</span>
+            <span class="pc">2023-10-03 17:11:17</span>
+            <span class="mobile">2023-10-03 17:11</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -299,20 +299,46 @@
             
 
             <div class="article-content markdown-body">
-                <p>在包含Jsp页面时，遇到&lt; jsp:include &gt;包含页面使得样式乱序，而使用&lt; %@include% &gt;却不会发生此现象，查阅资料了解到：</p>
-<p>在JSP中，<code>&lt;jsp:include&gt;</code> 和 <code>&lt;%@include%&gt;</code> 是两种不同的包含方式，它们在处理页面包含时有不同的行为，这可能会导致样式丢失或保留的差异。</p>
+                <p>&amp;emsp;&amp;emsp;假设一个Servlet类，其中包含了多个处理请求的方法，那我们在处理请求时就需要进行判断具体使用哪一种处理方法，这其中难免使用到较多的  <code>if - else</code> 语句子，此时就可以使用反射技术。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多的处理请求方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="使用反射"><a href="#使用反射" class="headerlink" title="使用反射"></a>使用反射</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">action</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;action&quot;</span>);  <span class="comment">//   拿到浏览器传递过来的acation参数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 获取对应的方法</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 调用方法</span></span><br><span class="line">        method.invoke(<span class="built_in">this</span>, request, response);</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="comment">// 处理异常</span></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h5 id="核心代码："><a href="#核心代码：" class="headerlink" title="核心代码："></a>核心代码：</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line"> </span><br><span class="line"> method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
+
 <ul>
-<li><p><code>&lt;jsp:include&gt;</code>:  是一个动态包含方式，它在运行时包含指定的JSP页面。这意味着包含的内容会在包含它的页面被渲染时执行，然后将结果合并到包含页面中。因此，如果被包含的页面中有任何与样式相关的客户端脚本或CSS链接，它们可能会在包含页面被渲染时执行，并且可能会导致样式丢失或冲突。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">其步骤分为以下五步：</span><br><span class="line">	将被包含的 jsp文件<span class="number">1</span> 直接放入服务器解析</span><br><span class="line">	生成文件<span class="number">1.</span>java文件</span><br><span class="line">	将文件<span class="number">1</span>的结果放入文件<span class="number">2</span>中</span><br><span class="line">	再将文件<span class="number">2</span> 放入服务器解析</span><br><span class="line">	生成一个文件<span class="number">2.</span>java 文件</span><br></pre></td></tr></table></figure></div>
-
-
+<li><p><code>this.getClass()</code>: 获取当前对象（即Servlet对象）的Class对象，<code>this</code> 代表当前对象的实例。</p>
 </li>
-<li><p><code>&lt;%@include%&gt;</code>:  是一个静态包含方式，它在JSP页面编译时将被包含的内容合并到包含页面中。这是一个纯文本合并，不会在运行时执行被包含的页面。因此，被包含的页面中的任何样式或客户端脚本都会被直接包含到包含页面中，不会导致样式丢失或冲突。<strong>即 &lt;%@include%&gt; 包含相当于在编译的时候将我们的包含语句整体的替换为被包含页面内容</strong></p>
+<li><p>&amp;emsp; &amp;emsp; <code>.getMethod(&quot;handle&quot; + action, HttpServletRequest.class, HttpServletResponse.class)</code>: 在获得的Class对象上调用 <code>getMethod</code> 方法来获取一个特定的方法。这里方法名是通过拼接字符串来生成的，<code>&quot;handle&quot; + action</code> 就是将请求参数 <code>action</code> 的值拼接到字符串 “handle” 前面，以构建要调用的方法名。这一行代码首先获取了当前Servlet对象的类对象，然后使用<code>getMethod</code>方法来获取一个名为<code>handle</code>加上请求参数<code>action</code>值组成的方法。<strong>这里的<code>action</code>通常是从请求中获取的，用于标识要执行哪个具体的处理方法。</strong></p>
+</li>
+<li><ul>
+<li><code>&quot;handle&quot; + action</code> 会根据请求的 <code>action</code> 参数来构建方法名，比如如果 <code>action</code> 的值是 “Request1”，那么将会获取到名为 <code>handleRequest1</code> 的方法。</li>
+</ul>
+</li>
+<li><ul>
+<li><code>HttpServletRequest.class</code> 和 <code>HttpServletResponse.class</code> 是方法的参数类型，这里是告诉反射机制要找一个方法，这个方法接受一个 <code>HttpServletRequest</code> 和一个 <code>HttpServletResponse</code> 作为参数。</li>
+</ul>
 </li>
 </ul>
-<p>所以，样式在使用 <code>&lt;jsp:include&gt;</code> 时丢失，可能是因为它们与包含页面的其他内容发生了冲突或覆盖，或者由于运行时执行的原因导致了不一致的行为。而使用 <code>&lt;%@include%&gt;</code> 会直接将被包含的内容合并到包含页面，不会发生这些问题，因此样式可以得到完全保留。但需要注意的是，<code>&lt;%@include%&gt;</code> 是静态的，无法根据运行时条件来动态选择包含哪个页面。</p>
-<p><em>最后我使用 &lt; Jsp：include &gt;的方式包含，并且将一些样式等内容放入被包含页面，最后解决问题</em></p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">最后，二者还有一个比较重要的区别：</span><br><span class="line">	动态包含可以给被包含的页面传递参数。</span><br><span class="line">	静态包含不能给被包含的页面传递参数。</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>method.invoke(...)</code>: 这是反射机制的一部分，它用于调用特定的方法。<code>invoke</code> 方法需要传入两个参数</li>
+</ul>
+<ul>
+<li><p>第一个参数是要调用该方法的对象实例，在这里是当前的Servlet对象，用 <code>this</code> 表示。一旦我们获得了方法对象，就可以使用<code>invoke</code>方法来动态调用该方法。</p>
+</li>
+<li><p>第二个参数是该方法的实际参数，这里是 <code>request</code> 和 <code>response</code>。</p>
+</li>
+</ul>
+<p><strong>如此使用反射后就可以<code>xxxxx?action=方法名</code>实现动态的调用请求处理方法，达到简化的效果</strong></p>
+
             </div>
 
             
@@ -324,29 +350,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2023/10/03/%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0-Servlet-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%8A%A8%E6%80%81%E9%80%89%E6%8B%A9/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">反射技术实现 Servlet 请求方法的动态选择</span>
-                                    <span class="post-nav-item">Prev posts</span>
-                                </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/2023/10/01/%E5%85%B3%E4%BA%8EPost%E5%92%8CGet%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"
+                            href="/2023/10/03/%E5%85%B3%E4%BA%8E-Jsp-include-%E5%92%8C-include/"
                             >
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">关于Post和Get提交数据遇到的问题</span>
+                                    <span class="post-nav-title-item">关于-Jsp-include-和-include</span>
                                     <span class="post-nav-item">Next posts</span>
                                 </span>
                                 <span class="right arrow-icon flex-center">
@@ -367,8 +378,8 @@
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">关于-Jsp-include-和-include</div>
-        
+        <div class="page-title">反射技术实现 Servlet 请求方法的动态选择</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%B0%84"><span class="nav-text">使用反射</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-text">核心代码：</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>

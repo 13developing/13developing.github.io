@@ -3685,4 +3685,48 @@
 <p><em>最后我使用 &lt; Jsp：include &gt;的方式包含，并且将一些样式等内容放入被包含页面，最后解决问题</em></p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">最后，二者还有一个比较重要的区别：</span><br><span class="line">	动态包含可以给被包含的页面传递参数。</span><br><span class="line">	静态包含不能给被包含的页面传递参数。</span><br></pre></td></tr></table></figure></div>]]></content>
   </entry>
+  <entry>
+    <title>反射技术实现 Servlet 请求方法的动态选择</title>
+    <url>/2023/10/03/%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0-Servlet-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%8A%A8%E6%80%81%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<p>&amp;emsp;&amp;emsp;假设一个Servlet类，其中包含了多个处理请求的方法，那我们在处理请求时就需要进行判断具体使用哪一种处理方法，这其中难免使用到较多的  <code>if - else</code> 语句子，此时就可以使用反射技术。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多的处理请求方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="使用反射"><a href="#使用反射" class="headerlink" title="使用反射"></a>使用反射</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">action</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;action&quot;</span>);  <span class="comment">//   拿到浏览器传递过来的acation参数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 获取对应的方法</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 调用方法</span></span><br><span class="line">        method.invoke(<span class="built_in">this</span>, request, response);</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="comment">// 处理异常</span></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h5 id="核心代码："><a href="#核心代码：" class="headerlink" title="核心代码："></a>核心代码：</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line"> </span><br><span class="line"> method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p><code>this.getClass()</code>: 获取当前对象（即Servlet对象）的Class对象，<code>this</code> 代表当前对象的实例。</p>
+</li>
+<li><p>&amp;emsp; &amp;emsp; <code>.getMethod(&quot;handle&quot; + action, HttpServletRequest.class, HttpServletResponse.class)</code>: 在获得的Class对象上调用 <code>getMethod</code> 方法来获取一个特定的方法。这里方法名是通过拼接字符串来生成的，<code>&quot;handle&quot; + action</code> 就是将请求参数 <code>action</code> 的值拼接到字符串 “handle” 前面，以构建要调用的方法名。这一行代码首先获取了当前Servlet对象的类对象，然后使用<code>getMethod</code>方法来获取一个名为<code>handle</code>加上请求参数<code>action</code>值组成的方法。<strong>这里的<code>action</code>通常是从请求中获取的，用于标识要执行哪个具体的处理方法。</strong></p>
+</li>
+<li><ul>
+<li><code>&quot;handle&quot; + action</code> 会根据请求的 <code>action</code> 参数来构建方法名，比如如果 <code>action</code> 的值是 “Request1”，那么将会获取到名为 <code>handleRequest1</code> 的方法。</li>
+</ul>
+</li>
+<li><ul>
+<li><code>HttpServletRequest.class</code> 和 <code>HttpServletResponse.class</code> 是方法的参数类型，这里是告诉反射机制要找一个方法，这个方法接受一个 <code>HttpServletRequest</code> 和一个 <code>HttpServletResponse</code> 作为参数。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>method.invoke(...)</code>: 这是反射机制的一部分，它用于调用特定的方法。<code>invoke</code> 方法需要传入两个参数</li>
+</ul>
+<ul>
+<li><p>第一个参数是要调用该方法的对象实例，在这里是当前的Servlet对象，用 <code>this</code> 表示。一旦我们获得了方法对象，就可以使用<code>invoke</code>方法来动态调用该方法。</p>
+</li>
+<li><p>第二个参数是该方法的实际参数，这里是 <code>request</code> 和 <code>response</code>。</p>
+</li>
+</ul>
+<p><strong>如此使用反射后就可以<code>xxxxx?action=方法名</code>实现动态的调用请求处理方法，达到简化的效果</strong></p>
+]]></content>
+  </entry>
 </search>
