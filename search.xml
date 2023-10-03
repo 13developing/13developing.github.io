@@ -3667,4 +3667,22 @@
                 ></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>关于-Jsp-include-和-include</title>
+    <url>/2023/10/03/%E5%85%B3%E4%BA%8E-Jsp-include-%E5%92%8C-include/</url>
+    <content><![CDATA[<p>在包含Jsp页面时，遇到&lt; jsp:include &gt;包含页面使得样式乱序，而使用&lt; %@include% &gt;却不会发生此现象，查阅资料了解到：</p>
+<p>在JSP中，<code>&lt;jsp:include&gt;</code> 和 <code>&lt;%@include%&gt;</code> 是两种不同的包含方式，它们在处理页面包含时有不同的行为，这可能会导致样式丢失或保留的差异。</p>
+<ul>
+<li><p><code>&lt;jsp:include&gt;</code>:  是一个动态包含方式，它在运行时包含指定的JSP页面。这意味着包含的内容会在包含它的页面被渲染时执行，然后将结果合并到包含页面中。因此，如果被包含的页面中有任何与样式相关的客户端脚本或CSS链接，它们可能会在包含页面被渲染时执行，并且可能会导致样式丢失或冲突。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">其步骤分为以下五步：</span><br><span class="line">	将被包含的 jsp文件<span class="number">1</span> 直接放入服务器解析</span><br><span class="line">	生成文件<span class="number">1.</span>java文件</span><br><span class="line">	将文件<span class="number">1</span>的结果放入文件<span class="number">2</span>中</span><br><span class="line">	再将文件<span class="number">2</span> 放入服务器解析</span><br><span class="line">	生成一个文件<span class="number">2.</span>java 文件</span><br></pre></td></tr></table></figure></div>
+
+
+</li>
+<li><p><code>&lt;%@include%&gt;</code>:  是一个静态包含方式，它在JSP页面编译时将被包含的内容合并到包含页面中。这是一个纯文本合并，不会在运行时执行被包含的页面。因此，被包含的页面中的任何样式或客户端脚本都会被直接包含到包含页面中，不会导致样式丢失或冲突。<strong>即 &lt;%@include%&gt; 包含相当于在编译的时候将我们的包含语句整体的替换为被包含页面内容</strong></p>
+</li>
+</ul>
+<p>所以，样式在使用 <code>&lt;jsp:include&gt;</code> 时丢失，可能是因为它们与包含页面的其他内容发生了冲突或覆盖，或者由于运行时执行的原因导致了不一致的行为。而使用 <code>&lt;%@include%&gt;</code> 会直接将被包含的内容合并到包含页面，不会发生这些问题，因此样式可以得到完全保留。但需要注意的是，<code>&lt;%@include%&gt;</code> 是静态的，无法根据运行时条件来动态选择包含哪个页面。</p>
+<p><em>最后我使用 &lt; Jsp：include &gt;的方式包含，并且将一些样式等内容放入被包含页面，最后解决问题</em></p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">最后，二者还有一个比较重要的区别：</span><br><span class="line">	动态包含可以给被包含的页面传递参数。</span><br><span class="line">	静态包含不能给被包含的页面传递参数。</span><br></pre></td></tr></table></figure></div>]]></content>
+  </entry>
 </search>
