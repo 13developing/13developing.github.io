@@ -3767,7 +3767,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>## req.getRequestDispatcher  和  resp.sendRedirect()   的区别</title>
+    <title>req.getRequestDispatcher  和  resp.sendRedirect()   的区别</title>
     <url>/2023/10/09/req-getRequestDispatcher-%E5%92%8C-resp-sendRedirect-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p><code>req.getRequestDispatcher()</code> 和 <code>resp.sendRedirect()</code> 是在Java Servlet中用于页面跳转的两种不同方法，它们有一些重要的区别：</p>
 <h3 id="req-：-针对的是请求"><a href="#req-：-针对的是请求" class="headerlink" title="req.**：   **针对的是请求"></a>req.**：   **针对的是请求</h3><p><code>req.getRequestDispatcher()</code> 用于在服务器端进行内部页面跳转，它返回一个 <code>RequestDispatcher</code> 对象，该对象可以用于将请求转发到另一个资源（如另一个Servlet、JSP页面等），由于请求转发是在服务器内部完成的，客户端对此一无所知，因此在客户端浏览器的地址栏中看不到新的URL，并且是服务器内部操作，可以共享同一个请求的信息（如请求参数等）。</p>
