@@ -3766,4 +3766,39 @@
 <p>一旦获得了 <code>PrintWriter</code> 对象，就可以使用它的 <code>write</code> 方法将数据发送到客户端,即此时msg获得数据</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>## req.getRequestDispatcher  和  resp.sendRedirect()   的区别</title>
+    <url>/2023/10/09/req-getRequestDispatcher-%E5%92%8C-resp-sendRedirect-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p><code>req.getRequestDispatcher()</code> 和 <code>resp.sendRedirect()</code> 是在Java Servlet中用于页面跳转的两种不同方法，它们有一些重要的区别：</p>
+<h3 id="req-：-针对的是请求"><a href="#req-：-针对的是请求" class="headerlink" title="req.**：   **针对的是请求"></a>req.**：   **针对的是请求</h3><p><code>req.getRequestDispatcher()</code> 用于在服务器端进行内部页面跳转，它返回一个 <code>RequestDispatcher</code> 对象，该对象可以用于将请求转发到另一个资源（如另一个Servlet、JSP页面等），由于请求转发是在服务器内部完成的，客户端对此一无所知，因此在客户端浏览器的地址栏中看不到新的URL，并且是服务器内部操作，可以共享同一个请求的信息（如请求参数等）。</p>
+<p>示例代码：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">RequestDispatcher</span> <span class="variable">dispatcher</span> <span class="operator">=</span> req.getRequestDispatcher(<span class="string">&quot;/path/to/destination&quot;</span>);</span><br><span class="line">dispatcher.forward(req, resp);</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="req-getRequestDispatcher-方法之-请求转发（Forward）："><a href="#req-getRequestDispatcher-方法之-请求转发（Forward）：" class="headerlink" title="req.getRequestDispatcher()方法之 请求转发（Forward）："></a>req.getRequestDispatcher()方法之 <strong>请求转发（Forward）</strong>：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.getRequestDispatcher().forward(request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>forward()</code> 方法用于将请求转发到另一个资源（如Servlet、JSP页面等）。</li>
+<li>通过调用 <code>forward()</code> 方法，当前Servlet将控制权交给目标资源，目标资源会处理请求，并将响应返回给客户端。</li>
+<li>在转发期间，客户端的浏览器不知道发生了请求转发，地址栏中仍然显示原始请求的URL。</li>
+<li>通常情况下，请求转发用于在应用程序内的不同组件之间共享请求数据。</li>
+</ul>
+<h4 id="req-getRequestDispatcher-方法之-请求包含（Include）："><a href="#req-getRequestDispatcher-方法之-请求包含（Include）：" class="headerlink" title="req.getRequestDispatcher()方法之 请求包含（Include）："></a>req.getRequestDispatcher()方法之 <strong>请求包含（Include）</strong>：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.getRequestDispatcher().include(request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>include()</code> 方法用于将目标资源的输出包含到当前的响应中。</li>
+<li>这意味着当前Servlet可以处理目标资源的响应并将其与自己的响应合并。</li>
+<li>在包含期间，客户端的浏览器不知道发生了请求包含，目标资源的响应会与当前响应合并后一起发送给客户端。</li>
+<li>通常情况下，请求包含用于在一个页面中嵌入其他页面的内容。</li>
+</ul>
+<h3 id="resp-sendRedirect-：-针对的是响应"><a href="#resp-sendRedirect-：-针对的是响应" class="headerlink" title="**resp.sendRedirect()**：    针对的是响应"></a>**resp.sendRedirect()**：    <strong>针对的是响应</strong></h3><p><code>resp.sendRedirect()</code> 用于在客户端进行页面重定向，它发送一个HTTP响应给客户端，*<em>让客户端重新发送一个新的请求到指定的URL。</em>，因为是客户端发起了新的请求，所以在客户端的地址栏中会显示新的URL。需要注意的是会导致之前的请求的信息丢失，因为它相当于发起了一个全新的请求。</p>
+<p>示例代码：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">resp.sendRedirect(<span class="string">&quot;/path/to/destination&quot;</span>);</span><br></pre></td></tr></table></figure></div>
+
+<p>区别总结：</p>
+<ul>
+<li>使用 <code>req.getRequestDispatcher()</code> 实现的是服务器端的跳转，不会改变客户端的地址栏内容，适用于在同一个应用内部进行页面跳转并共享请求信息。</li>
+<li>使用 <code>resp.sendRedirect()</code> 实现的是客户端的重定向，会改变客户端的地址栏内容，适用于跳转到其他应用或者外部URL，或者在跳转时不需要保留之前请求的信息。</li>
+</ul>
+]]></content>
+  </entry>
 </search>
