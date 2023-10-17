@@ -3770,11 +3770,11 @@
     <title>req.getRequestDispatcher  和  resp.sendRedirect()   的区别</title>
     <url>/2023/10/09/req-getRequestDispatcher-%E5%92%8C-resp-sendRedirect-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p><code>req.getRequestDispatcher()</code> 和 <code>resp.sendRedirect()</code> 是在Java Servlet中用于页面跳转的两种不同方法，它们有一些重要的区别：</p>
-<h3 id="req-：-针对的是请求"><a href="#req-：-针对的是请求" class="headerlink" title="req.**：   **针对的是请求"></a>req.**：   **针对的是请求</h3><p><code>req.getRequestDispatcher()</code> 用于在服务器端进行内部页面跳转，它返回一个 <code>RequestDispatcher</code> 对象，该对象可以用于将请求转发到另一个资源（如另一个Servlet、JSP页面等），由于请求转发是在服务器内部完成的，客户端对此一无所知，因此在客户端浏览器的地址栏中看不到新的URL，并且是服务器内部操作，可以共享同一个请求的信息（如请求参数等）。</p>
+<h3 id="req-getRequestDispatcher-：-针对的是请求"><a href="#req-getRequestDispatcher-：-针对的是请求" class="headerlink" title="req.getRequestDispatcher()： 针对的是请求"></a>req.getRequestDispatcher()： 针对的是请求</h3><p><code>req.getRequestDispatcher()</code> 用于在服务器端进行内部页面跳转，它返回一个 <code>RequestDispatcher</code> 对象，该对象可以用于将请求转发到另一个资源（如另一个Servlet、JSP页面等），由于请求转发是在服务器内部完成的，客户端对此一无所知，因此在客户端浏览器的地址栏中看不到新的URL，并且是服务器内部操作，可以共享同一个请求的信息（如请求参数等）。</p>
 <p>示例代码：</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">RequestDispatcher</span> <span class="variable">dispatcher</span> <span class="operator">=</span> req.getRequestDispatcher(<span class="string">&quot;/path/to/destination&quot;</span>);</span><br><span class="line">dispatcher.forward(req, resp);</span><br></pre></td></tr></table></figure></div>
 
-<h4 id="req-getRequestDispatcher-方法之-请求转发（Forward）："><a href="#req-getRequestDispatcher-方法之-请求转发（Forward）：" class="headerlink" title="req.getRequestDispatcher()方法之 请求转发（Forward）："></a>req.getRequestDispatcher()方法之 <strong>请求转发（Forward）</strong>：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.getRequestDispatcher().forward(request, response);</span><br></pre></td></tr></table></figure></div>
+<h4 id="req-getRequestDispatcher-方法之-请求转发（Forward）："><a href="#req-getRequestDispatcher-方法之-请求转发（Forward）：" class="headerlink" title="req.getRequestDispatcher()方法之 请求转发（Forward）："></a>req.getRequestDispatcher()方法之 请求转发（Forward）：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.getRequestDispatcher().forward(request, response);</span><br></pre></td></tr></table></figure></div>
 
 <ul>
 <li><code>forward()</code> 方法用于将请求转发到另一个资源（如Servlet、JSP页面等）。</li>
@@ -3782,7 +3782,7 @@
 <li>在转发期间，客户端的浏览器不知道发生了请求转发，地址栏中仍然显示原始请求的URL。</li>
 <li>通常情况下，请求转发用于在应用程序内的不同组件之间共享请求数据。</li>
 </ul>
-<h4 id="req-getRequestDispatcher-方法之-请求包含（Include）："><a href="#req-getRequestDispatcher-方法之-请求包含（Include）：" class="headerlink" title="req.getRequestDispatcher()方法之 请求包含（Include）："></a>req.getRequestDispatcher()方法之 <strong>请求包含（Include）</strong>：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.getRequestDispatcher().include(request, response);</span><br></pre></td></tr></table></figure></div>
+<h4 id="req-getRequestDispatcher-方法之-请求包含（Include）："><a href="#req-getRequestDispatcher-方法之-请求包含（Include）：" class="headerlink" title="req.getRequestDispatcher()方法之 请求包含（Include）："></a>req.getRequestDispatcher()方法之 请求包含（Include）：</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">req.getRequestDispatcher().include(request, response);</span><br></pre></td></tr></table></figure></div>
 
 <ul>
 <li><code>include()</code> 方法用于将目标资源的输出包含到当前的响应中。</li>
@@ -3790,7 +3790,8 @@
 <li>在包含期间，客户端的浏览器不知道发生了请求包含，目标资源的响应会与当前响应合并后一起发送给客户端。</li>
 <li>通常情况下，请求包含用于在一个页面中嵌入其他页面的内容。</li>
 </ul>
-<h3 id="resp-sendRedirect-：-针对的是响应"><a href="#resp-sendRedirect-：-针对的是响应" class="headerlink" title="**resp.sendRedirect()**：    针对的是响应"></a>**resp.sendRedirect()**：    <strong>针对的是响应</strong></h3><p><code>resp.sendRedirect()</code> 用于在客户端进行页面重定向，它发送一个HTTP响应给客户端，*<em>让客户端重新发送一个新的请求到指定的URL。</em>，因为是客户端发起了新的请求，所以在客户端的地址栏中会显示新的URL。需要注意的是会导致之前的请求的信息丢失，因为它相当于发起了一个全新的请求。</p>
+<p>resp.sendRedirect()：    针对的是响应</p>
+<p><code>resp.sendRedirect()</code> 用于在客户端进行页面重定向，它发送一个HTTP响应给客户端，*<em>让客户端重新发送一个新的请求到指定的URL。</em>，因为是客户端发起了新的请求，所以在客户端的地址栏中会显示新的URL。需要注意的是会导致之前的请求的信息丢失，因为它相当于发起了一个全新的请求。</p>
 <p>示例代码：</p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">resp.sendRedirect(<span class="string">&quot;/path/to/destination&quot;</span>);</span><br></pre></td></tr></table></figure></div>
 
@@ -3799,6 +3800,45 @@
 <li>使用 <code>req.getRequestDispatcher()</code> 实现的是服务器端的跳转，不会改变客户端的地址栏内容，适用于在同一个应用内部进行页面跳转并共享请求信息。</li>
 <li>使用 <code>resp.sendRedirect()</code> 实现的是客户端的重定向，会改变客户端的地址栏内容，适用于跳转到其他应用或者外部URL，或者在跳转时不需要保留之前请求的信息。</li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>ResultSetHandler  和 BeanListHandler 的区别</title>
+    <url>/2023/10/17/ResultSetHandler-%E5%92%8C-BeanListHandler-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>二者都是 Apache Commons DbUtils 库中的类，用于简化 JDBC 操作。</p>
+<ol>
+<li><p><strong>ResultSetHandler</strong>：</p>
+<p><code>ResultSetHandler</code> 是一个接口，它定义了将 SQL 查询结果集（ResultSet）转换为不同类型的对象的方法。</p>
+<p>例如，它可以将查询结果集转换为单个对象、列表、Map 等等。它提供了灵活的方式来处理查询结果。</p>
+</li>
+<li><p><strong>BeanListHandler</strong>：</p>
+<p><code>BeanListHandler</code> 是 <code>ResultSetHandler</code> 的一个具体实现，它将结果集转换为一个包含 JavaBean 对象的列表。</p>
+<p>这是一个常用的操作，特别是当你从数据库中检索一组记录，并希望将每一行映射为一个 JavaBean 对象时。每一行的字段将会与 JavaBean 的属性进行<strong>匹配</strong></p>
+</li>
+</ol>
+<p>使用 BeanListHandler 能够简化操作，详情见以下实例：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">					========未使用  BeanListHandler    的    ResultSetHandler   版本=========</span><br><span class="line"></span><br><span class="line">queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">ResultSetHandler</span>&lt;List&lt;Student&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> List&lt;Student&gt; <span class="title function_">handle</span><span class="params">(ResultSet resultSet)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                    List&lt;Student&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                    <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">                        <span class="type">Student</span> <span class="variable">entity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">                        entity.setId(resultSet.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                        entity.setAge(resultSet.getInt(<span class="string">&quot;age&quot;</span>));</span><br><span class="line">                        entity.setAccount(resultSet.getInt(<span class="string">&quot;account&quot;</span>));</span><br><span class="line">                        entity.setClassid(resultSet.getInt(<span class="string">&quot;classid&quot;</span>));</span><br><span class="line">                        entity.setStuno(resultSet.getString(<span class="string">&quot;stuno&quot;</span>));</span><br><span class="line">                        entity.setName(resultSet.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                        entity.setGender(resultSet.getString(<span class="string">&quot;gender&quot;</span>));</span><br><span class="line">                        entity.setEmail(resultSet.getString(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">                        entity.setTelephone(resultSet.getString(<span class="string">&quot;telephone&quot;</span>));</span><br><span class="line">                        entity.setAddress(resultSet.getString(<span class="string">&quot;adress&quot;</span>));</span><br><span class="line">                        entity.setWechat(resultSet.getString(<span class="string">&quot;wechat&quot;</span>));</span><br><span class="line">                        entity.setClassname(resultSet.getString(<span class="string">&quot;classname&quot;</span>));</span><br><span class="line">                        entity.setDepartname(resultSet.getString(<span class="string">&quot;departname&quot;</span>));</span><br><span class="line">                        entity.setCreatetime(resultSet.getDate(<span class="string">&quot;createtime&quot;</span>));</span><br><span class="line">                        list.add(entity);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> list;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				====================使用BeanListHandler的简化版本================</span><br><span class="line">                    </span><br><span class="line">             List&lt;Student&gt; list = queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">BeanListHandler</span>&lt;Student&gt;(Student.class), pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line">            <span class="keyword">return</span> list;       </span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">				===============================End======================================</span><br><span class="line">                    </span><br></pre></td></tr></table></figure></div>
+
+<p>在未使用 BeanListHandler 的时候，我们需要不断的将 resultset 取到的每一条结果一个个转化为对应类型，并且存储到List 中，但是使用了BeanListHandler 后，我们简化了转化操作 ，以下是代码解释：</p>
+<ol>
+<li><p><code>BeanListHandler&lt;Student&gt;</code>：这部分表示创建了一个 <code>BeanListHandler</code> 的实例，并且指定了它将会处理的对象类型是 <code>Student</code>。<code>BeanListHandler</code> 用于将数据库查询结果转换为一个包含指定类型对象的列List</p>
+</li>
+<li><p><code>(Student.class)</code>：这是一个类参数，指定了要将结果集中的每一行数据映射到的目标类。在这里，它指定了要将每一行数据映射为 <code>Student</code> 类型的对象。也就是说，它会自动的将查询到的数据的属性映射到Bean的属性并存储，不需要我们手动。</p>
+</li>
+<li><p>但是前提是Database中的每一条记录的字段名要与Bean中的每一个属性都相同，见下图</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202310170911222.png"
+                      alt="image-20231017091107092" style="zoom:50%;" 
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202310170911425.png"
+                      alt="image-20231017091138379" style="zoom:50%;" 
+                ></p>
+</li>
+</ol>
 ]]></content>
   </entry>
 </search>
