@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目列表</title>
+    <style>
+        body {
+            background-image: url("background2.jpg");
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .container {
+            max-width: 800px;
+            height: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px; /* 添加圆角 */
+            background-color:rgba(178, 190, 195, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #dfe6e9;
+            border-radius: 8px; /* 添加圆角 */
+            overflow: hidden; /* 防止内容溢出 */
+            transition: box-shadow 0.3s ease; /* 添加过渡效果 */
+        }
+
+        .project:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* 鼠标悬停时增加阴影效果 */
+        }
+
+        .project img {
+            max-width: 100px;
+            max-height: 60px;
+            margin-right: 10px;
+        }
+
+        .project-details {
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+
+        .project-description {
+            color: #666;
+        }
+
+        .project-link {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>项目列表</h1>
+</header>
+
+<div class="container">
+    <div class="project">
+        <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202312071413441.png"
+                      alt="学生图书管理系统"
+                >
+        <div class="project-details">
+            <div class="project-title">学生图书管理系统</div>
+            <div class="project-description">基于Servlet和Jsp的学生图书管理系统</div>
+            <a class="link"   href="https://github.com/13developing/-Servlet-JSP-"  class="project-link">了解更多 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+        </div>
+    </div>
+
+<!--    <div class="project">-->
+<!--        <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="project2.jpg"
+                      alt="项目2"
+                >-->
+<!--        <div class="project-details">-->
+<!--            <div class="project-title">项目2标题</div>-->
+<!--            <div class="project-description">项目2描述，可以是一段简短的介绍文字。</div>-->
+<!--            <a href="#" class="project-link">了解更多</a>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- 添加更多项目 -->
+
+</div>
+<script>
+    //鼠标点击出现爱心特效  这部分特效是从一个网页搬过来的  觉得挺好看的
+    (function (window, document, undefined) {
+        var hearts = [];
+        window.requestAnimationFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function (callback) {
+                    setTimeout(callback, 1000 / 60);
+                }
+        })();
+        init();
+        function init() {
+            css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+            attachEvent();
+            gameloop();
+        }
+        function gameloop() {
+            for (var i = 0; i < hearts.length; i++) {
+                if (hearts[i].alpha <= 0) {
+                    document.body.removeChild(hearts[i].el);
+                    hearts.splice(i, 1);
+                    continue;
+                }
+                hearts[i].y--;
+                hearts[i].scale += 0.004;
+                hearts[i].alpha -= 0.013;
+                hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+            }
+            requestAnimationFrame(gameloop);
+        }
+        function attachEvent() {
+            var old = typeof window.onclick === "function" && window.onclick;
+            window.onclick = function (event) {
+                old && old();
+                createHeart(event);
+            }
+        }
+        function createHeart(event) {
+            var d = document.createElement("div");
+            d.className = "heart";
+            hearts.push({
+                el: d,
+                x: event.clientX - 5,
+                y: event.clientY - 5,
+                scale: 1,
+                alpha: 1,
+                color: randomColor()
+            });
+            document.body.appendChild(d);
+        }
+        function css(css) {
+            var style = document.createElement("style");
+            style.type = "text/css";
+            try {
+                style.appendChild(document.createTextNode(css));
+            } catch (ex) {
+                style.styleSheet.cssText = css;
+            }
+            document.getElementsByTagName('head')[0].appendChild(style);
+        }
+        function randomColor() {
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+        }
+    })(window, document);
+</script>
+</body>
+</html>
