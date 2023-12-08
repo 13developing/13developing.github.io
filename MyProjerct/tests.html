@@ -9,18 +9,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/10/20/web之正则表达式/"/>
+    <link rel="canonical" href="http://example.com/myprojerct/tests.html"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Web之正则表达式">
+    <meta property="og:title" content="Hexo">
     <meta property="og:description" content="Hexo Theme Redefine">
-    <meta property="og:url" content="http://example.com2023/10/20/Web之正则表达式/">
+    <meta property="og:url" content="http://example.comMyProjerct/tests.html">
     <meta property="og:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <meta property="og:site_name" content="HJDの个人博客">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Web之正则表达式">
+    <meta name="twitter:title" content="Hexo">
     <meta name="twitter:description" content="Hexo Theme Redefine">
     <meta name="twitter:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <!--- Icon Part-->
@@ -30,8 +30,6 @@
     <link rel="shortcut icon" href="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     
     <title>
-        
-            Web之正则表达式 -
         
         HJDの个人博客
     </title>
@@ -243,158 +241,31 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="post-page-container">
-        <div class="article-content-container">
-
+    <div class="page-template-container">
+        
+        
+        <div class="page-template-content markdown-body">
             
-            
-                <div class="article-title">
-                    <h1 class="article-title-regular">Web之正则表达式</h1>
-                </div>
-            
-                
-            
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body {
+      background-image: url("background2.jpg");
+    }
+  </style>
+</head>
+<body>
 
-            
-                <div class="article-header">
-                    <div class="avatar">
-                        <img src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253296.jpg">
-                    </div>
-                    <div class="info">
-                        <div class="author">
-                            <span class="name">HJD</span>
-                            
-                                <span class="author-label">lol</span>
-                            
-                        </div>
-                        <div class="meta-info">
-                            <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-10-20 20:22:44</span>
-        <span class="mobile">2023-10-20 20:22</span>
-        <span class="hover-info">Created</span>
-    </span>
-    
-        <span class="article-date article-meta-item">
-            <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-10-20 20:23:12</span>
-            <span class="mobile">2023-10-20 20:23</span>
-            <span class="hover-info">Updated</span>
-        </span>
-    
-
-    
-    
-
-    
-    
-    
-    
-</div>
-
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content markdown-body">
-                <h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>即，使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。</p>
-<p>下面表示的是一串手机号码的正则表达式：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202310201500108.png"
-                      alt="image-20231020150048894"
-                ></p>
-<ul>
-<li>符号  ^  表示以…开始</li>
-<li>中间括号内的表示  或者， 即第二位数字为3~9 之间的任何一个数字</li>
-<li>\d  表示的是可以为任意数字   ，后面跟上一个 { 9 }  表征重复的次数 ，即后面可以是任意的9个数字</li>
-<li>$ 表示结束</li>
-</ul>
-<h3 id="jS中的使用方法"><a href="#jS中的使用方法" class="headerlink" title="jS中的使用方法"></a>jS中的使用方法</h3><ul>
-<li>利用RegExp对象创建  正则表达式</li>
-</ul>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rg1=<span class="keyword">new</span> <span class="title class_">RegExp</span>(/abc);</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>利用字面量进行创建</li>
-</ul>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/ abc /</span></span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>test( ) 检测文本是否符合正则的规则  ，返回 true &#x2F;  false</li>
-</ul>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">正则.<span class="title function_">test</span>(要检测的文本) </span><br><span class="line">eg：</span><br><span class="line">				<span class="keyword">var</span> f1=rg2.<span class="title function_">test</span>(<span class="string">&#x27;saddf&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f2=rg2.<span class="title function_">test</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f3=rg2.<span class="title function_">test</span>(<span class="string">&#x27;sabcs&#x27;</span>)   <span class="comment">//  只要包含abc即可</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="常见使用句法"><a href="#常见使用句法" class="headerlink" title="常见使用句法"></a>常见使用句法</h3><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/  ^[a-zA-Z_][a-zA-Z0-9_]&#123;2,9&#125;$ /</span></span><br></pre></td></tr></table></figure></div>
-
-<p>解释：</p>
-<ul>
-<li><p><code>^</code>: 表示字符串的开头。</p>
-</li>
-<li><p><code>[a-zA-Z_]</code>: 匹配一个字母（大小写不限）或下划线。</p>
-</li>
-<li><p>&#96;&#96;&#96;<br>[a-zA-Z0-9_]{2,9}</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  : 匹配2到9个字母（大小写不限）、数字或下划线。</span><br><span class="line"></span><br><span class="line">  - `&#123;2,9&#125;` 表示前面的模式（`[a-zA-Z0-9_]`）重复2到9次。</span><br><span class="line"></span><br><span class="line">- `$`: 表示字符串的结尾。</span><br><span class="line"></span><br><span class="line">这个正则表达式将确保字符串以字母或下划线开头，并且只包含字母、数字和下划线，长度在3到10之间。</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">^\d&#123;4&#125;-\d&#123;7&#125;|\d&#123;3&#125;-\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<p>解释：</p>
-<ul>
-<li><code>^</code>: 表示字符串的开头。</li>
-<li><code>\d</code>: 匹配一个数字字符。</li>
-<li><code>&#123;n&#125;</code>: 匹配前面的模式（这里是数字）恰好 n 次。</li>
-<li><code>-</code>: 匹配一个短横线。</li>
-<li><code>|</code>: 表示或者。</li>
-<li><code>$</code>: 表示字符串的结尾。</li>
-</ul>
-
-            </div>
-
-            
-
-            
-
-            
-
-            
-                <div class="article-nav">
-                    
-                    
-                        <div class="article-next">
-                            <a class="next"
-                            rel="next"
-                            href="/2023/10/17/ResultSetHandler-%E5%92%8C-BeanListHandler-%E7%9A%84%E5%8C%BA%E5%88%AB/"
-                            >
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">ResultSetHandler  和 BeanListHandler 的区别</span>
-                                    <span class="post-nav-item">Next posts</span>
-                                </span>
-                                <span class="right arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    
-                </div>
-            
-
-
+</body>
+</html>
             
         </div>
-
-        
-            <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div class="toc-title">On this page</div>
-        <div class="page-title">Web之正则表达式</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-text">基础语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jS%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-text">jS中的使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E5%8F%A5%E6%B3%95"><span class="nav-text">常见使用句法</span></a></li></ol>
-
-    </div>
-</div>
-            </div>
-        
+        <div class="page-template-comments">
+            
+        </div>
     </div>
 </div>
 
@@ -473,23 +344,6 @@
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="right-bottom-tools page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -622,16 +476,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        
-<script src="/js/tools/toc-toggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/layouts/toc.js"></script>
-
-<script src="/js/plugins/tabs.js"></script>
-
     
     
 </div>
