@@ -71,12 +71,33 @@
             text-decoration: none;
             font-weight: bold;
         }
+    /*    主页返回按钮  */
+        .rounded-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 999; /* Ensure it appears above other elements */
+            transition: background-color 0.3s ease; /* Add transition effect */
+        }
+
+        .rounded-button:hover {
+            background-color: #2980b9; /* Change background color on hover */
+        }
+
+
     </style>
 </head>
 <body>
 <header>
     <h1>项目列表</h1>
 </header>
+<a class="link"   href="https://forming1.gitee.io/"  class="rounded-button">回到主页 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
 
 <div class="container">
     <div class="project">
