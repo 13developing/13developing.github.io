@@ -9,18 +9,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/10/01/关于post和get提交数据遇到的问题/"/>
+    <link rel="canonical" href="http://example.com/2024/01/15/json初识/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="关于Post和Get提交数据遇到的问题">
+    <meta property="og:title" content="JSON初识">
     <meta property="og:description" content="Hexo Theme Redefine">
-    <meta property="og:url" content="http://example.com2023/10/01/关于Post和Get提交数据遇到的问题/">
+    <meta property="og:url" content="http://example.com2024/01/15/JSON初识/">
     <meta property="og:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <meta property="og:site_name" content="HJDの个人博客">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="关于Post和Get提交数据遇到的问题">
+    <meta name="twitter:title" content="JSON初识">
     <meta name="twitter:description" content="Hexo Theme Redefine">
     <meta name="twitter:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <!--- Icon Part-->
@@ -31,7 +31,7 @@
     
     <title>
         
-            关于Post和Get提交数据遇到的问题 -
+            JSON初识 -
         
         HJDの个人博客
     </title>
@@ -249,7 +249,7 @@
             
             
                 <div class="article-title">
-                    <h1 class="article-title-regular">关于Post和Get提交数据遇到的问题</h1>
+                    <h1 class="article-title-regular">JSON初识</h1>
                 </div>
             
                 
@@ -271,15 +271,15 @@
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-10-01 08:35:42</span>
-        <span class="mobile">2023-10-01 08:35</span>
+        <span class="pc">2024-01-15 16:11:19</span>
+        <span class="mobile">2024-01-15 16:11</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-10-01 08:51:56</span>
-            <span class="mobile">2023-10-01 08:51</span>
+            <span class="pc">2024-01-17 06:46:44</span>
+            <span class="mobile">2024-01-17 06:46</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -299,19 +299,28 @@
             
 
             <div class="article-content markdown-body">
-                <h2 id="关于-Post-和-Get-提交参数遇到的问题"><a href="#关于-Post-和-Get-提交参数遇到的问题" class="headerlink" title="关于 Post 和 Get 提交参数遇到的问题"></a>关于 Post 和 Get 提交参数遇到的问题</h2><p>在对于表单<code>&lt;form   method=get &gt;</code>提交参数时报错，语句如下：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;.....?action=list&quot;</span> method=<span class="string">&quot;get&quot;</span> &gt;</span><br></pre></td></tr></table></figure></div>
+                <h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
+<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<p>但是修改成以下样式问题解决：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=......<span class="string">&quot; method=&quot;</span>get<span class="string">&quot; &gt;</span></span><br><span class="line"><span class="string">    &lt;input type=&quot;</span>hidden<span class="string">&quot; name=&quot;</span>action<span class="string">&quot; value=&quot;</span>lsit<span class="string">&quot;&gt;</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
+<li>JSON 没有结束标签,长度更短,读写更快</li>
+<li>JSON 能够直接被JavaScript解释器解析</li>
+<li>JSON 可以使用数组</li>
+</ul>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<p>在这里感觉到了困惑，于是去查询。首先说说为什么第二种可行：</p>
-<p>对于 Get 提交参数，我们的表单数据会自动将 action 参数附加到 URL 末尾，从而被接收方解析。而对于第一情况，那是 Post 的提交数据的方式，而若是我们的Get 也采用第一种策略，<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202310010849593.png"
-                      alt="image-20231001084948540"
-                ></p>
+
+
+<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
+<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
+
 
             </div>
 
@@ -324,29 +333,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2023/10/03/%E5%85%B3%E4%BA%8E-Jsp-include-%E5%92%8C-include/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">关于-Jsp-include-和-include</span>
-                                    <span class="post-nav-item">Prev posts</span>
-                                </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/2023/09/13/WebServlet%E7%9A%84%E4%BD%9C%E7%94%A8/"
+                            href="/2023/10/20/Web%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"
                             >
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">注解@WebServlet 的初识</span>
+                                    <span class="post-nav-title-item">Web之正则表达式</span>
                                     <span class="post-nav-item">Next posts</span>
                                 </span>
                                 <span class="right arrow-icon flex-center">
@@ -367,8 +361,8 @@
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">关于Post和Get提交数据遇到的问题</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-Post-%E5%92%8C-Get-%E6%8F%90%E4%BA%A4%E5%8F%82%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">关于 Post 和 Get 提交参数遇到的问题</span></a></li></ol>
+        <div class="page-title">JSON初识</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSON%E7%9A%84%E5%88%9D%E8%AF%86"><span class="nav-text">JSON的初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-%E7%9A%84%E8%AF%AD%E6%B3%95%E8%A7%84%E5%88%99"><span class="nav-text">JSON 的语法规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-%E5%92%8C-XML-%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="nav-text">JSON 和  XML 的对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON-%E5%92%8C-JS-%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BA%92%E8%BD%AC"><span class="nav-text">JSON  和  JS 对象的互转</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSON-%E2%80%93-gt-JS-%E5%AF%B9%E8%B1%A1-JSON-parse-%E6%96%B9%E6%B3%95"><span class="nav-text">JSON  –&gt;  JS 对象    JSON.parse()  方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS%E5%AF%B9%E8%B1%A1-%E2%80%93-gt-JSON-JSON-stringify-%E6%96%B9%E6%B3%95"><span class="nav-text">JS对象 –&gt;  JSON    JSON.stringify()  方法</span></a></li></ol></li></ol></li></ol>
 
     </div>
 </div>

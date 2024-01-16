@@ -9,18 +9,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/10/01/关于post和get提交数据遇到的问题/"/>
+    <link rel="canonical" href="http://example.com/page/3/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="关于Post和Get提交数据遇到的问题">
+    <meta property="og:title" content="Hexo">
     <meta property="og:description" content="Hexo Theme Redefine">
-    <meta property="og:url" content="http://example.com2023/10/01/关于Post和Get提交数据遇到的问题/">
+    <meta property="og:url" content="http://example.compage/3/index.html">
     <meta property="og:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <meta property="og:site_name" content="HJDの个人博客">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="关于Post和Get提交数据遇到的问题">
+    <meta name="twitter:title" content="Hexo">
     <meta name="twitter:description" content="Hexo Theme Redefine">
     <meta name="twitter:image" content="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     <!--- Icon Part-->
@@ -30,8 +30,6 @@
     <link rel="shortcut icon" href="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253863.jpeg">
     
     <title>
-        
-            关于Post和Get提交数据遇到的问题 -
         
         HJDの个人博客
     </title>
@@ -99,9 +97,9 @@
         <div class="left">
             
             <a class="logo-title" href="/">
-                
+                <h1>
                 HJDの个人博客
-                
+                </h1>
             </a>
         </div>
 
@@ -113,7 +111,7 @@
                         
                             <li class="menu-item">
                                 <!-- Menu -->
-                                <a class="" 
+                                <a class="active" 
                                     href="/"  >
                                     
                                         
@@ -183,7 +181,7 @@
             
                 
                     <li class="drawer-menu-item flex-center">
-                        <a class="" 
+                        <a class="active" 
                         href="/"  >
                              
                                 
@@ -242,138 +240,58 @@
             <div class="main-content">
 
                 
-                    <div class="fade-in-down-animation">
-    <div class="post-page-container">
-        <div class="article-content-container">
+                    <div class="home-content-container fade-in-down-animation">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
 
-            
-            
-                <div class="article-title">
-                    <h1 class="article-title-regular">关于Post和Get提交数据遇到的问题</h1>
-                </div>
-            
                 
-            
 
-            
-                <div class="article-header">
-                    <div class="avatar">
-                        <img src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202303081253296.jpg">
-                    </div>
-                    <div class="info">
-                        <div class="author">
-                            <span class="name">HJD</span>
-                            
-                                <span class="author-label">lol</span>
-                            
-                        </div>
-                        <div class="meta-info">
-                            <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="pc">2023-10-01 08:35:42</span>
-        <span class="mobile">2023-10-01 08:35</span>
-        <span class="hover-info">Created</span>
-    </span>
-    
-        <span class="article-date article-meta-item">
-            <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2023-10-01 08:51:56</span>
-            <span class="mobile">2023-10-01 08:51</span>
-            <span class="hover-info">Updated</span>
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/03/02/hello-world/">
+                        Hello World
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Mar 02 2023 10:19:30 GMT+0800">
+                
+                    2023-03-02
+                
+            </span>
         </span>
-    
-
-    
-    
-
-    
-    
-    
-    
-</div>
-
-                        </div>
-                    </div>
-                </div>
-            
-
-            <div class="article-content markdown-body">
-                <h2 id="关于-Post-和-Get-提交参数遇到的问题"><a href="#关于-Post-和-Get-提交参数遇到的问题" class="headerlink" title="关于 Post 和 Get 提交参数遇到的问题"></a>关于 Post 和 Get 提交参数遇到的问题</h2><p>在对于表单<code>&lt;form   method=get &gt;</code>提交参数时报错，语句如下：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;.....?action=list&quot;</span> method=<span class="string">&quot;get&quot;</span> &gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>但是修改成以下样式问题解决：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=......<span class="string">&quot; method=&quot;</span>get<span class="string">&quot; &gt;</span></span><br><span class="line"><span class="string">    &lt;input type=&quot;</span>hidden<span class="string">&quot; name=&quot;</span>action<span class="string">&quot; value=&quot;</span>lsit<span class="string">&quot;&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>在这里感觉到了困惑，于是去查询。首先说说为什么第二种可行：</p>
-<p>对于 Get 提交参数，我们的表单数据会自动将 action 参数附加到 URL 末尾，从而被接收方解析。而对于第一情况，那是 Post 的提交数据的方式，而若是我们的Get 也采用第一种策略，<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202310010849593.png"
-                      alt="image-20231001084948540"
-                ></p>
-
-            </div>
-
-            
-
-            
-
-            
-
-            
-                <div class="article-nav">
-                    
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2023/10/03/%E5%85%B3%E4%BA%8E-Jsp-include-%E5%92%8C-include/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">关于-Jsp-include-和-include</span>
-                                    <span class="post-nav-item">Prev posts</span>
-                                </span>
-                            </a>
-                        </div>
-                    
-                    
-                        <div class="article-next">
-                            <a class="next"
-                            rel="next"
-                            href="/2023/09/13/WebServlet%E7%9A%84%E4%BD%9C%E7%94%A8/"
-                            >
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">注解@WebServlet 的初识</span>
-                                    <span class="post-nav-item">Next posts</span>
-                                </span>
-                                <span class="right arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </a>
-                        </div>
-                    
-                </div>
-            
-
-
-            
-        </div>
-
         
-            <div class="toc-content-container">
-                <div class="post-toc-wrap">
-    <div class="post-toc">
-        <div class="toc-title">On this page</div>
-        <div class="page-title">关于Post和Get提交数据遇到的问题</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E-Post-%E5%92%8C-Get-%E6%8F%90%E4%BA%A4%E5%8F%82%E6%95%B0%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">关于 Post 和 Get 提交参数遇到的问题</span></a></li></ol>
-
+        
     </div>
+
+    <a href="/2023/03/02/hello-world/">Read more<span class="seo-reader-text">Hello World</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
-            </div>
+
+            </li>
         
+    </ul>
+
+    <div class="home-paginator">
+        <div class="paginator">
+    
+        <a class="prev btn"
+           href="/page/2/"
+        >Prev</a>
+    
+
+    
+</div>
+
     </div>
 </div>
 
@@ -452,23 +370,6 @@
         </div>
     </div>
 
-    
-        <div class="post-tools">
-            <div class="post-tools-container">
-    <ul class="tools-list">
-        <!-- TOC aside toggle -->
-        
-            <li class="right-bottom-tools page-aside-toggle">
-                <i class="fa-regular fa-outdent"></i>
-            </li>
-        
-
-        <!-- go comment -->
-        
-    </ul>
-</div>
-
-        </div>
     
 
     <div class="right-bottom-side-tools">
@@ -557,6 +458,7 @@
 
 
 
+
 <script src="/js/utils.js"></script>
 
 <script src="/js/main.js"></script>
@@ -601,16 +503,6 @@
 
 
 <div class="post-scripts pjax">
-    
-        
-<script src="/js/tools/toc-toggle.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-<script src="/js/layouts/toc.js"></script>
-
-<script src="/js/plugins/tabs.js"></script>
-
     
     
 </div>
