@@ -3922,4 +3922,58 @@
 
 ]]></content>
   </entry>
+  <entry>
+    <title>SpringBoot 之配置文件的书写和获取</title>
+    <url>/2024/01/17/SpringBoot-%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E5%92%8C%E8%8E%B7%E5%8F%96/</url>
+    <content><![CDATA[<p>SpringBoot的配置文件的后缀分为以下三种：</p>
+<p><code>.properties</code>、<code>.yml</code>、<code>.yaml</code></p>
+<p>其中<code>.yml</code>和<code>.yaml</code>并无太大区别，主要关注 <code>.properties</code>、<code>.yml</code> 的异同之处。</p>
+<h3 id="properties"><a href="#properties" class="headerlink" title=".properties"></a><code>.properties</code></h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401170656306.png"
+                      alt="image-20240117065604278"
+                ></p>
+<p>较为冗长，书写起来比较繁琐</p>
+<h3 id="yml"><a href="#yml" class="headerlink" title=".yml"></a><code>.yml</code></h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401170928507.png"
+                      alt="image-20240117092813459" style="zoom:67%;" 
+                >
+
+
+
+<p>结构较为清晰，同一个层级前缀不用多次书写，通常采取yml配置格式的较多</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401170928554.png"
+                      alt="image-20240117092855507" style="zoom:50%;" 
+                >
+
+
+
+<h2 id="yml格式下的配置书写和获取"><a href="#yml格式下的配置书写和获取" class="headerlink" title="yml格式下的配置书写和获取"></a>yml格式下的配置书写和获取</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401170932657.png"
+                      alt="image-20240117093242593"
+                ></p>
+<p>即相当于将这些属性抽取出来，在yml配置文件中进行书写具体value</p>
+<p>在具体引用这些数值的时候  在具体java代码声明时候加上注解 <code>@Value(&quot;$&#123;xxx&#125;&quot;)</code>,表示从yml中给他啊寻赋对应的值，如下图：</p>
+<p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401170937194.png"
+                      alt="image-20240117093759143"
+                ></p>
+<p>当层次比较复杂的时候，前缀会比较长，书写比较繁琐，此时可在具体java类添加<code>ConfigurationProperties(prefix=&quot;前缀&quot;)</code>进行前缀的配置</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401170941186.png"
+                      alt="image-20240117094136147" style="zoom:50%;" 
+                >]]></content>
+  </entry>
 </search>
