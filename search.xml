@@ -4104,4 +4104,66 @@
                       alt="image-20240124172707660" style="zoom: 50%;" 
                 >]]></content>
   </entry>
+  <entry>
+    <title>jar包运行找不到主类的解决方法</title>
+    <url>/2024/01/27/jar%E5%8C%85%E8%BF%90%E8%A1%8C%E6%89%BE%E4%B8%8D%E5%88%B0%E4%B8%BB%E7%B1%BB%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<p>SpringBoot项目完成，利用maven进行打包，运行项目打包成的 jar 时，报错如下错误：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271511098.png"
+                      alt="image-20240127151143050" style="zoom: 50%;" 
+                >
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271031216.png"
+                      alt="image-20240127103127157" style="zoom: 50%;" 
+                >
+
+<p>该问题即无法找到主类，经搜寻资料，如<code>pom.xml</code>中加入如下插件，但无法解决</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>此外，也曾尝试解压jar包，直接在<code>MANIFEST.MF</code>文件中加入主类配置：</p>
+<p><code>Main-Class: com.xxxx.xxxxxxxx</code>，依旧无果。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271035516.png"
+                      alt="image-20240127103551477" style="zoom:50%;" 
+                >
+
+<h3 id="手动打包解决问题"><a href="#手动打包解决问题" class="headerlink" title="手动打包解决问题"></a>手动打包解决问题</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271044954.png"
+                      alt="image-20240127104431908" style="zoom: 50%;" 
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271043891.png"
+                      alt="image-20240127104358836" style="zoom: 50%;" 
+                ></p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271045786.png"
+                      alt="image-20240127104550736" style="zoom:50%;" 
+                >
+
+<p>最后点击  <code>Build</code> –&gt;  <code>Build Artifacts</code>  –&gt;<code>Build</code>  完成手动打包</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271506959.png"
+                      alt="image-20240127150647920" style="zoom:50%;" 
+                >              <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgp.oss-cn-nanjing.aliyuncs.com/img/202401271507103.png"
+                      alt="image-20240127150739068" style="zoom:50%;" 
+                ></p>
+]]></content>
+  </entry>
 </search>
