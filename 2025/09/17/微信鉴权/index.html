@@ -278,8 +278,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2025-09-17 10:49:55</span>
-            <span class="mobile">2025-09-17 10:49</span>
+            <span class="pc">2025-09-17 11:05:42</span>
+            <span class="mobile">2025-09-17 11:05</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -299,7 +299,32 @@
             
 
             <div class="article-content markdown-body">
-                
+                <h2 id="微信鉴权"><a href="#微信鉴权" class="headerlink" title="微信鉴权"></a>微信鉴权</h2><p>梳理一下微信鉴权的整个流程。</p>
+<p>首先，腾讯的服务器集群是无法访问我们的私有ip的，因为我们电脑的ip是被DHCP协议不断地动态分配的，所有公网服务器无法找到我们。</p>
+<p>为了解决这一问题，我们就需要用到内网穿透，内网可以实时的跟踪我们电脑的ip地址并配给一个公网域名来给外部访问。</p>
+<ol>
+<li><p><strong>准备阶段</strong>： 运行natapp，获得了一个公网域名，</p>
+</li>
+<li><p><strong>配置公众号</strong>： 在微信公众号后台配置以下信息：</p>
+<ul>
+<li>**URL (服务器地址)**： 填写 <code>域名/api路径</code> (假设你的接口写在 <code>/wechat</code> 路径下)</li>
+<li>**Token (令牌)**： 填写一个你自己设定的、与本地代码中一致的字符串</li>
+<li><strong>点击“提交”后发生的鉴权流程</strong>：</li>
+</ul>
+<ol>
+<li>微信服务器会向你填写的URL发送一个GET请求，请求中带有一个随机字符串、时间戳等参数。</li>
+<li>这个请求被natapp服务器接收，然后通过隧道<strong>转发</strong>到你本地的 <code>http://localhost:xxxx/api</code>。</li>
+<li>你本地服务器上的代码（api路由下的处理函数）接收到这个GET请求。</li>
+<li>你的代码按照微信规定的算法，用你预设的 <code>Token</code> 和收到的参数进行加密计算，生成一个签名。</li>
+<li>你将计算得到的签名与微信请求中带来的签名进行比对。</li>
+<li><strong>如果一致</strong>，说明这个请求确实来自微信服务器（因为只有你和微信知道相同的Token），你就在响应中返回微信要求的那另一个参数（echostr）。</li>
+<li>这个响应 again，通过natapp的隧道原路返回给微信服务器。</li>
+<li>微信服务器验证响应正确，就在后台显示“配置成功！”。至此，<strong>鉴权完成</strong>，通道打通。</li>
+</ol>
+</li>
+</ol>
+<p><strong>鉴权的目的</strong>： 就是微信要确认“这个URL背后的服务器确实是愿意为我这个公众号服务的、合法的服务器”，而不是什么恶意的第三方。</p>
+
             </div>
 
             
@@ -340,7 +365,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">微信鉴权</div>
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AE%E4%BF%A1%E9%89%B4%E6%9D%83"><span class="nav-text">微信鉴权</span></a></li></ol>
 
     </div>
 </div>
