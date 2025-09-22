@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    <meta name="description" content="Hexo Theme Redefine">
+    <meta name="author" content="HJD">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-redefine.png">
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://13developing.github.io/2025/09/22/retrofit2-与传统-controller/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Retrofit2 与传统 Controller">
+    <meta property="og:description" content="Hexo Theme Redefine">
+    <meta property="og:url" content="https://13developing.github.io2025/09/22/Retrofit2-与传统-Controller/">
+    <meta property="og:image" content="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253863.jpeg">
+    <meta property="og:site_name" content="A Box Of Bugs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Retrofit2 与传统 Controller">
+    <meta name="twitter:description" content="Hexo Theme Redefine">
+    <meta name="twitter:image" content="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253863.jpeg">
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253863.jpeg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253863.jpeg">
+    <meta name="theme-color" content="#005080">
+    <link rel="shortcut icon" href="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253863.jpeg">
+    
+    <title>
+        
+            Retrofit2 与传统 Controller -
+        
+        A Box Of Bugs
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/assets/fonts.css">
+
+    
+    
+    
+    
+    <script id="hexo-configurations">
+    let REDEFINE = window.REDEFINE || {};
+    REDEFINE.hexo_config = {"hostname":"13developing.github.io","root":"/","language":"en","path":"search.xml"};
+    REDEFINE.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#005080","avatar":"https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253296.jpg","favicon":"https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253863.jpeg","article_img_align":"center","right_side_width":"210px","content_max_width":"1000px","nav_color":{"left":"#f78736","right":"#367df7","transparency":35},"hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_image":{"light":"https://evan.beee.top/img/wallhaven-wqery6-light.webp","dark":"https://evan.beee.top/img/wallhaven-wqery6-dark.webp"},"title_color":{"light":"#1abc9c","dark":"#1abc9c"},"description":"WELCOME TO A BOX OF BUGS","custom_font":{"enable":false,"font_family":null,"font_url":null}},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true,"trigger":"auto","top_n_per_article":1,"unescape":false},"code_block":{"copy":true,"style":"mac","custom_font":{"enable":false,"font_family":null,"font_url":null}},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"1.1.6","friend_links":{"columns":2},"home_article":{"date_format":"auto","category":{"enable":true,"limit":3},"tag":{"enable":true,"limit":3}},"plugins":{"aplayer":{"enable":true,"audio":[{"name":"Gentleman","artist":"戴爱玲、刘伟德","url":"/aplayer/Gentleman.mp3","cover":"/images/Gentleman.jpg"},{"name":"Alone In Lonely","artist":"羽泉","url":"/aplayer/Alone In Lonely.mp3","cover":"/images/AloneInLonely.jpg"},{"name":"逍遥叹","artist":"胡歌","url":"/aplayer/逍遥叹.mp3","cover":"/images/逍遥叹.jpg"}]}}};
+    REDEFINE.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+    
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="menu-wrapper">
+    
+    <div class="menu-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A Box Of Bugs
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        HOME
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-book"></i>
+                                        
+                                        ARTICLE
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="menu-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/Projects/MyProjects.html"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-chart-bar"></i>
+                                        
+                                        PROJECT
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="menu-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                HOME
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-book"></i>
+                                
+                                ARTICLE
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-menu-item flex-center">
+                        <a class="" 
+                        href="/Projects/MyProjects.html"  >
+                             
+                                
+                                    <i class="fa-regular fa-chart-bar"></i>
+                                
+                                PROJECT
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">Retrofit2 与传统 Controller</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081253296.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">HJD</span>
+                            
+                                <span class="author-label">lol</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="pc">2025-09-22 14:16:06</span>
+        <span class="mobile">2025-09-22 14:16</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="pc">2025-09-22 14:16:58</span>
+            <span class="mobile">2025-09-22 14:16</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h1 id="Retrofit2-与传统-Controller"><a href="#Retrofit2-与传统-Controller" class="headerlink" title="Retrofit2 与传统 Controller"></a><code>Retrofit2</code> 与传统 <code>Controller</code></h1><p> retrofit是现在比较流行的网络请求框架，可以理解为<code>Okhttp</code>的加强版，底层封装了<code>Okhttp</code>。准确来说，<strong>Retrofit是一个RESTful的http网络请求框架的封装</strong>。因为网络请求工作本质上是由<code>Okhttp</code>来完成，而Retrofit负责网络请求接口的封装。</p>
+<p>在传统的MVC下，只有Controller中才会配置各种各样的api路径，但是本次项目中使用了<code>Retrofit2</code>,并在<code>interface</code>中添加了不少路径。</p>
+<h4 id="这其中最主要的区别是："><a href="#这其中最主要的区别是：" class="headerlink" title="这其中最主要的区别是："></a><strong>这其中最主要的区别是：</strong></h4><p>在过去开发的传统小业务项目中，<code>Controller</code>中都是自己定义的api，是启动后端服务后，<strong>监听</strong>在这个路径上，<strong>等待别人前端来调用</strong>。</p>
+<p>而<code>Retrofit2</code>在<code>interface</code>中的api，是外部的api，如本项目中，调用的是微信提供的api,无需我们实现，我们是调用者。</p>
+<h2 id="Retrofit2的常见使用实例"><a href="#Retrofit2的常见使用实例" class="headerlink" title="Retrofit2的常见使用实例"></a>Retrofit2的常见使用实例</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> eg.</span><br><span class="line"> </span><br><span class="line"> <span class="meta">@GET(&quot;user&quot;)</span></span><br><span class="line"> Call&lt;ResponseBody&gt; <span class="title function_">getData2</span><span class="params">(<span class="meta">@Query(&quot;id&quot;)</span> <span class="type">long</span> idLon, <span class="meta">@Query(&quot;name&quot;)</span> String nameStr)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@POST(&quot;user/emails&quot;)</span></span><br><span class="line">Call&lt;ResponseBody&gt; <span class="title function_">getPsotDataBody</span><span class="params">(<span class="meta">@Body</span> RequestBody body)</span>;</span><br><span class="line"><span class="comment">//@Body可以传递自定义类型数据给服务器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">eg.</span><br><span class="line">    </span><br><span class="line"><span class="meta">@Slf4j</span> </span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Retrofit2Config</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BASE_URL</span> <span class="operator">=</span> <span class="string">&quot;https://api.weixin.qq.com/&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Retrofit <span class="title function_">retrofit</span><span class="params">()</span> &#123;   <span class="comment">//创建一个对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Retrofit</span>.Builder()</span><br><span class="line">                .baseUrl(BASE_URL)</span><br><span class="line">                .addConverterFactory(JacksonConverterFactory.create())  <span class="comment">//添加自动转化</span></span><br><span class="line">                .build();<span class="comment">//真正构建</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> IWeixinApiService <span class="title function_">weixinApiService</span><span class="params">(Retrofit retrofit)</span> &#123;  <span class="comment">//括号里面加时添加自动代理</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> retrofit.create(IWeixinApiService.class);  <span class="comment">//动态代理</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="Call接口详解"><a href="#Call接口详解" class="headerlink" title="Call接口详解"></a>Call接口详解</h3><p><code>Call</code>是Retrofit网络库的核心接口，用于执行HTTP请求。</p>
+<p><code>Call&lt;T&gt;</code>是Retrofit中表示一个准备执行的HTTP请求的接口，其中<code>T</code>是期望的响应类型。</p>
+<h3 id="Call接口的主要方法"><a href="#Call接口的主要方法" class="headerlink" title="Call接口的主要方法"></a>Call接口的主要方法</h3><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>execute()</code></td>
+<td align="left">同步执行请求</td>
+<td align="left"><code>Response&lt;T&gt; response = call.execute();</code></td>
+</tr>
+<tr>
+<td align="left"><code>enqueue(Callback&lt;T&gt;)</code></td>
+<td align="left">异步执行请求</td>
+<td align="left"><code>call.enqueue(new Callback&lt;...&gt;() &#123;...&#125;);</code></td>
+</tr>
+<tr>
+<td align="left"><code>clone()</code></td>
+<td align="left">克隆Call对象</td>
+<td align="left"><code>Call&lt;T&gt; newCall = call.clone();</code></td>
+</tr>
+<tr>
+<td align="left"><code>cancel()</code></td>
+<td align="left">取消请求</td>
+<td align="left"><code>call.cancel();</code></td>
+</tr>
+<tr>
+<td align="left"><code>isExecuted()</code></td>
+<td align="left">检查是否已执行</td>
+<td align="left"><code>boolean executed = call.isExecuted();</code></td>
+</tr>
+<tr>
+<td align="left"><code>isCanceled()</code></td>
+<td align="left">检查是否已取消</td>
+<td align="left"><code>boolean canceled = call.isCanceled();</code></td>
+</tr>
+<tr>
+<td align="left"><code>request()</code></td>
+<td align="left">获取Request对象</td>
+<td align="left"><code>okhttp3.Request request = call.request();</code></td>
+</tr>
+</tbody></table>
+<h2 id="同步-vs-异步执行"><a href="#同步-vs-异步执行" class="headerlink" title="同步 vs 异步执行"></a>同步 vs 异步执行</h2><h3 id="同步执行-execute"><a href="#同步执行-execute" class="headerlink" title="同步执行 (execute())"></a>同步执行 (execute())</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 同步请求 - 会阻塞当前线程</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Response&lt;WeixinTokenRes&gt; response = call.execute();</span><br><span class="line">    <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">        <span class="type">WeixinTokenRes</span> <span class="variable">tokenRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">        <span class="comment">// 处理响应</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 处理错误</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    <span class="comment">// 处理异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="异步执行-enqueue"><a href="#异步执行-enqueue" class="headerlink" title="异步执行 (enqueue())"></a>异步执行 (enqueue())</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步请求 - 不会阻塞当前线程</span></span><br><span class="line">call.enqueue(<span class="keyword">new</span> <span class="title class_">Callback</span>&lt;WeixinTokenRes&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResponse</span><span class="params">(Call&lt;WeixinTokenRes&gt; call, Response&lt;WeixinTokenRes&gt; response)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">            <span class="type">WeixinTokenRes</span> <span class="variable">tokenRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">            <span class="comment">// 处理成功响应</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 处理HTTP错误</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(Call&lt;WeixinTokenRes&gt; call, Throwable t)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理网络错误或异常</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> call.execute().body();</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="第一行：创建Call对象"><a href="#第一行：创建Call对象" class="headerlink" title="第一行：创建Call对象"></a>第一行：创建Call对象</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>weixinApiService.createQrCode()</code> 返回一个 <code>Call&lt;WeixinQrCodeRes&gt;</code> 对象</li>
+<li>此时<strong>还没有</strong>发起网络请求，只是创建了一个可执行的请求对象</li>
+<li><code>Call&lt;WeixinQrCodeRes&gt;</code> 中的泛型 <code>WeixinQrCodeRes</code> 指定了期望的响应数据类型</li>
+</ul>
+<h3 id="第二行：执行请求并获取响应体"><a href="#第二行：执行请求并获取响应体" class="headerlink" title="第二行：执行请求并获取响应体"></a>第二行：执行请求并获取响应体</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> call.execute().body();</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>call.execute()</code>：<strong>同步执行</strong>网络请求，阻塞当前线程直到收到响应</li>
+<li><code>.body()</code>：从响应中提取反序列化后的Java对象</li>
+<li>将结果赋值给 <code>weixinQrCodeRes</code> 变量</li>
+</ul>
+<h2 id="完整流程分解"><a href="#完整流程分解" class="headerlink" title="完整流程分解"></a>完整流程分解</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 创建Call对象（尚未发起请求）</span></span><br><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 执行请求（同步，阻塞当前线程）</span></span><br><span class="line">Response&lt;WeixinQrCodeRes&gt; response = call.execute();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 检查请求是否成功</span></span><br><span class="line"><span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">    <span class="comment">// 4. 获取反序列化后的响应体</span></span><br><span class="line">    <span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">    <span class="comment">// 使用数据...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 处理错误</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">error</span> <span class="operator">=</span> response.errorBody().string();</span><br><span class="line">    <span class="comment">// 或者根据状态码处理</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">statusCode</span> <span class="operator">=</span> response.code();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+            </div>
+
+            
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2025/09/22/%E5%BE%AE%E4%BF%A1%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">微信扫码登录流程</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Retrofit2 与传统 Controller</div>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Retrofit2-%E4%B8%8E%E4%BC%A0%E7%BB%9F-Controller"><span class="nav-text">Retrofit2 与传统 Controller</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%99%E5%85%B6%E4%B8%AD%E6%9C%80%E4%B8%BB%E8%A6%81%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%EF%BC%9A"><span class="nav-text">这其中最主要的区别是：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit2%E7%9A%84%E5%B8%B8%E8%A7%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="nav-text">Retrofit2的常见使用实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Call%E6%8E%A5%E5%8F%A3%E8%AF%A6%E8%A7%A3"><span class="nav-text">Call接口详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call%E6%8E%A5%E5%8F%A3%E7%9A%84%E4%B8%BB%E8%A6%81%E6%96%B9%E6%B3%95"><span class="nav-text">Call接口的主要方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5-vs-%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C"><span class="nav-text">同步 vs 异步执行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E6%89%A7%E8%A1%8C-execute"><span class="nav-text">同步执行 (execute())</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E6%89%A7%E8%A1%8C-enqueue"><span class="nav-text">异步执行 (enqueue())</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%A7%A3%E9%87%8A"><span class="nav-text">样例解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%A1%8C%EF%BC%9A%E5%88%9B%E5%BB%BACall%E5%AF%B9%E8%B1%A1"><span class="nav-text">第一行：创建Call对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%A1%8C%EF%BC%9A%E6%89%A7%E8%A1%8C%E8%AF%B7%E6%B1%82%E5%B9%B6%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94%E4%BD%93"><span class="nav-text">第二行：执行请求并获取响应体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E6%B5%81%E7%A8%8B%E5%88%86%E8%A7%A3"><span class="nav-text">完整流程分解</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-regular fa-computer-classic"></i>&nbsp;&nbsp;<a href="/">HJD</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        VISITOR COUNT&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        TOTAL PAGE VIEWS&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a></span>
+                <br> 
+            <span class="theme-version-container">THEME&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v1.1.6</a>
+        </div>
+        
+        
+        
+            <div id="start_time_div" style="display:none">
+                2022/8/17 11:45:14
+            </div>
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="unfolded-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="folded-tools-list">
+        <li class="right-bottom-tools tool-toggle-show flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/layouts/menu-shrink.js"></script>
+
+<script src="/js/tools/go-top-bottom.js"></script>
+
+<script src="/js/tools/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/tools/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/tools/code-block.js"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/layouts/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/toc-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
+    
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            REDEFINE.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            REDEFINE.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            REDEFINE.refresh();
+        });
+    });
+</script>
+
+
+
+
+    <div id="aplayer"></div>
+
+    
+<script src="/js/libs/APlayer.min.js"></script>
+
+    
+<script src="/js/plugins/aplayer.js"></script>
+
+
+
+</body>
+</html>
