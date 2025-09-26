@@ -278,8 +278,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="pc">2025-09-21 14:52:17</span>
-            <span class="mobile">2025-09-21 14:52</span>
+            <span class="pc">2025-09-26 08:59:35</span>
+            <span class="mobile">2025-09-26 08:59</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -306,7 +306,8 @@
 <li><p><strong>准备阶段</strong>： 运行natapp，获得了一个公网域名，</p>
 </li>
 <li><p><strong>配置公众号</strong>： 在微信公众号后台配置以下信息：</p>
-<p>**URL (服务器地址)**： 填写 <code>域名/api路径</code> (假设你的接口写在 <code>/wechat</code> 路径下)<br>**Token (令牌)**： 填写一个你自己设定的、与本地代码中一致的字符串<br><strong>点击“提交”后发生的鉴权流程</strong>：</p>
+<p>URL (服务器地址)： 填写 <code>域名/api路径</code> (假设你的接口写在 <code>/wechat</code> 路径下)</p>
+<p>Token (令牌)： 填写自己设定的、与本地代码中一致的字符串<br><strong>点击“提交”后发生的鉴权流程</strong>：</p>
 <ol>
 <li>微信服务器会向你填写的URL发送一个GET请求，请求中带有一个随机字符串、时间戳等参数。</li>
 <li>这个请求被natapp服务器接收，然后通过隧道<strong>转发</strong>到你本地的 <code>http://localhost:xxxx/api</code>。</li>
