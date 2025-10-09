@@ -990,6 +990,65 @@
 ]]></content>
   </entry>
   <entry>
+    <title>JSON初识</title>
+    <url>/2024/01/15/JSON%E5%88%9D%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
+<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
+<li>JSON 没有结束标签,长度更短,读写更快</li>
+<li>JSON 能够直接被JavaScript解释器解析</li>
+<li>JSON 可以使用数组</li>
+</ul>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
+<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>初识 SpringBoot 之对比Servlet </title>
+    <url>/2024/01/18/Servlet-%E5%92%8C-SpringBoot-%E7%9A%84%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<p><em>学习过程中，SpringBoot使用了Mybatis，Servlet项目中使用了Apache整合的数据库工具类Dbutils</em></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181021330.png"
+                      alt="image-20240118102125243"
+                ></p>
+<p>相较于SpringBoot，Servlet中使用的注解明显要少，但是在Maven中添加的依赖确实远远多于SpringBoot，Servlet中比较重要且独特的注解是在Servlet类上声明的@WebSrvlet。</p>
+<p>下面详细对上图中的SpringBoot内容进行解释。</p>
+<h3 id="Conroller层"><a href="#Conroller层" class="headerlink" title="Conroller层"></a>Conroller层</h3><p>在结构上，二者类似，但在具体的实现上，还是有着一定的差别，SpringBoot中对应<code>Servlet</code>层的名为<code>Controller</code>层，这一层在类名上要添加一个<code>@Controller</code>注解，用于声明其是一个控制器，比较方便的是，在Servlet项目中，对于不同的服务，需要一个个的进行<code>new</code>,但是在SpringBoot中，只需在变量名上添加注解<code>@Autowired</code>,即可实现创建。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401180954436.png"
+                      alt="image-20240118095417409"  
+                >
+
+<p>SpringBoot层中有一个极其重要的注解，即<code>@RequestMapping</code>，写在类上，相当Servlet中的<code>@WebServlet（url=xxxxx）</code>,即定下虚拟路径  ，写在 <code>Controller</code> 中的方法名上，则代表前端发送申请到后台该方法的路径。</p>
+<h3 id="Service层-和-Mapper层"><a href="#Service层-和-Mapper层" class="headerlink" title="Service层  和   Mapper层"></a>Service层  和   Mapper层</h3><p>二者的<code>Service</code>层并无太大区别，主体都分为接口（<code>Interface</code>）和实现（<code>impl</code>）两部分,需要注意的是<code>SpringBoot</code>的<code>Service实现类</code>上需要添加 <code>@Service</code>注解以标识自己是一个Service类。</p>
+<p><code>Mapper</code>层对应的实际上就是传统的<code>Dao</code>层，需要再类前添加注解<code>@Mapper</code>，传统Servlet项目中，Dao层也分为Impl和Interface两部分，但是Mapper层中，我们只需要一个Interface，并且在Interface上添加@Mapper注解，将具体实现的Sql语句添加到接口中声明的方法上的@Select &#x2F; @Insert 等注解中进行书写</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181025925.png"
+                      alt="image-20240118102513896"
+                ></p>
+<h3 id="Pojo-和-Entity"><a href="#Pojo-和-Entity" class="headerlink" title="Pojo 和 Entity"></a>Pojo 和 Entity</h3><p>二者极其类似。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>JAVA基础</title>
     <url>/2023/08/30/JAVA%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h3 id="1、命名规则"><a href="#1、命名规则" class="headerlink" title="1、命名规则"></a>1、命名规则</h3><p>由字母、数字、下划线“_”、美元符号“$”或者“￥”组成，并且首字符不能是数字。</p>
@@ -1296,63 +1355,58 @@
 ]]></content>
   </entry>
   <entry>
-    <title>JSON初识</title>
-    <url>/2024/01/15/JSON%E5%88%9D%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
-<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
-<li>JSON 没有结束标签,长度更短,读写更快</li>
-<li>JSON 能够直接被JavaScript解释器解析</li>
-<li>JSON 可以使用数组</li>
-</ul>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
-<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
-
-<ol>
-<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>初识 SpringBoot 之对比Servlet </title>
-    <url>/2024/01/18/Servlet-%E5%92%8C-SpringBoot-%E7%9A%84%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<p><em>学习过程中，SpringBoot使用了Mybatis，Servlet项目中使用了Apache整合的数据库工具类Dbutils</em></p>
-<p><img  
+    <title>SpringBoot 之配置文件的书写和获取</title>
+    <url>/2024/01/17/SpringBoot-%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E5%92%8C%E8%8E%B7%E5%8F%96/</url>
+    <content><![CDATA[<p>SpringBoot的配置文件的后缀分为以下三种：</p>
+<p><code>.properties</code>、<code>.yml</code>、<code>.yaml</code></p>
+<p>其中<code>.yml</code>和<code>.yaml</code>并无太大区别，主要关注 <code>.properties</code>、<code>.yml</code> 的异同之处。</p>
+<h3 id="properties"><a href="#properties" class="headerlink" title=".properties"></a><code>.properties</code></h3><p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181021330.png"
-                      alt="image-20240118102125243"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170656306.png"
+                      alt="image-20240117065604278"
                 ></p>
-<p>相较于SpringBoot，Servlet中使用的注解明显要少，但是在Maven中添加的依赖确实远远多于SpringBoot，Servlet中比较重要且独特的注解是在Servlet类上声明的@WebSrvlet。</p>
-<p>下面详细对上图中的SpringBoot内容进行解释。</p>
-<h3 id="Conroller层"><a href="#Conroller层" class="headerlink" title="Conroller层"></a>Conroller层</h3><p>在结构上，二者类似，但在具体的实现上，还是有着一定的差别，SpringBoot中对应<code>Servlet</code>层的名为<code>Controller</code>层，这一层在类名上要添加一个<code>@Controller</code>注解，用于声明其是一个控制器，比较方便的是，在Servlet项目中，对于不同的服务，需要一个个的进行<code>new</code>,但是在SpringBoot中，只需在变量名上添加注解<code>@Autowired</code>,即可实现创建。</p>
+<p>较为冗长，书写起来比较繁琐</p>
+<h3 id="yml"><a href="#yml" class="headerlink" title=".yml"></a><code>.yml</code></h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170928507.png"
+                      alt="image-20240117092813459" style="zoom:67%;" 
+                >
+
+
+
+<p>结构较为清晰，同一个层级前缀不用多次书写，通常采取yml配置格式的较多</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170928554.png"
+                      alt="image-20240117092855507" style="zoom:50%;" 
+                >
+
+
+
+<h2 id="yml格式下的配置书写和获取"><a href="#yml格式下的配置书写和获取" class="headerlink" title="yml格式下的配置书写和获取"></a>yml格式下的配置书写和获取</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170932657.png"
+                      alt="image-20240117093242593"
+                ></p>
+<p>即相当于将这些属性抽取出来，在yml配置文件中进行书写具体value</p>
+<p>在具体引用这些数值的时候  在具体java代码声明时候加上注解 <code>@Value(&quot;$&#123;xxx&#125;&quot;)</code>,表示从yml中给他啊寻赋对应的值，如下图：</p>
+<p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170937194.png"
+                      alt="image-20240117093759143"
+                ></p>
+<p>当层次比较复杂的时候，前缀会比较长，书写比较繁琐，此时可在具体java类添加<code>ConfigurationProperties(prefix=&quot;前缀&quot;)</code>进行前缀的配置</p>
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401180954436.png"
-                      alt="image-20240118095417409"  
-                >
-
-<p>SpringBoot层中有一个极其重要的注解，即<code>@RequestMapping</code>，写在类上，相当Servlet中的<code>@WebServlet（url=xxxxx）</code>,即定下虚拟路径  ，写在 <code>Controller</code> 中的方法名上，则代表前端发送申请到后台该方法的路径。</p>
-<h3 id="Service层-和-Mapper层"><a href="#Service层-和-Mapper层" class="headerlink" title="Service层  和   Mapper层"></a>Service层  和   Mapper层</h3><p>二者的<code>Service</code>层并无太大区别，主体都分为接口（<code>Interface</code>）和实现（<code>impl</code>）两部分,需要注意的是<code>SpringBoot</code>的<code>Service实现类</code>上需要添加 <code>@Service</code>注解以标识自己是一个Service类。</p>
-<p><code>Mapper</code>层对应的实际上就是传统的<code>Dao</code>层，需要再类前添加注解<code>@Mapper</code>，传统Servlet项目中，Dao层也分为Impl和Interface两部分，但是Mapper层中，我们只需要一个Interface，并且在Interface上添加@Mapper注解，将具体实现的Sql语句添加到接口中声明的方法上的@Select &#x2F; @Insert 等注解中进行书写</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181025925.png"
-                      alt="image-20240118102513896"
-                ></p>
-<h3 id="Pojo-和-Entity"><a href="#Pojo-和-Entity" class="headerlink" title="Pojo 和 Entity"></a>Pojo 和 Entity</h3><p>二者极其类似。</p>
-]]></content>
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170941186.png"
+                      alt="image-20240117094136147" style="zoom:50%;" 
+                >]]></content>
   </entry>
   <entry>
     <title>Retrofit2 与传统 Controller</title>
@@ -1436,58 +1490,33 @@
 <h2 id="完整流程分解"><a href="#完整流程分解" class="headerlink" title="完整流程分解"></a>完整流程分解</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 创建Call对象（尚未发起请求）</span></span><br><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 执行请求（同步，阻塞当前线程）</span></span><br><span class="line">Response&lt;WeixinQrCodeRes&gt; response = call.execute();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 检查请求是否成功</span></span><br><span class="line"><span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">    <span class="comment">// 4. 获取反序列化后的响应体</span></span><br><span class="line">    <span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">    <span class="comment">// 使用数据...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 处理错误</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">error</span> <span class="operator">=</span> response.errorBody().string();</span><br><span class="line">    <span class="comment">// 或者根据状态码处理</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">statusCode</span> <span class="operator">=</span> response.code();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
   </entry>
   <entry>
-    <title>SpringBoot 之配置文件的书写和获取</title>
-    <url>/2024/01/17/SpringBoot-%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E5%92%8C%E8%8E%B7%E5%8F%96/</url>
-    <content><![CDATA[<p>SpringBoot的配置文件的后缀分为以下三种：</p>
-<p><code>.properties</code>、<code>.yml</code>、<code>.yaml</code></p>
-<p>其中<code>.yml</code>和<code>.yaml</code>并无太大区别，主要关注 <code>.properties</code>、<code>.yml</code> 的异同之处。</p>
-<h3 id="properties"><a href="#properties" class="headerlink" title=".properties"></a><code>.properties</code></h3><p><img  
+    <title>注解@WebServlet 的初识</title>
+    <url>/2023/09/13/WebServlet%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
+    <content><![CDATA[<ul>
+<li>Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。</li>
+<li>我对这句话的理解就是,如果没有配置web.xml文件也没有在代码中添加@WebServlet注解，那么在Servlet容器中就无法正确地找到和加载该Servlet类。这意味着无法通过URL访问到该Servlet，并且它也无法响应任何请求。</li>
+</ul>
+<p>@WebServlet注解中的属性</p>
+<p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170656306.png"
-                      alt="image-20240117065604278"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202309130907417.png"
+                      alt="image-20230913090700314"
                 ></p>
-<p>较为冗长，书写起来比较繁琐</p>
-<h3 id="yml"><a href="#yml" class="headerlink" title=".yml"></a><code>.yml</code></h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170928507.png"
-                      alt="image-20240117092813459" style="zoom:67%;" 
-                >
+<p>下面就最长用的 urlPatterns 和 name属性进行举例：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;/hello&quot;, name = &quot;HelloServlet&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        response.getWriter().println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-
-
-<p>结构较为清晰，同一个层级前缀不用多次书写，通常采取yml配置格式的较多</p>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170928554.png"
-                      alt="image-20240117092855507" style="zoom:50%;" 
-                >
-
-
-
-<h2 id="yml格式下的配置书写和获取"><a href="#yml格式下的配置书写和获取" class="headerlink" title="yml格式下的配置书写和获取"></a>yml格式下的配置书写和获取</h2><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170932657.png"
-                      alt="image-20240117093242593"
-                ></p>
-<p>即相当于将这些属性抽取出来，在yml配置文件中进行书写具体value</p>
-<p>在具体引用这些数值的时候  在具体java代码声明时候加上注解 <code>@Value(&quot;$&#123;xxx&#125;&quot;)</code>,表示从yml中给他啊寻赋对应的值，如下图：</p>
-<p> <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170937194.png"
-                      alt="image-20240117093759143"
-                ></p>
-<p>当层次比较复杂的时候，前缀会比较长，书写比较繁琐，此时可在具体java类添加<code>ConfigurationProperties(prefix=&quot;前缀&quot;)</code>进行前缀的配置</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170941186.png"
-                      alt="image-20240117094136147" style="zoom:50%;" 
-                >]]></content>
+<p>在上述示例中，我们创建了一个名为HelloServlet的Servlet类，并通过@WebServlet注解对其进行配置。</p>
+<ul>
+<li><p><code>urlPatterns</code>属性用于设置Servlet的URL映射，这里我们将HelloServlet映射到路径”&#x2F;hello”。当用户通过访问<code>http://localhost:8080/hello</code>时，该Servlet将会处理该请求。同时，我们的浏览器前段页面要进行访问Servlet的时候，此时跳转的路径也是此UrlPatterns</p>
+</li>
+<li><p><code>name</code>属性用于设置Servlet的名称。Servlet是Java Web应用程序中的一种组件，用于处理客户端的HTTP请求并生成相应的响应。通过设置name属性，可以为Servlet指定一个唯一的名称，以便在Web应用程序中进行引用和调用</p>
+</li>
+<li><p>在HelloServlet类中，我们重写了doGet()方法，该方法处理HTTP的GET请求。在本例中，它简单地向响应输出了”Hello, World!”。</p>
+</li>
+</ul>
+<p>通过使用@WebServlet注解，我们不再需要在web.xml文件中手动配置Servlet的映射和初始化参数等信息，而是直接在Servlet类上添加注解进行配置。这样简化了开发过程，并提高了代码的可读性和维护性。</p>
+]]></content>
   </entry>
   <entry>
     <title>Spring容器启动顺序</title>
@@ -1551,6 +1580,146 @@
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509260922254.png"
                       alt="image-20250926092215222"
                 ></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Web之正则表达式</title>
+    <url>/2023/10/20/Web%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>即使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。</p>
+<p>下面表示的是一串手机号码的正则表达式：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310201500108.png"
+                      alt="image-20231020150048894"
+                ></p>
+<ul>
+<li>符号  ^  表示以…开始</li>
+<li>中间括号内的表示  或者， 即第二位数字为3~9 之间的任何一个数字</li>
+<li>\d  表示的是可以为任意数字   ，后面跟上一个 { 9 }  表征重复的次数 ，即后面可以是任意的9个数字</li>
+<li>$ 表示结束</li>
+</ul>
+<h3 id="jS中的使用方法"><a href="#jS中的使用方法" class="headerlink" title="jS中的使用方法"></a>jS中的使用方法</h3><ul>
+<li>利用RegExp对象创建  正则表达式</li>
+</ul>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg1=<span class="keyword">new</span> <span class="title class_">RegExp</span>(/abc);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>利用字面量进行创建</li>
+</ul>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/ abc /</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>test( ) 检测文本是否符合正则的规则  ，返回 true &#x2F;  false</li>
+</ul>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">正则.<span class="title function_">test</span>(要检测的文本) </span><br><span class="line">eg：</span><br><span class="line">				<span class="keyword">var</span> f1=rg2.<span class="title function_">test</span>(<span class="string">&#x27;saddf&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f2=rg2.<span class="title function_">test</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f3=rg2.<span class="title function_">test</span>(<span class="string">&#x27;sabcs&#x27;</span>)   <span class="comment">//  只要包含abc即可</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="常见使用句法"><a href="#常见使用句法" class="headerlink" title="常见使用句法"></a>常见使用句法</h3><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/  ^[a-zA-Z_][a-zA-Z0-9_]&#123;2,9&#125;$ /</span></span><br></pre></td></tr></table></figure></div>
+
+<p>解释：</p>
+<ul>
+<li><p><code>^</code>: 表示字符串的开头。</p>
+</li>
+<li><p><code>[a-zA-Z_]</code>: 匹配一个字母（大小写不限）或下划线。</p>
+</li>
+<li><p>&#96;&#96;&#96;<br>[a-zA-Z0-9_]{2,9}</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  : 匹配2到9个字母（大小写不限）、数字或下划线。</span><br><span class="line"></span><br><span class="line">  - `&#123;2,9&#125;` 表示前面的模式（`[a-zA-Z0-9_]`）重复2到9次。</span><br><span class="line"></span><br><span class="line">- `$`: 表示字符串的结尾。</span><br><span class="line"></span><br><span class="line">这个正则表达式将确保字符串以字母或下划线开头，并且只包含字母、数字和下划线，长度在3到10之间。</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">^\d&#123;4&#125;-\d&#123;7&#125;|\d&#123;3&#125;-\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<p>解释：</p>
+<ul>
+<li><code>^</code>: 表示字符串的开头。</li>
+<li><code>\d</code>: 匹配一个数字字符。</li>
+<li><code>&#123;n&#125;</code>: 匹配前面的模式（这里是数字）恰好 n 次。</li>
+<li><code>-</code>: 匹配一个短横线。</li>
+<li><code>|</code>: 表示或者。</li>
+<li><code>$</code>: 表示字符串的结尾。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>XML的初步了解</title>
+    <url>/2023/08/29/XML%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="XML的初步了解"><a href="#XML的初步了解" class="headerlink" title="XML的初步了解"></a>XML的初步了解</h2><p>可扩展性标记语言，其目的是用于传输和存储数据，而 HTML 是用于展示数据。XML的标签必须是自定义，同时要注意标签名必须要有一定的含义。</p>
+<h3 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h3><p>对于我们的 xml ，其有着一定的语法。</p>
+<h4 id="1、根节点"><a href="#1、根节点" class="headerlink" title="1、根节点"></a>1、根节点</h4><p>对于整体的xml’内容，我们必须要有一个根标签 ( 根节点 )，也即下处的 <strong><root> </root></strong></p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>hu<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">msg</span>&gt;</span>this is a try<span class="tag">&lt;/<span class="name">msg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2、头部声明"><a href="#2、头部声明" class="headerlink" title="2、头部声明"></a>2、头部声明</h4><p>必须位于第一行</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot; 1.0 &quot;</span>  encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="3、标签的成对"><a href="#3、标签的成对" class="headerlink" title="3、标签的成对"></a>3、标签的成对</h4><p>不同于 HTML 存在的单标签， xml 中的所有元素标签都必须是成对出现，标签大小写敏感。</p>
+<p>标签不可以如以下情况交叉</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4、注释"><a href="#4、注释" class="headerlink" title="4、注释"></a>4、注释</h4><p>语法同 html  ，注意注释是不可以进行嵌套的</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--   comment  --&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="5、符号的实体引用-（-转义字符-）"><a href="#5、符号的实体引用-（-转义字符-）" class="headerlink" title="5、符号的实体引用  （ 转义字符 ）"></a>5、符号的实体引用  （ 转义字符 ）</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202308270928664.png"
+                      alt="image-20230827092810623"
+                ></p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary   &lt;     1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span>  错误</span><br><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary  <span class="symbol">&amp;lt;</span> 1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span> 正确</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="6、属性与标签"><a href="#6、属性与标签" class="headerlink" title="6、属性与标签"></a>6、属性与标签</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">person</span>  <span class="attr">a</span>=<span class="string">&#x27;123&#x27;</span> <span class="attr">b</span>=<span class="string">&#x27;456&#x27;</span> &gt;</span> <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line">这里的 person 是标签，a ，b是我们的属性</span><br><span class="line">  注意每个标签可以有多个属性，但是每个属性不可以相同，属性值用引号</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="7、CDATA区"><a href="#7、CDATA区" class="headerlink" title="7、CDATA区"></a>7、CDATA区</h4><p>全称 character data</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">语法： &lt;! [ CDATA [ 我们实际的内容 ] ]</span><br></pre></td></tr></table></figure></div>
+
+<p>使用 CDATA 区域 ，编译器会直接忽略，而直接显示原始的内容。</p>
+<h3 id="2、简单的处理指令"><a href="#2、简单的处理指令" class="headerlink" title="2、简单的处理指令"></a>2、简单的处理指令</h3><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot; 1.0 &quot;</span>  encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span>  这里声明了版本和字符集  ，注意只可以放在第一行</span><br><span class="line"></span><br><span class="line">&lt;? xml-stylesheet type=&quot;text/css&quot; href=&quot;a.css&quot;?&gt;  指定的css样式表</span><br></pre></td></tr></table></figure></div>
+
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202308290839514.png"
+                      alt="image-20230829083937327" style="zoom: 200%;" 
+                >
+
+<p>这里的css样式的指定实际上只是普通的标签选择器。</p>
+<h3 id="3、XML的约束"><a href="#3、XML的约束" class="headerlink" title="3、XML的约束"></a>3、XML的约束</h3><p>xml 中存在着两种约束。dtd 和 schema  。</p>
+<p>约束就是规则，xml的约束就是指定 xml 文档中可以出现哪些元素以及不可以出现那些元素。</p>
+<h4 id="1、DTD"><a href="#1、DTD" class="headerlink" title="1、DTD"></a>1、DTD</h4><p>DTD（Document Type Deﬁnition），文档类型定义，用来约束XML文档。规定XML文档中元素的名称，子元素的名称及顺序，元素的属性等。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!ELEMENT <span class="title function_">students</span> <span class="params">(student+)</span>  &gt;   这里定义了一个元素 student  并且规定这里的 student出现一次或者多次，如果没有+号，则默认为只可以出现一次</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">student</span> <span class="params">(name,age,sex)</span>&gt;    意为student包含三类</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">name</span> <span class="params">(#PCDATA)</span>&gt;    #PCDATA 即直接为文本内容</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">age</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">sex</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">        &lt;!ATTLIST student number ID #REQUIRED&gt; </span><br><span class="line">student number ID : student标签中 有一个ID属性 叫做 number  ，#required 即规定必须</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>常见的符号：<br>问号？：表示该对象出现0次或1次<br>星号 * ：表示该对象出现0次或多次<br>加号 + ：表示该对象出现1次或多次<br>竖线 | ：表示在列出的对象中选择一个<br>逗号 , ：表示对象按照指定的顺序出现</p>
+<h4 id="3、DTD的引入"><a href="#3、DTD的引入" class="headerlink" title="3、DTD的引入"></a>3、DTD的引入</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;！DOCTYPE student SYSTEM &quot;student.dtd&quot; &gt;</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;a.css&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">students</span>  <span class="keyword">SYSTEM</span> <span class="string">&quot;student.dtd&quot;</span>&gt;</span>  system后面跟的是同目录下的文件名    students是一个父标签，后面的约束存在于他的子目录下，经过尝试后发现不可以直接使用</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span>   父级标签</span><br><span class="line">    <span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;number_123&quot;</span>&gt;</span>   这里的id属性与前端一致</span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisa<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  注意逗号是顺序，不可以调转顺序，不可以缺少</span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>26<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sex</span>&gt;</span>female<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p><strong>这里第一感受是该约束与  CSS 中的选择器极其的相似</strong></p>
+<h4 id="4、DTD的三种引入方式"><a href="#4、DTD的三种引入方式" class="headerlink" title="4、DTD的三种引入方式"></a>4、DTD的三种引入方式</h4><h5 id="1、内部引入"><a href="#1、内部引入" class="headerlink" title="1、内部引入"></a>1、内部引入</h5><blockquote>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;a.css&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE student [      <span class="comment">//  这里实际上就是所谓的内部引入  ，和前端的css引入方式有点类似  ，注意是方括号和前面的   !DOCTYPE</span></span><br><span class="line"></span><br><span class="line">&lt;!ELEMENT <span class="title function_">students</span> <span class="params">(student+)</span>  &gt;   </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">student</span> <span class="params">(name,age,sex)</span>&gt;    </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">name</span> <span class="params">(#PCDATA)</span>&gt;  </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">age</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">     &lt;!ELEMENT <span class="title function_">sex</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">     &lt;!ATTLIST student number ID #REQUIRED&gt; </span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&lt;students&gt;   父级标签</span><br><span class="line"> &lt;student number=<span class="string">&quot;number_123&quot;</span>&gt;   这里的id属性与前端一致</span><br><span class="line">     &lt;name&gt;lisa&lt;/name&gt;  注意逗号是顺序，不可以调转顺序，不可以缺少</span><br><span class="line">     &lt;age&gt;<span class="number">26</span>&lt;/age&gt;</span><br><span class="line">     &lt;sex&gt;female&lt;/sex&gt;</span><br><span class="line"> &lt;/student&gt;</span><br><span class="line">&lt;/students&gt;</span><br></pre></td></tr></table></figure></div>
+
+
+</blockquote>
+<h5 id="2、public-外部引入"><a href="#2、public-外部引入" class="headerlink" title="2、public  外部引入"></a>2、public  外部引入</h5><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">使用公共的DTD约束</span><br><span class="line">&lt; !DOCTYPE 根元素名称 PUBLIC &quot;DTD名称&quot;  &quot;DTD文档的URL&quot;  &gt;</span><br><span class="line"></span><br><span class="line">注意这里的 public  而不是 SYSTEM</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h5 id="3、第三种即我们类似内部链接的-CSS方式"><a href="#3、第三种即我们类似内部链接的-CSS方式" class="headerlink" title="3、第三种即我们类似内部链接的  CSS方式"></a>3、第三种即我们类似内部链接的  CSS方式</h5><h4 id="2、Schema-x2F-ˈskiːmə-x2F"><a href="#2、Schema-x2F-ˈskiːmə-x2F" class="headerlink" title="2、Schema     &#x2F;ˈskiːmə&#x2F;"></a>2、Schema     &#x2F;ˈskiːmə&#x2F;</h4><ul>
+<li>Schema是新的XML文档约束, 比DTD强大很多，是DTD 替代者；</li>
+<li>Schema本身也是XML文档，但Schema文档的扩展名为xsd，而不是xml。</li>
+<li>Schema 功能更强大，内置多种简单和复杂的数据类型</li>
+<li>Schema 支持命名空间 (一个XML中可以引入多个约束文档)</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>&lt;dependency&gt;与&lt;dependencyManagement&gt;</title>
+    <url>/2025/09/14/dependency-%E4%B8%8E-dependencyManagement/</url>
+    <content><![CDATA[<h2 id="lt-dependenc-gt-与-lt-dependencyManagement-gt"><a href="#lt-dependenc-gt-与-lt-dependencyManagement-gt" class="headerlink" title="&lt;dependenc&gt;与&lt;dependencyManagement&gt;"></a><code>&lt;dependenc&gt;</code>与<code>&lt;dependencyManagement&gt;</code></h2><p>从前在pom中都只是直接通过<code>&lt;dependency&gt;</code> 进行依赖的添加，今天接触到了<code>&lt;dependencyManagement&gt;</code>。</p>
+<p>对比与从前的项目，我都是直接一个模块做到底，而本次的项目区分了多个模块，而每一个模块都是可以独立开发的，每一个模块都有独立的pom文件。</p>
+<p>在整个项目的pom中使用<code>&lt; dependencyManagement &gt;</code>，其主要是规定版本，而子模块的pom若是需要添加相同的依赖，可以省略版本号，会自动去父pom中寻找依赖。此举简化了一些依赖的版本号的修改。</p>
+<p>父pom：</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!-- 父项目必须是pom类型 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖管理：采购清单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                <span class="comment">&lt;!--被包含在 Management --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注意：父项目自己如果不用，这里就不需要写&lt;dependencies&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>子模块pom</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>child-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                         <span class="comment">&lt;!-- 一个单独的dependency --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号省略！Maven会去父POM的dependencyManagement里找 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号同样省略！ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt"><a href="#如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt" class="headerlink" title="如何理解 : 父项目自己如果不用，这里就不需要写&lt;dependencies&gt;"></a>如何理解 : 父项目自己如果不用，这里就不需要写<code>&lt;dependencies&gt;</code></h3><p>注意上述父pom示例代码注释中的并没有单独的<code>dependencies</code>，他是被包含在<code>dependencyManagement</code>。</p>
+<p>故，这里父pom这里只是规定了一下版本，自己并没有引入。<strong>父项目应该专注于扮演好“管理者”和“标准制定者”的角色，而不是“消费者”。它应该通过 <code>&lt;dependencyManagement&gt;</code> 来管理版本，而把实际引入依赖的决定权交给各个子模块。</strong> 这样可以保持项目的清晰和轻量，避免强制继承带来的冗余和问题。</p>
 ]]></content>
   </entry>
   <entry>
@@ -3137,175 +3306,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cn.itcast.swing.util.ImagePathUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ListCellRendererTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">JFrame</span> <span class="variable">mainWin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFrame</span>(<span class="string">&quot;好友列表&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String[] friends = &#123;</span><br><span class="line">            <span class="string">&quot;李清照&quot;</span>,</span><br><span class="line">            <span class="string">&quot;苏格拉底&quot;</span>,</span><br><span class="line">            <span class="string">&quot;李白&quot;</span>,</span><br><span class="line">            <span class="string">&quot;弄玉&quot;</span>,</span><br><span class="line">            <span class="string">&quot;虎头&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个JList对象</span></span><br><span class="line">    <span class="type">JList</span> <span class="variable">friendsList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JList</span>(friends);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//设置JList使用ImageCellRenderer作为列表项绘制器</span></span><br><span class="line">        friendsList.setCellRenderer(<span class="keyword">new</span> <span class="title class_">ImageCellRenderer</span>());</span><br><span class="line"></span><br><span class="line">        mainWin.add(<span class="keyword">new</span> <span class="title class_">JScrollPane</span>(friendsList));</span><br><span class="line">        mainWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        mainWin.pack();</span><br><span class="line">        mainWin.setVisible(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">ListCellRendererTest</span>().init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ImageCellRenderer</span> <span class="keyword">extends</span> <span class="title class_">JPanel</span> <span class="keyword">implements</span> <span class="title class_">ListCellRenderer</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> ImageIcon icon;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="comment">//定义绘制单元格的背景色</span></span><br><span class="line">        <span class="keyword">private</span> Color background;</span><br><span class="line">        <span class="comment">//定义绘制单元格的前景色</span></span><br><span class="line">        <span class="keyword">private</span> Color foreground;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Component <span class="title function_">getListCellRendererComponent</span><span class="params">(JList list, Object value, <span class="type">int</span> index, <span class="type">boolean</span> isSelected, <span class="type">boolean</span> cellHasFocus)</span> &#123;</span><br><span class="line"></span><br><span class="line">            icon = <span class="keyword">new</span> <span class="title class_">ImageIcon</span>(ImagePathUtil.getRealPath(<span class="string">&quot;9\\&quot;</span> + value + <span class="string">&quot;.gif&quot;</span>));</span><br><span class="line">            name = value.toString();</span><br><span class="line">            background = isSelected ? list.getSelectionBackground() : list.getBackground();</span><br><span class="line">            foreground = isSelected ? list.getSelectionForeground() : list.getForeground();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//返回当前JPanel对象，作为列表项绘制器</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">paintComponent</span><span class="params">(Graphics g)</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">width</span> <span class="operator">=</span> icon.getImage().getWidth(<span class="literal">null</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">height</span> <span class="operator">=</span> icon.getImage().getHeight(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//填充背景矩形</span></span><br><span class="line">            g.setColor(background);</span><br><span class="line">            g.fillRect(<span class="number">0</span>,<span class="number">0</span>,getWidth(),getHeight());</span><br><span class="line"></span><br><span class="line">            g.setColor(foreground);</span><br><span class="line">            <span class="comment">//绘制好友头像</span></span><br><span class="line">            g.drawImage(icon.getImage(),getWidth()/<span class="number">2</span>-width/<span class="number">2</span>,<span class="number">10</span>,<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制好友昵称</span></span><br><span class="line">            g.setFont(<span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;SansSerif&quot;</span>,Font.BOLD,<span class="number">18</span>));</span><br><span class="line">            g.drawString(name,getWidth()/<span class="number">2</span>-name.length()*<span class="number">10</span>,height+<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Dimension <span class="title function_">getPreferredSize</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Dimension</span>(<span class="number">60</span>,<span class="number">80</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
   </entry>
   <entry>
-    <title>注解@WebServlet 的初识</title>
-    <url>/2023/09/13/WebServlet%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    <content><![CDATA[<ul>
-<li>Java Servlet 是运行在 Web 服务器或应用服务器上的程序，它是作为来自 Web 浏览器或其他 HTTP 客户端的请求和 HTTP 服务器上的数据库或应用程序之间的中间层。</li>
-<li>我对这句话的理解就是,如果没有配置web.xml文件也没有在代码中添加@WebServlet注解，那么在Servlet容器中就无法正确地找到和加载该Servlet类。这意味着无法通过URL访问到该Servlet，并且它也无法响应任何请求。</li>
-</ul>
-<p>@WebServlet注解中的属性</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202309130907417.png"
-                      alt="image-20230913090700314"
-                ></p>
-<p>下面就最长用的 urlPatterns 和 name属性进行举例：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebServlet(urlPatterns = &quot;/hello&quot;, name = &quot;HelloServlet&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        response.getWriter().println(<span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>在上述示例中，我们创建了一个名为HelloServlet的Servlet类，并通过@WebServlet注解对其进行配置。</p>
-<ul>
-<li><p><code>urlPatterns</code>属性用于设置Servlet的URL映射，这里我们将HelloServlet映射到路径”&#x2F;hello”。当用户通过访问<code>http://localhost:8080/hello</code>时，该Servlet将会处理该请求。同时，我们的浏览器前段页面要进行访问Servlet的时候，此时跳转的路径也是此UrlPatterns</p>
-</li>
-<li><p><code>name</code>属性用于设置Servlet的名称。Servlet是Java Web应用程序中的一种组件，用于处理客户端的HTTP请求并生成相应的响应。通过设置name属性，可以为Servlet指定一个唯一的名称，以便在Web应用程序中进行引用和调用</p>
-</li>
-<li><p>在HelloServlet类中，我们重写了doGet()方法，该方法处理HTTP的GET请求。在本例中，它简单地向响应输出了”Hello, World!”。</p>
-</li>
-</ul>
-<p>通过使用@WebServlet注解，我们不再需要在web.xml文件中手动配置Servlet的映射和初始化参数等信息，而是直接在Servlet类上添加注解进行配置。这样简化了开发过程，并提高了代码的可读性和维护性。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Web之正则表达式</title>
-    <url>/2023/10/20/Web%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>即使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。</p>
-<p>下面表示的是一串手机号码的正则表达式：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310201500108.png"
-                      alt="image-20231020150048894"
-                ></p>
-<ul>
-<li>符号  ^  表示以…开始</li>
-<li>中间括号内的表示  或者， 即第二位数字为3~9 之间的任何一个数字</li>
-<li>\d  表示的是可以为任意数字   ，后面跟上一个 { 9 }  表征重复的次数 ，即后面可以是任意的9个数字</li>
-<li>$ 表示结束</li>
-</ul>
-<h3 id="jS中的使用方法"><a href="#jS中的使用方法" class="headerlink" title="jS中的使用方法"></a>jS中的使用方法</h3><ul>
-<li>利用RegExp对象创建  正则表达式</li>
-</ul>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg1=<span class="keyword">new</span> <span class="title class_">RegExp</span>(/abc);</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>利用字面量进行创建</li>
-</ul>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/ abc /</span></span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>test( ) 检测文本是否符合正则的规则  ，返回 true &#x2F;  false</li>
-</ul>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">正则.<span class="title function_">test</span>(要检测的文本) </span><br><span class="line">eg：</span><br><span class="line">				<span class="keyword">var</span> f1=rg2.<span class="title function_">test</span>(<span class="string">&#x27;saddf&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f2=rg2.<span class="title function_">test</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f3=rg2.<span class="title function_">test</span>(<span class="string">&#x27;sabcs&#x27;</span>)   <span class="comment">//  只要包含abc即可</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="常见使用句法"><a href="#常见使用句法" class="headerlink" title="常见使用句法"></a>常见使用句法</h3><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/  ^[a-zA-Z_][a-zA-Z0-9_]&#123;2,9&#125;$ /</span></span><br></pre></td></tr></table></figure></div>
-
-<p>解释：</p>
-<ul>
-<li><p><code>^</code>: 表示字符串的开头。</p>
-</li>
-<li><p><code>[a-zA-Z_]</code>: 匹配一个字母（大小写不限）或下划线。</p>
-</li>
-<li><p>&#96;&#96;&#96;<br>[a-zA-Z0-9_]{2,9}</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  : 匹配2到9个字母（大小写不限）、数字或下划线。</span><br><span class="line"></span><br><span class="line">  - `&#123;2,9&#125;` 表示前面的模式（`[a-zA-Z0-9_]`）重复2到9次。</span><br><span class="line"></span><br><span class="line">- `$`: 表示字符串的结尾。</span><br><span class="line"></span><br><span class="line">这个正则表达式将确保字符串以字母或下划线开头，并且只包含字母、数字和下划线，长度在3到10之间。</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">^\d&#123;4&#125;-\d&#123;7&#125;|\d&#123;3&#125;-\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<p>解释：</p>
-<ul>
-<li><code>^</code>: 表示字符串的开头。</li>
-<li><code>\d</code>: 匹配一个数字字符。</li>
-<li><code>&#123;n&#125;</code>: 匹配前面的模式（这里是数字）恰好 n 次。</li>
-<li><code>-</code>: 匹配一个短横线。</li>
-<li><code>|</code>: 表示或者。</li>
-<li><code>$</code>: 表示字符串的结尾。</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>XML的初步了解</title>
-    <url>/2023/08/29/XML%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/</url>
-    <content><![CDATA[<h2 id="XML的初步了解"><a href="#XML的初步了解" class="headerlink" title="XML的初步了解"></a>XML的初步了解</h2><p>可扩展性标记语言，其目的是用于传输和存储数据，而 HTML 是用于展示数据。XML的标签必须是自定义，同时要注意标签名必须要有一定的含义。</p>
-<h3 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h3><p>对于我们的 xml ，其有着一定的语法。</p>
-<h4 id="1、根节点"><a href="#1、根节点" class="headerlink" title="1、根节点"></a>1、根节点</h4><p>对于整体的xml’内容，我们必须要有一个根标签 ( 根节点 )，也即下处的 <strong><root> </root></strong></p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">root</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>hu<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">msg</span>&gt;</span>this is a try<span class="tag">&lt;/<span class="name">msg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="2、头部声明"><a href="#2、头部声明" class="headerlink" title="2、头部声明"></a>2、头部声明</h4><p>必须位于第一行</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot; 1.0 &quot;</span>  encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="3、标签的成对"><a href="#3、标签的成对" class="headerlink" title="3、标签的成对"></a>3、标签的成对</h4><p>不同于 HTML 存在的单标签， xml 中的所有元素标签都必须是成对出现，标签大小写敏感。</p>
-<p>标签不可以如以下情况交叉</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="4、注释"><a href="#4、注释" class="headerlink" title="4、注释"></a>4、注释</h4><p>语法同 html  ，注意注释是不可以进行嵌套的</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--   comment  --&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h4 id="5、符号的实体引用-（-转义字符-）"><a href="#5、符号的实体引用-（-转义字符-）" class="headerlink" title="5、符号的实体引用  （ 转义字符 ）"></a>5、符号的实体引用  （ 转义字符 ）</h4><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202308270928664.png"
-                      alt="image-20230827092810623"
-                ></p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary   &lt;     1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span>  错误</span><br><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span>if salary  <span class="symbol">&amp;lt;</span> 1000 then<span class="tag">&lt;/<span class="name">message</span>&gt;</span> 正确</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="6、属性与标签"><a href="#6、属性与标签" class="headerlink" title="6、属性与标签"></a>6、属性与标签</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">person</span>  <span class="attr">a</span>=<span class="string">&#x27;123&#x27;</span> <span class="attr">b</span>=<span class="string">&#x27;456&#x27;</span> &gt;</span> <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line">这里的 person 是标签，a ，b是我们的属性</span><br><span class="line">  注意每个标签可以有多个属性，但是每个属性不可以相同，属性值用引号</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="7、CDATA区"><a href="#7、CDATA区" class="headerlink" title="7、CDATA区"></a>7、CDATA区</h4><p>全称 character data</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">语法： &lt;! [ CDATA [ 我们实际的内容 ] ]</span><br></pre></td></tr></table></figure></div>
-
-<p>使用 CDATA 区域 ，编译器会直接忽略，而直接显示原始的内容。</p>
-<h3 id="2、简单的处理指令"><a href="#2、简单的处理指令" class="headerlink" title="2、简单的处理指令"></a>2、简单的处理指令</h3><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot; 1.0 &quot;</span>  encoding=<span class="string">&quot;utf-8&quot;</span> ?&gt;</span>  这里声明了版本和字符集  ，注意只可以放在第一行</span><br><span class="line"></span><br><span class="line">&lt;? xml-stylesheet type=&quot;text/css&quot; href=&quot;a.css&quot;?&gt;  指定的css样式表</span><br></pre></td></tr></table></figure></div>
-
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202308290839514.png"
-                      alt="image-20230829083937327" style="zoom: 200%;" 
-                >
-
-<p>这里的css样式的指定实际上只是普通的标签选择器。</p>
-<h3 id="3、XML的约束"><a href="#3、XML的约束" class="headerlink" title="3、XML的约束"></a>3、XML的约束</h3><p>xml 中存在着两种约束。dtd 和 schema  。</p>
-<p>约束就是规则，xml的约束就是指定 xml 文档中可以出现哪些元素以及不可以出现那些元素。</p>
-<h4 id="1、DTD"><a href="#1、DTD" class="headerlink" title="1、DTD"></a>1、DTD</h4><p>DTD（Document Type Deﬁnition），文档类型定义，用来约束XML文档。规定XML文档中元素的名称，子元素的名称及顺序，元素的属性等。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!ELEMENT <span class="title function_">students</span> <span class="params">(student+)</span>  &gt;   这里定义了一个元素 student  并且规定这里的 student出现一次或者多次，如果没有+号，则默认为只可以出现一次</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">student</span> <span class="params">(name,age,sex)</span>&gt;    意为student包含三类</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">name</span> <span class="params">(#PCDATA)</span>&gt;    #PCDATA 即直接为文本内容</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">age</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">        &lt;!ELEMENT <span class="title function_">sex</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">        &lt;!ATTLIST student number ID #REQUIRED&gt; </span><br><span class="line">student number ID : student标签中 有一个ID属性 叫做 number  ，#required 即规定必须</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<p>常见的符号：<br>问号？：表示该对象出现0次或1次<br>星号 * ：表示该对象出现0次或多次<br>加号 + ：表示该对象出现1次或多次<br>竖线 | ：表示在列出的对象中选择一个<br>逗号 , ：表示对象按照指定的顺序出现</p>
-<h4 id="3、DTD的引入"><a href="#3、DTD的引入" class="headerlink" title="3、DTD的引入"></a>3、DTD的引入</h4><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">&lt;！DOCTYPE student SYSTEM &quot;student.dtd&quot; &gt;</span><br></pre></td></tr></table></figure></div>
-
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;a.css&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">students</span>  <span class="keyword">SYSTEM</span> <span class="string">&quot;student.dtd&quot;</span>&gt;</span>  system后面跟的是同目录下的文件名    students是一个父标签，后面的约束存在于他的子目录下，经过尝试后发现不可以直接使用</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">students</span>&gt;</span>   父级标签</span><br><span class="line">    <span class="tag">&lt;<span class="name">student</span> <span class="attr">number</span>=<span class="string">&quot;number_123&quot;</span>&gt;</span>   这里的id属性与前端一致</span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>lisa<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  注意逗号是顺序，不可以调转顺序，不可以缺少</span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>26<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">sex</span>&gt;</span>female<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">students</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p><strong>这里第一感受是该约束与  CSS 中的选择器极其的相似</strong></p>
-<h4 id="4、DTD的三种引入方式"><a href="#4、DTD的三种引入方式" class="headerlink" title="4、DTD的三种引入方式"></a>4、DTD的三种引入方式</h4><h5 id="1、内部引入"><a href="#1、内部引入" class="headerlink" title="1、内部引入"></a>1、内部引入</h5><blockquote>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span><br><span class="line">&lt;?xml-stylesheet type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;a.css&quot;</span>?&gt;</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE student [      <span class="comment">//  这里实际上就是所谓的内部引入  ，和前端的css引入方式有点类似  ，注意是方括号和前面的   !DOCTYPE</span></span><br><span class="line"></span><br><span class="line">&lt;!ELEMENT <span class="title function_">students</span> <span class="params">(student+)</span>  &gt;   </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">student</span> <span class="params">(name,age,sex)</span>&gt;    </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">name</span> <span class="params">(#PCDATA)</span>&gt;  </span><br><span class="line">     &lt;!ELEMENT <span class="title function_">age</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">     &lt;!ELEMENT <span class="title function_">sex</span> <span class="params">(#PCDATA)</span>&gt;</span><br><span class="line">     &lt;!ATTLIST student number ID #REQUIRED&gt; </span><br><span class="line"></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">&lt;students&gt;   父级标签</span><br><span class="line"> &lt;student number=<span class="string">&quot;number_123&quot;</span>&gt;   这里的id属性与前端一致</span><br><span class="line">     &lt;name&gt;lisa&lt;/name&gt;  注意逗号是顺序，不可以调转顺序，不可以缺少</span><br><span class="line">     &lt;age&gt;<span class="number">26</span>&lt;/age&gt;</span><br><span class="line">     &lt;sex&gt;female&lt;/sex&gt;</span><br><span class="line"> &lt;/student&gt;</span><br><span class="line">&lt;/students&gt;</span><br></pre></td></tr></table></figure></div>
-
-
-</blockquote>
-<h5 id="2、public-外部引入"><a href="#2、public-外部引入" class="headerlink" title="2、public  外部引入"></a>2、public  外部引入</h5><div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line">使用公共的DTD约束</span><br><span class="line">&lt; !DOCTYPE 根元素名称 PUBLIC &quot;DTD名称&quot;  &quot;DTD文档的URL&quot;  &gt;</span><br><span class="line"></span><br><span class="line">注意这里的 public  而不是 SYSTEM</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h5 id="3、第三种即我们类似内部链接的-CSS方式"><a href="#3、第三种即我们类似内部链接的-CSS方式" class="headerlink" title="3、第三种即我们类似内部链接的  CSS方式"></a>3、第三种即我们类似内部链接的  CSS方式</h5><h4 id="2、Schema-x2F-ˈskiːmə-x2F"><a href="#2、Schema-x2F-ˈskiːmə-x2F" class="headerlink" title="2、Schema     &#x2F;ˈskiːmə&#x2F;"></a>2、Schema     &#x2F;ˈskiːmə&#x2F;</h4><ul>
-<li>Schema是新的XML文档约束, 比DTD强大很多，是DTD 替代者；</li>
-<li>Schema本身也是XML文档，但Schema文档的扩展名为xsd，而不是xml。</li>
-<li>Schema 功能更强大，内置多种简单和复杂的数据类型</li>
-<li>Schema 支持命名空间 (一个XML中可以引入多个约束文档)</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>&lt;dependency&gt;与&lt;dependencyManagement&gt;</title>
-    <url>/2025/09/14/dependency-%E4%B8%8E-dependencyManagement/</url>
-    <content><![CDATA[<h2 id="lt-dependenc-gt-与-lt-dependencyManagement-gt"><a href="#lt-dependenc-gt-与-lt-dependencyManagement-gt" class="headerlink" title="&lt;dependenc&gt;与&lt;dependencyManagement&gt;"></a><code>&lt;dependenc&gt;</code>与<code>&lt;dependencyManagement&gt;</code></h2><p>从前在pom中都只是直接通过<code>&lt;dependency&gt;</code> 进行依赖的添加，今天接触到了<code>&lt;dependencyManagement&gt;</code>。</p>
-<p>对比与从前的项目，我都是直接一个模块做到底，而本次的项目区分了多个模块，而每一个模块都是可以独立开发的，每一个模块都有独立的pom文件。</p>
-<p>在整个项目的pom中使用<code>&lt; dependencyManagement &gt;</code>，其主要是规定版本，而子模块的pom若是需要添加相同的依赖，可以省略版本号，会自动去父pom中寻找依赖。此举简化了一些依赖的版本号的修改。</p>
-<p>父pom：</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!-- 父项目必须是pom类型 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖管理：采购清单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                <span class="comment">&lt;!--被包含在 Management --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注意：父项目自己如果不用，这里就不需要写&lt;dependencies&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>子模块pom</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>child-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                         <span class="comment">&lt;!-- 一个单独的dependency --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号省略！Maven会去父POM的dependencyManagement里找 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号同样省略！ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt"><a href="#如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt" class="headerlink" title="如何理解 : 父项目自己如果不用，这里就不需要写&lt;dependencies&gt;"></a>如何理解 : 父项目自己如果不用，这里就不需要写<code>&lt;dependencies&gt;</code></h3><p>注意上述父pom示例代码注释中的并没有单独的<code>dependencies</code>，他是被包含在<code>dependencyManagement</code>。</p>
-<p>故，这里父pom这里只是规定了一下版本，自己并没有引入。<strong>父项目应该专注于扮演好“管理者”和“标准制定者”的角色，而不是“消费者”。它应该通过 <code>&lt;dependencyManagement&gt;</code> 来管理版本，而把实际引入依赖的决定权交给各个子模块。</strong> 这样可以保持项目的清晰和轻量，避免强制继承带来的冗余和问题。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2023/03/02/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
@@ -4024,50 +4024,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
-    <title>反射技术实现 Servlet 请求方法的动态选择</title>
-    <url>/2023/10/03/%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0-Servlet-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%8A%A8%E6%80%81%E9%80%89%E6%8B%A9/</url>
-    <content><![CDATA[<p>假设一个Servlet类，其中包含了多个处理请求的方法，那我们在处理请求时就需要进行判断具体使用哪一种处理方法，这其中难免使用到较多的  <code>if - else</code> 语句子，此时就可以使用反射技术。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多的处理请求方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="使用反射"><a href="#使用反射" class="headerlink" title="使用反射"></a>使用反射</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">action</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;action&quot;</span>);  <span class="comment">//   拿到浏览器传递过来的acation参数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 获取对应的方法</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 调用方法</span></span><br><span class="line">        method.invoke(<span class="built_in">this</span>, request, response);</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="comment">// 处理异常</span></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-
-
-<h5 id="核心代码："><a href="#核心代码：" class="headerlink" title="核心代码："></a>核心代码：</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line"> </span><br><span class="line"> method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li><p><code>this.getClass()</code>: 获取当前对象（即Servlet对象）的Class对象，<code>this</code> 代表当前对象的实例。</p>
-</li>
-<li><p>&amp;emsp; &amp;emsp; <code>.getMethod(&quot;handle&quot; + action, HttpServletRequest.class, HttpServletResponse.class)</code>: 在获得的Class对象上调用 <code>getMethod</code> 方法来获取一个特定的方法。这里方法名是通过拼接字符串来生成的，<code>&quot;handle&quot; + action</code> 就是将请求参数 <code>action</code> 的值拼接到字符串 “handle” 前面，以构建要调用的方法名。这一行代码首先获取了当前Servlet对象的类对象，然后使用<code>getMethod</code>方法来获取一个名为<code>handle</code>加上请求参数<code>action</code>值组成的方法。<strong>这里的<code>action</code>通常是从请求中获取的，用于标识要执行哪个具体的处理方法。</strong></p>
-</li>
-<li><ul>
-<li><code>&quot;handle&quot; + action</code> 会根据请求的 <code>action</code> 参数来构建方法名，比如如果 <code>action</code> 的值是 “Request1”，那么将会获取到名为 <code>handleRequest1</code> 的方法。</li>
-</ul>
-</li>
-<li><ul>
-<li><code>HttpServletRequest.class</code> 和 <code>HttpServletResponse.class</code> 是方法的参数类型，这里是告诉反射机制要找一个方法，这个方法接受一个 <code>HttpServletRequest</code> 和一个 <code>HttpServletResponse</code> 作为参数。</li>
-</ul>
-</li>
-</ul>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li><code>method.invoke(...)</code>: 这是反射机制的一部分，它用于调用特定的方法。<code>invoke</code> 方法需要传入两个参数</li>
-</ul>
-<ul>
-<li><p>第一个参数是要调用该方法的对象实例，在这里是当前的Servlet对象，用 <code>this</code> 表示。一旦我们获得了方法对象，就可以使用<code>invoke</code>方法来动态调用该方法。</p>
-</li>
-<li><p>第二个参数是该方法的实际参数，这里是 <code>request</code> 和 <code>response</code>。</p>
-</li>
-</ul>
-<p><strong>如此使用反射后就可以<code>xxxxx?action=方法名</code>实现动态的调用请求处理方法，达到简化的效果</strong></p>
-]]></content>
-  </entry>
-  <entry>
     <title>参数校验之 Validation 注解</title>
     <url>/2024/01/24/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E4%B9%8B-Validation-%E6%B3%A8%E8%A7%A3/</url>
     <content><![CDATA[<p>在 Controller层 接收前端发送来的参数时，往往对参数有一定的要求，Validation 注解在此处发挥着极大的作用 。</p>
@@ -4162,6 +4118,50 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241727703.png"
                       alt="image-20240124172707660" style="zoom: 50%;" 
                 >]]></content>
+  </entry>
+  <entry>
+    <title>反射技术实现 Servlet 请求方法的动态选择</title>
+    <url>/2023/10/03/%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0-Servlet-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%8A%A8%E6%80%81%E9%80%89%E6%8B%A9/</url>
+    <content><![CDATA[<p>假设一个Servlet类，其中包含了多个处理请求的方法，那我们在处理请求时就需要进行判断具体使用哪一种处理方法，这其中难免使用到较多的  <code>if - else</code> 语句子，此时就可以使用反射技术。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多的处理请求方法...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="使用反射"><a href="#使用反射" class="headerlink" title="使用反射"></a>使用反射</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">action</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;action&quot;</span>);  <span class="comment">//   拿到浏览器传递过来的acation参数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 获取对应的方法</span></span><br><span class="line">        <span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 调用方法</span></span><br><span class="line">        method.invoke(<span class="built_in">this</span>, request, response);</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        <span class="comment">// 处理异常</span></span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest1</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求1的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">handleRequest2</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> &#123;</span><br><span class="line">    <span class="comment">// 处理请求2的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h5 id="核心代码："><a href="#核心代码：" class="headerlink" title="核心代码："></a>核心代码：</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Method</span> <span class="variable">method</span> <span class="operator">=</span> <span class="built_in">this</span>.getClass().getMethod(<span class="string">&quot;handle&quot;</span> + action, HttpServletRequest.class, HttpServletResponse.class);</span><br><span class="line"> </span><br><span class="line"> method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p><code>this.getClass()</code>: 获取当前对象（即Servlet对象）的Class对象，<code>this</code> 代表当前对象的实例。</p>
+</li>
+<li><p>&amp;emsp; &amp;emsp; <code>.getMethod(&quot;handle&quot; + action, HttpServletRequest.class, HttpServletResponse.class)</code>: 在获得的Class对象上调用 <code>getMethod</code> 方法来获取一个特定的方法。这里方法名是通过拼接字符串来生成的，<code>&quot;handle&quot; + action</code> 就是将请求参数 <code>action</code> 的值拼接到字符串 “handle” 前面，以构建要调用的方法名。这一行代码首先获取了当前Servlet对象的类对象，然后使用<code>getMethod</code>方法来获取一个名为<code>handle</code>加上请求参数<code>action</code>值组成的方法。<strong>这里的<code>action</code>通常是从请求中获取的，用于标识要执行哪个具体的处理方法。</strong></p>
+</li>
+<li><ul>
+<li><code>&quot;handle&quot; + action</code> 会根据请求的 <code>action</code> 参数来构建方法名，比如如果 <code>action</code> 的值是 “Request1”，那么将会获取到名为 <code>handleRequest1</code> 的方法。</li>
+</ul>
+</li>
+<li><ul>
+<li><code>HttpServletRequest.class</code> 和 <code>HttpServletResponse.class</code> 是方法的参数类型，这里是告诉反射机制要找一个方法，这个方法接受一个 <code>HttpServletRequest</code> 和一个 <code>HttpServletResponse</code> 作为参数。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">method.invoke(<span class="built_in">this</span>, request, response);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>method.invoke(...)</code>: 这是反射机制的一部分，它用于调用特定的方法。<code>invoke</code> 方法需要传入两个参数</li>
+</ul>
+<ul>
+<li><p>第一个参数是要调用该方法的对象实例，在这里是当前的Servlet对象，用 <code>this</code> 表示。一旦我们获得了方法对象，就可以使用<code>invoke</code>方法来动态调用该方法。</p>
+</li>
+<li><p>第二个参数是该方法的实际参数，这里是 <code>request</code> 和 <code>response</code>。</p>
+</li>
+</ul>
+<p><strong>如此使用反射后就可以<code>xxxxx?action=方法名</code>实现动态的调用请求处理方法，达到简化的效果</strong></p>
+]]></content>
   </entry>
   <entry>
     <title>图床：安装注意点 以及 阿里云OSS相关收费</title>
