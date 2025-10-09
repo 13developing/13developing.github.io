@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Git 操作之 Pull 与 Checkout</title>
-    <url>/2025/09/16/Git-%E6%93%8D%E4%BD%9C%E4%B9%8B-Pull-%E4%B8%8E-Checkout/</url>
-    <content><![CDATA[<h2 id="Git-操作之-Pull-与-Checkout"><a href="#Git-操作之-Pull-与-Checkout" class="headerlink" title="Git 操作之 Pull 与 Checkout"></a>Git 操作之 Pull 与 Checkout</h2><p>从前使用 <code>git</code> 都是个人简单项目，所以 git 操作比较少。本次做项目，博主将每一次课程的内容都创建了一个分支，故每次针对性的学习章节内容就可以从这些分支中获取内容。</p>
-<p>创建一个新的项目之后，首先是配置远程仓库。但是配置了项目之后，并不知道项目的分支情况，故需要一次<code>fetch</code>，IDEA 中有按键**<code>Fetch All Remotes</code>** ，其意思是：<strong>与已配置的远程仓库（通常是 <code>origin</code>）进行通信，获取它上面所有分支的最新状态和信息，并更新到本地仓库记录中。</strong></p>
-<p>在获取了<code>All Remotes</code> 之后，如何将分支传输回本地呢？这里是有两个选择的：<code>Checkout</code> 和 <code>Pull</code>.</p>
-<p>首先先说答案，对于第一次拉取该分支，是应该<code>Checkout</code>。</p>
-<ul>
-<li>当你执行 <code>Checkout</code> 一个远程分支（比如 <code>origin/chapter-03</code>）时，Git 会做两件事：<ol>
-<li><strong>以远程分支为蓝本，创建一份一模一样的本地副本</strong>。这个本地副本的名字通常就是 <code>chapter-03</code>（会自动去掉 <code>origin/</code> 前缀）。</li>
-<li><strong>立即把你桌上的东西换成这本书的副本</strong>。你的工作目录里的文件会立刻变成 <code>chapter-03</code> 分支的内容。</li>
-</ol>
-</li>
-<li><strong>关键</strong>：<code>Checkout</code> 主要是一个<strong>切换</strong>和<strong>创建本地分支</strong>的操作。它的目的是让你<strong>开始基于某个分支进行工作</strong></li>
-</ul>
-<h4 id="而Pull是在什么情况下使用呢？"><a href="#而Pull是在什么情况下使用呢？" class="headerlink" title="而Pull是在什么情况下使用呢？"></a>而<code>Pull</code>是在什么情况下使用呢？</h4><ul>
-<li>它的使用场景是：<strong>你已经有本地副本了（比如你之前已经 <code>checkout</code> 了 <code>chapter-03</code>），现在你想更新它</strong>。</li>
-</ul>
-<p>即在你已经 <code>Checkout</code> 之后，远程该分支更新了一次，你先获取最新的该分支，则可使用 <code>Pull</code>,他会把最新的和你的本地副本进行合并(Merge)</p>
-<p>那如果没有本地副本的时候，<code>Checkout</code>和<code>Pull</code>是否是一样的呢？</p>
-<p>答案是否。当无本地分支副本的时候，进行<code>Pull</code>时:</p>
-<ol>
-<li><strong>Git 的行为（它会尝试这样做）：</strong><ul>
-<li>“你想把远程 <code>origin</code> 的 <code>chapter-03</code> 分支拉取下来。”</li>
-<li>“但是我发现你本地没有一个叫 <code>chapter-03</code> 的分支让我合并进去啊？”</li>
-<li>“算了，那我就在你<strong>当前所在的分支</strong>（比如 <code>main</code>）上，尝试把 <code>chapter-03</code> 的内容合并过来吧。”</li>
-</ul>
-</li>
-<li><strong>结果：</strong> 这会导致远程 <code>chapter-03</code> 分支的所有内容被<strong>合并到了你当前的分支（如 <code>main</code>）</strong>，而不是创建一个新的 <code>chapter-03</code> 分支。这会把你的当前分支搞得一团糟，完全不是你想要的结果。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>CSS基础</title>
     <url>/2023/04/12/CSS%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>鉴于HTML的页面的局限性，我们利用CSS来解决，中文：层叠样式表，是一种标记语言。</p>
@@ -648,30 +616,35 @@
 ]]></content>
   </entry>
   <entry>
-    <title>JSON初识</title>
-    <url>/2024/01/15/JSON%E5%88%9D%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
-<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
-<li>JSON 没有结束标签,长度更短,读写更快</li>
-<li>JSON 能够直接被JavaScript解释器解析</li>
-<li>JSON 可以使用数组</li>
+    <title>Git 操作之 Pull 与 Checkout</title>
+    <url>/2025/09/16/Git-%E6%93%8D%E4%BD%9C%E4%B9%8B-Pull-%E4%B8%8E-Checkout/</url>
+    <content><![CDATA[<h2 id="Git-操作之-Pull-与-Checkout"><a href="#Git-操作之-Pull-与-Checkout" class="headerlink" title="Git 操作之 Pull 与 Checkout"></a>Git 操作之 Pull 与 Checkout</h2><p>从前使用 <code>git</code> 都是个人简单项目，所以 git 操作比较少。本次做项目，博主将每一次课程的内容都创建了一个分支，故每次针对性的学习章节内容就可以从这些分支中获取内容。</p>
+<p>创建一个新的项目之后，首先是配置远程仓库。但是配置了项目之后，并不知道项目的分支情况，故需要一次<code>fetch</code>，IDEA 中有按键**<code>Fetch All Remotes</code>** ，其意思是：<strong>与已配置的远程仓库（通常是 <code>origin</code>）进行通信，获取它上面所有分支的最新状态和信息，并更新到本地仓库记录中。</strong></p>
+<p>在获取了<code>All Remotes</code> 之后，如何将分支传输回本地呢？这里是有两个选择的：<code>Checkout</code> 和 <code>Pull</code>.</p>
+<p>首先先说答案，对于第一次拉取该分支，是应该<code>Checkout</code>。</p>
+<ul>
+<li>当你执行 <code>Checkout</code> 一个远程分支（比如 <code>origin/chapter-03</code>）时，Git 会做两件事：<ol>
+<li><strong>以远程分支为蓝本，创建一份一模一样的本地副本</strong>。这个本地副本的名字通常就是 <code>chapter-03</code>（会自动去掉 <code>origin/</code> 前缀）。</li>
+<li><strong>立即把你桌上的东西换成这本书的副本</strong>。你的工作目录里的文件会立刻变成 <code>chapter-03</code> 分支的内容。</li>
+</ol>
+</li>
+<li><strong>关键</strong>：<code>Checkout</code> 主要是一个<strong>切换</strong>和<strong>创建本地分支</strong>的操作。它的目的是让你<strong>开始基于某个分支进行工作</strong></li>
 </ul>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
-<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
-
+<h4 id="而Pull是在什么情况下使用呢？"><a href="#而Pull是在什么情况下使用呢？" class="headerlink" title="而Pull是在什么情况下使用呢？"></a>而<code>Pull</code>是在什么情况下使用呢？</h4><ul>
+<li>它的使用场景是：<strong>你已经有本地副本了（比如你之前已经 <code>checkout</code> 了 <code>chapter-03</code>），现在你想更新它</strong>。</li>
+</ul>
+<p>即在你已经 <code>Checkout</code> 之后，远程该分支更新了一次，你先获取最新的该分支，则可使用 <code>Pull</code>,他会把最新的和你的本地副本进行合并(Merge)</p>
+<p>那如果没有本地副本的时候，<code>Checkout</code>和<code>Pull</code>是否是一样的呢？</p>
+<p>答案是否。当无本地分支副本的时候，进行<code>Pull</code>时:</p>
 <ol>
-<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
+<li><strong>Git 的行为（它会尝试这样做）：</strong><ul>
+<li>“你想把远程 <code>origin</code> 的 <code>chapter-03</code> 分支拉取下来。”</li>
+<li>“但是我发现你本地没有一个叫 <code>chapter-03</code> 的分支让我合并进去啊？”</li>
+<li>“算了，那我就在你<strong>当前所在的分支</strong>（比如 <code>main</code>）上，尝试把 <code>chapter-03</code> 的内容合并过来吧。”</li>
+</ul>
+</li>
+<li><strong>结果：</strong> 这会导致远程 <code>chapter-03</code> 分支的所有内容被<strong>合并到了你当前的分支（如 <code>main</code>）</strong>，而不是创建一个新的 <code>chapter-03</code> 分支。这会把你的当前分支搞得一团糟，完全不是你想要的结果。</li>
 </ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
-
 ]]></content>
   </entry>
   <entry>
@@ -976,6 +949,45 @@
 <div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span> html.test <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;xxx.php&quot;</span> <span class="attr">methed</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    用户名 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入用户名&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;6&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>密码 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;12&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--性别这里必须要有相同的 name 才可以实现多选一   label标签  --&gt;</span></span><br><span class="line">    性别 :<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;sexmale&quot;</span>&gt;</span> 男 <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex0&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sexmale&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;sexfemale&quot;</span>&gt;</span> 女 <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex0&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sexfemale&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--这是多选 --&gt;</span></span><br><span class="line">    爱好 : 吃饭<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span> 睡觉 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span>打豆豆<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;免费注册&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>    <span class="comment">&lt;!--submit是将我们的form中的数据提交到后台服务器--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--reset就把表单清空为初始状态呢--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--    普通按钮  button  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;发送短信验证码&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--    file属性  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传头像&quot;</span> <span class="attr">name</span>=<span class="string">&quot;img&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
 <h3 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>小胡的图片下载网站<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>欢迎来到小胡下载网站 <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#links&quot;</span>&gt;</span> 去跳转 <span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/girl.jpg&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span> <span class="attr">title</span>=<span class="string">&quot;girl&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/winter.jpg&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">title</span>=<span class="string">&quot;winter&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--注册页面--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    &lt;table align=&quot;center&quot; border=&quot;1&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 姓名 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 密码 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 性别 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;male&quot;</span>&gt;</span> 男 <span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;male&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;female&quot;</span>&gt;</span> 女 <span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;female&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--            &lt;td&gt; &lt;select&gt; &lt;option&gt; 男&lt;/option&gt; &lt;option&gt; 女&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">height</span>=<span class="string">&quot;60&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 自我介绍 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">row</span>=<span class="string">&quot;100&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;40&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 籍贯 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 华中<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 西北<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 华南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 华北<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--        &lt;tr colspan=&quot;2&quot;&gt;&lt;/tr&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 表格操作 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;免费注册&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>    <span class="comment">&lt;!--submit是将我们的form中的数据提交到后台服务器--&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--reset就把表单清空为初始状态呢--&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;links&quot;</span>&gt;</span> 相关链接 <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;download.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h3</span>&gt;</span>下载图片压缩包<span class="tag">&lt;/<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.bilibili.com/?spm_id_from=333.1007.0.0&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/bilibili.png&quot;</span></span></span><br><span class="line"><span class="tag">                                                                                   <span class="attr">height</span>=<span class="string">&quot;100&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://lol.qq.com/main.shtml&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/lol.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></div>]]></content>
+  </entry>
+  <entry>
+    <title>ResultSetHandler  和 BeanListHandler 的区别</title>
+    <url>/2023/10/17/ResultSetHandler-%E5%92%8C-BeanListHandler-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>二者都是 Apache Commons DbUtils 库中的类，用于简化 JDBC 操作。</p>
+<ol>
+<li><p><strong>ResultSetHandler</strong>：</p>
+<p><code>ResultSetHandler</code> 是一个接口，它定义了将 SQL 查询结果集（ResultSet）转换为不同类型的对象的方法。</p>
+<p>例如，它可以将查询结果集转换为单个对象、列表、Map 等等。它提供了灵活的方式来处理查询结果。</p>
+</li>
+<li><p><strong>BeanListHandler</strong>：</p>
+<p><code>BeanListHandler</code> 是 <code>ResultSetHandler</code> 的一个具体实现，它将结果集转换为一个包含 JavaBean 对象的列表。</p>
+<p>这是一个常用的操作，特别是当你从数据库中检索一组记录，并希望将每一行映射为一个 JavaBean 对象时。每一行的字段将会与 JavaBean 的属性进行<strong>匹配</strong></p>
+</li>
+</ol>
+<p>使用 BeanListHandler 能够简化操作，详情见以下实例：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">					========未使用  BeanListHandler    的    ResultSetHandler   版本=========</span><br><span class="line"></span><br><span class="line">queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">ResultSetHandler</span>&lt;List&lt;Student&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> List&lt;Student&gt; <span class="title function_">handle</span><span class="params">(ResultSet resultSet)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                    List&lt;Student&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                    <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">                        <span class="type">Student</span> <span class="variable">entity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">                        entity.setId(resultSet.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                        entity.setAge(resultSet.getInt(<span class="string">&quot;age&quot;</span>));</span><br><span class="line">                        entity.setAccount(resultSet.getInt(<span class="string">&quot;account&quot;</span>));</span><br><span class="line">                        entity.setClassid(resultSet.getInt(<span class="string">&quot;classid&quot;</span>));</span><br><span class="line">                        entity.setStuno(resultSet.getString(<span class="string">&quot;stuno&quot;</span>));</span><br><span class="line">                        entity.setName(resultSet.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                        entity.setGender(resultSet.getString(<span class="string">&quot;gender&quot;</span>));</span><br><span class="line">                        entity.setEmail(resultSet.getString(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">                        entity.setTelephone(resultSet.getString(<span class="string">&quot;telephone&quot;</span>));</span><br><span class="line">                        entity.setAddress(resultSet.getString(<span class="string">&quot;adress&quot;</span>));</span><br><span class="line">                        entity.setWechat(resultSet.getString(<span class="string">&quot;wechat&quot;</span>));</span><br><span class="line">                        entity.setClassname(resultSet.getString(<span class="string">&quot;classname&quot;</span>));</span><br><span class="line">                        entity.setDepartname(resultSet.getString(<span class="string">&quot;departname&quot;</span>));</span><br><span class="line">                        entity.setCreatetime(resultSet.getDate(<span class="string">&quot;createtime&quot;</span>));</span><br><span class="line">                        list.add(entity);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> list;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				====================使用BeanListHandler的简化版本================</span><br><span class="line">                    </span><br><span class="line">             List&lt;Student&gt; list = queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">BeanListHandler</span>&lt;Student&gt;(Student.class), pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line">            <span class="keyword">return</span> list;       </span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">				===============================End======================================</span><br><span class="line">                    </span><br></pre></td></tr></table></figure></div>
+
+<p>在未使用 BeanListHandler 的时候，我们需要不断的将 resultset 取到的每一条结果一个个转化为对应类型，并且存储到List 中，但是使用了BeanListHandler 后，我们简化了转化操作 ，以下是代码解释：</p>
+<ol>
+<li><p><code>BeanListHandler&lt;Student&gt;</code>：这部分表示创建了一个 <code>BeanListHandler</code> 的实例，并且指定了它将会处理的对象类型是 <code>Student</code>。<code>BeanListHandler</code> 用于将数据库查询结果转换为一个包含指定类型对象的列List</p>
+</li>
+<li><p><code>(Student.class)</code>：这是一个类参数，指定了要将结果集中的每一行数据映射到的目标类。在这里，它指定了要将每一行数据映射为 <code>Student</code> 类型的对象。也就是说，它会自动的将查询到的数据的属性映射到Bean的属性并存储，不需要我们手动。</p>
+</li>
+<li><p>但是前提是Database中的每一条记录的字段名要与Bean中的每一个属性都相同，见下图</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911222.png"
+                      alt="image-20231017091107092" style="zoom:50%;" 
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911425.png"
+                      alt="image-20231017091138379" style="zoom:50%;" 
+                ></p>
+</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>JAVA基础</title>
@@ -1284,42 +1296,30 @@
 ]]></content>
   </entry>
   <entry>
-    <title>ResultSetHandler  和 BeanListHandler 的区别</title>
-    <url>/2023/10/17/ResultSetHandler-%E5%92%8C-BeanListHandler-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>二者都是 Apache Commons DbUtils 库中的类，用于简化 JDBC 操作。</p>
-<ol>
-<li><p><strong>ResultSetHandler</strong>：</p>
-<p><code>ResultSetHandler</code> 是一个接口，它定义了将 SQL 查询结果集（ResultSet）转换为不同类型的对象的方法。</p>
-<p>例如，它可以将查询结果集转换为单个对象、列表、Map 等等。它提供了灵活的方式来处理查询结果。</p>
-</li>
-<li><p><strong>BeanListHandler</strong>：</p>
-<p><code>BeanListHandler</code> 是 <code>ResultSetHandler</code> 的一个具体实现，它将结果集转换为一个包含 JavaBean 对象的列表。</p>
-<p>这是一个常用的操作，特别是当你从数据库中检索一组记录，并希望将每一行映射为一个 JavaBean 对象时。每一行的字段将会与 JavaBean 的属性进行<strong>匹配</strong></p>
-</li>
-</ol>
-<p>使用 BeanListHandler 能够简化操作，详情见以下实例：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">					========未使用  BeanListHandler    的    ResultSetHandler   版本=========</span><br><span class="line"></span><br><span class="line">queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">ResultSetHandler</span>&lt;List&lt;Student&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> List&lt;Student&gt; <span class="title function_">handle</span><span class="params">(ResultSet resultSet)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                    List&lt;Student&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                    <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">                        <span class="type">Student</span> <span class="variable">entity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">                        entity.setId(resultSet.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                        entity.setAge(resultSet.getInt(<span class="string">&quot;age&quot;</span>));</span><br><span class="line">                        entity.setAccount(resultSet.getInt(<span class="string">&quot;account&quot;</span>));</span><br><span class="line">                        entity.setClassid(resultSet.getInt(<span class="string">&quot;classid&quot;</span>));</span><br><span class="line">                        entity.setStuno(resultSet.getString(<span class="string">&quot;stuno&quot;</span>));</span><br><span class="line">                        entity.setName(resultSet.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                        entity.setGender(resultSet.getString(<span class="string">&quot;gender&quot;</span>));</span><br><span class="line">                        entity.setEmail(resultSet.getString(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">                        entity.setTelephone(resultSet.getString(<span class="string">&quot;telephone&quot;</span>));</span><br><span class="line">                        entity.setAddress(resultSet.getString(<span class="string">&quot;adress&quot;</span>));</span><br><span class="line">                        entity.setWechat(resultSet.getString(<span class="string">&quot;wechat&quot;</span>));</span><br><span class="line">                        entity.setClassname(resultSet.getString(<span class="string">&quot;classname&quot;</span>));</span><br><span class="line">                        entity.setDepartname(resultSet.getString(<span class="string">&quot;departname&quot;</span>));</span><br><span class="line">                        entity.setCreatetime(resultSet.getDate(<span class="string">&quot;createtime&quot;</span>));</span><br><span class="line">                        list.add(entity);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> list;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				====================使用BeanListHandler的简化版本================</span><br><span class="line">                    </span><br><span class="line">             List&lt;Student&gt; list = queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">BeanListHandler</span>&lt;Student&gt;(Student.class), pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line">            <span class="keyword">return</span> list;       </span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">				===============================End======================================</span><br><span class="line">                    </span><br></pre></td></tr></table></figure></div>
+    <title>JSON初识</title>
+    <url>/2024/01/15/JSON%E5%88%9D%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
+<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
 
-<p>在未使用 BeanListHandler 的时候，我们需要不断的将 resultset 取到的每一条结果一个个转化为对应类型，并且存储到List 中，但是使用了BeanListHandler 后，我们简化了转化操作 ，以下是代码解释：</p>
-<ol>
-<li><p><code>BeanListHandler&lt;Student&gt;</code>：这部分表示创建了一个 <code>BeanListHandler</code> 的实例，并且指定了它将会处理的对象类型是 <code>Student</code>。<code>BeanListHandler</code> 用于将数据库查询结果转换为一个包含指定类型对象的列List</p>
-</li>
-<li><p><code>(Student.class)</code>：这是一个类参数，指定了要将结果集中的每一行数据映射到的目标类。在这里，它指定了要将每一行数据映射为 <code>Student</code> 类型的对象。也就是说，它会自动的将查询到的数据的属性映射到Bean的属性并存储，不需要我们手动。</p>
-</li>
-<li><p>但是前提是Database中的每一条记录的字段名要与Bean中的每一个属性都相同，见下图</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911222.png"
-                      alt="image-20231017091107092" style="zoom:50%;" 
-                ><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911425.png"
-                      alt="image-20231017091138379" style="zoom:50%;" 
-                ></p>
-</li>
+<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
+<li>JSON 没有结束标签,长度更短,读写更快</li>
+<li>JSON 能够直接被JavaScript解释器解析</li>
+<li>JSON 可以使用数组</li>
+</ul>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
+<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
 </ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
+
 ]]></content>
   </entry>
   <entry>
@@ -1488,6 +1488,70 @@
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170941186.png"
                       alt="image-20240117094136147" style="zoom:50%;" 
                 >]]></content>
+  </entry>
+  <entry>
+    <title>Spring容器启动顺序</title>
+    <url>/2025/09/26/Spring%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/</url>
+    <content><![CDATA[<h3 id="Spring容器的加载顺序"><a href="#Spring容器的加载顺序" class="headerlink" title="Spring容器的加载顺序"></a>Spring容器的加载顺序</h3><p>Spring容器的启动不是”一锅烩”，而是分两个主要阶段：</p>
+<ol>
+<li><p><strong>配置解析阶段</strong>：读取和理解所有配置信息（YML、注解等）</p>
+</li>
+<li><p><strong>Bean创建阶段</strong>：根据配置信息实例化Bean，并解决依赖关系</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509260913072.png"
+                      alt="image-20250926091340974"
+                ></p>
+</li>
+</ol>
+<h4 id="阶段一：配置解析（容器准备阶段）"><a href="#阶段一：配置解析（容器准备阶段）" class="headerlink" title="阶段一：配置解析（容器准备阶段）"></a>阶段一：配置解析（容器准备阶段）</h4><p><strong>1. 加载YML配置文件（最早发生）</strong></p>
+<ul>
+<li>Spring在启动的最初期就会读取<code>application.yml</code>或<code>application.properties</code></li>
+<li>将这些配置信息加载到Spring的<code>Environment</code>（环境）中</li>
+<li><strong>此时配置信息已经就绪，但还没有任何Bean被创建</strong></li>
+</ul>
+<h4 id="阶段二：Bean创建与装配（容器初始化阶段）"><a href="#阶段二：Bean创建与装配（容器初始化阶段）" class="headerlink" title="阶段二：Bean创建与装配（容器初始化阶段）"></a>阶段二：Bean创建与装配（容器初始化阶段）</h4><p><strong>2. 扫描组件注解</strong></p>
+<ul>
+<li>Spring扫描配置的包路径，识别带有以下注解的类：<ul>
+<li><code>@Component</code>（基础注解）</li>
+<li><code>@Service</code>、<code>@Controller</code>、<code>@Repository</code>、<code>@RestController</code>、<code>@Configuration</code>等（这些都是<code>@Component</code>的特殊形式）</li>
+<li><code>@Mapper</code>（MyBatis注解，需要配合<code>@MapperScan</code>）</li>
+</ul>
+</li>
+<li><strong>注意</strong>：此时只是”登记”了这些类需要被创建为Bean，但还没有真正实例化。</li>
+</ul>
+<p><strong>3. 创建Bean实例（按依赖关系，非注解类型顺序）</strong></p>
+<ul>
+<li>Spring开始创建Bean实例，但<strong>不是按照注解类型顺序</strong>！</li>
+<li>创建顺序主要由<strong>依赖关系</strong>决定：如果Bean A依赖Bean B，那么Spring会先创建Bean B</li>
+<li>对于没有依赖关系的Bean，创建顺序<strong>不确定</strong>（不要依赖这个顺序）</li>
+</ul>
+<p><strong>4. 处理@Configuration和@Bean</strong></p>
+<ul>
+<li>当创建<code>@Configuration</code>类时，会执行其中的<code>@Bean</code>方法</li>
+<li>这些方法返回的对象也会被注册为Spring Bean</li>
+</ul>
+<p><strong>5. 依赖注入（@Resource&#x2F;@Autowired&#x2F;@Value）</strong></p>
+<ul>
+<li>在所有Bean实例化之后，Spring开始注入依赖</li>
+<li>比如你的<code>@Value(&quot;$&#123;alipay.notify_url&#125;&quot;)</code>就是在这个阶段被赋值的</li>
+<li><code>@Resource</code>和<code>@Autowired</code>也是在这个阶段完成注入</li>
+</ul>
+<p><strong>6. 生命周期回调</strong></p>
+<ul>
+<li>所有依赖注入完成后，执行<code>@PostConstruct</code>注解的方法</li>
+<li>如果Bean实现了<code>InitializingBean</code>接口，会调用<code>afterPropertiesSet()</code>方法</li>
+</ul>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p><strong>同类型注解无固定顺序</strong>：<code>@Service</code>、<code>@Controller</code>、<code>@Repository</code>之间没有固定的加载顺序；</p>
+<p><strong>依赖决定顺序</strong>：被依赖的Bean先创建</p>
+<h4 id="细看构造方法和注解的顺序"><a href="#细看构造方法和注解的顺序" class="headerlink" title="细看构造方法和注解的顺序"></a>细看构造方法和注解的顺序</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509260922254.png"
+                      alt="image-20250926092215222"
+                ></p>
+]]></content>
   </entry>
   <entry>
     <title>JAVA图形化编程基础</title>
@@ -3073,70 +3137,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cn.itcast.swing.util.ImagePathUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ListCellRendererTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">JFrame</span> <span class="variable">mainWin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFrame</span>(<span class="string">&quot;好友列表&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String[] friends = &#123;</span><br><span class="line">            <span class="string">&quot;李清照&quot;</span>,</span><br><span class="line">            <span class="string">&quot;苏格拉底&quot;</span>,</span><br><span class="line">            <span class="string">&quot;李白&quot;</span>,</span><br><span class="line">            <span class="string">&quot;弄玉&quot;</span>,</span><br><span class="line">            <span class="string">&quot;虎头&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个JList对象</span></span><br><span class="line">    <span class="type">JList</span> <span class="variable">friendsList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JList</span>(friends);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//设置JList使用ImageCellRenderer作为列表项绘制器</span></span><br><span class="line">        friendsList.setCellRenderer(<span class="keyword">new</span> <span class="title class_">ImageCellRenderer</span>());</span><br><span class="line"></span><br><span class="line">        mainWin.add(<span class="keyword">new</span> <span class="title class_">JScrollPane</span>(friendsList));</span><br><span class="line">        mainWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        mainWin.pack();</span><br><span class="line">        mainWin.setVisible(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">ListCellRendererTest</span>().init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ImageCellRenderer</span> <span class="keyword">extends</span> <span class="title class_">JPanel</span> <span class="keyword">implements</span> <span class="title class_">ListCellRenderer</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> ImageIcon icon;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="comment">//定义绘制单元格的背景色</span></span><br><span class="line">        <span class="keyword">private</span> Color background;</span><br><span class="line">        <span class="comment">//定义绘制单元格的前景色</span></span><br><span class="line">        <span class="keyword">private</span> Color foreground;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Component <span class="title function_">getListCellRendererComponent</span><span class="params">(JList list, Object value, <span class="type">int</span> index, <span class="type">boolean</span> isSelected, <span class="type">boolean</span> cellHasFocus)</span> &#123;</span><br><span class="line"></span><br><span class="line">            icon = <span class="keyword">new</span> <span class="title class_">ImageIcon</span>(ImagePathUtil.getRealPath(<span class="string">&quot;9\\&quot;</span> + value + <span class="string">&quot;.gif&quot;</span>));</span><br><span class="line">            name = value.toString();</span><br><span class="line">            background = isSelected ? list.getSelectionBackground() : list.getBackground();</span><br><span class="line">            foreground = isSelected ? list.getSelectionForeground() : list.getForeground();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//返回当前JPanel对象，作为列表项绘制器</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">paintComponent</span><span class="params">(Graphics g)</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">width</span> <span class="operator">=</span> icon.getImage().getWidth(<span class="literal">null</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">height</span> <span class="operator">=</span> icon.getImage().getHeight(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//填充背景矩形</span></span><br><span class="line">            g.setColor(background);</span><br><span class="line">            g.fillRect(<span class="number">0</span>,<span class="number">0</span>,getWidth(),getHeight());</span><br><span class="line"></span><br><span class="line">            g.setColor(foreground);</span><br><span class="line">            <span class="comment">//绘制好友头像</span></span><br><span class="line">            g.drawImage(icon.getImage(),getWidth()/<span class="number">2</span>-width/<span class="number">2</span>,<span class="number">10</span>,<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制好友昵称</span></span><br><span class="line">            g.setFont(<span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;SansSerif&quot;</span>,Font.BOLD,<span class="number">18</span>));</span><br><span class="line">            g.drawString(name,getWidth()/<span class="number">2</span>-name.length()*<span class="number">10</span>,height+<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Dimension <span class="title function_">getPreferredSize</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Dimension</span>(<span class="number">60</span>,<span class="number">80</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
   </entry>
   <entry>
-    <title>Spring容器启动顺序</title>
-    <url>/2025/09/26/Spring%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/</url>
-    <content><![CDATA[<h3 id="Spring容器的加载顺序"><a href="#Spring容器的加载顺序" class="headerlink" title="Spring容器的加载顺序"></a>Spring容器的加载顺序</h3><p>Spring容器的启动不是”一锅烩”，而是分两个主要阶段：</p>
-<ol>
-<li><p><strong>配置解析阶段</strong>：读取和理解所有配置信息（YML、注解等）</p>
-</li>
-<li><p><strong>Bean创建阶段</strong>：根据配置信息实例化Bean，并解决依赖关系</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509260913072.png"
-                      alt="image-20250926091340974"
-                ></p>
-</li>
-</ol>
-<h4 id="阶段一：配置解析（容器准备阶段）"><a href="#阶段一：配置解析（容器准备阶段）" class="headerlink" title="阶段一：配置解析（容器准备阶段）"></a>阶段一：配置解析（容器准备阶段）</h4><p><strong>1. 加载YML配置文件（最早发生）</strong></p>
-<ul>
-<li>Spring在启动的最初期就会读取<code>application.yml</code>或<code>application.properties</code></li>
-<li>将这些配置信息加载到Spring的<code>Environment</code>（环境）中</li>
-<li><strong>此时配置信息已经就绪，但还没有任何Bean被创建</strong></li>
-</ul>
-<h4 id="阶段二：Bean创建与装配（容器初始化阶段）"><a href="#阶段二：Bean创建与装配（容器初始化阶段）" class="headerlink" title="阶段二：Bean创建与装配（容器初始化阶段）"></a>阶段二：Bean创建与装配（容器初始化阶段）</h4><p><strong>2. 扫描组件注解</strong></p>
-<ul>
-<li>Spring扫描配置的包路径，识别带有以下注解的类：<ul>
-<li><code>@Component</code>（基础注解）</li>
-<li><code>@Service</code>、<code>@Controller</code>、<code>@Repository</code>、<code>@RestController</code>、<code>@Configuration</code>等（这些都是<code>@Component</code>的特殊形式）</li>
-<li><code>@Mapper</code>（MyBatis注解，需要配合<code>@MapperScan</code>）</li>
-</ul>
-</li>
-<li><strong>注意</strong>：此时只是”登记”了这些类需要被创建为Bean，但还没有真正实例化。</li>
-</ul>
-<p><strong>3. 创建Bean实例（按依赖关系，非注解类型顺序）</strong></p>
-<ul>
-<li>Spring开始创建Bean实例，但<strong>不是按照注解类型顺序</strong>！</li>
-<li>创建顺序主要由<strong>依赖关系</strong>决定：如果Bean A依赖Bean B，那么Spring会先创建Bean B</li>
-<li>对于没有依赖关系的Bean，创建顺序<strong>不确定</strong>（不要依赖这个顺序）</li>
-</ul>
-<p><strong>4. 处理@Configuration和@Bean</strong></p>
-<ul>
-<li>当创建<code>@Configuration</code>类时，会执行其中的<code>@Bean</code>方法</li>
-<li>这些方法返回的对象也会被注册为Spring Bean</li>
-</ul>
-<p><strong>5. 依赖注入（@Resource&#x2F;@Autowired&#x2F;@Value）</strong></p>
-<ul>
-<li>在所有Bean实例化之后，Spring开始注入依赖</li>
-<li>比如你的<code>@Value(&quot;$&#123;alipay.notify_url&#125;&quot;)</code>就是在这个阶段被赋值的</li>
-<li><code>@Resource</code>和<code>@Autowired</code>也是在这个阶段完成注入</li>
-</ul>
-<p><strong>6. 生命周期回调</strong></p>
-<ul>
-<li>所有依赖注入完成后，执行<code>@PostConstruct</code>注解的方法</li>
-<li>如果Bean实现了<code>InitializingBean</code>接口，会调用<code>afterPropertiesSet()</code>方法</li>
-</ul>
-<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p><strong>同类型注解无固定顺序</strong>：<code>@Service</code>、<code>@Controller</code>、<code>@Repository</code>之间没有固定的加载顺序；</p>
-<p><strong>依赖决定顺序</strong>：被依赖的Bean先创建</p>
-<h4 id="细看构造方法和注解的顺序"><a href="#细看构造方法和注解的顺序" class="headerlink" title="细看构造方法和注解的顺序"></a>细看构造方法和注解的顺序</h4><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509260922254.png"
-                      alt="image-20250926092215222"
-                ></p>
-]]></content>
-  </entry>
-  <entry>
     <title>注解@WebServlet 的初识</title>
     <url>/2023/09/13/WebServlet%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
     <content><![CDATA[<ul>
@@ -3290,6 +3290,22 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
+    <title>&lt;dependency&gt;与&lt;dependencyManagement&gt;</title>
+    <url>/2025/09/14/dependency-%E4%B8%8E-dependencyManagement/</url>
+    <content><![CDATA[<h2 id="lt-dependenc-gt-与-lt-dependencyManagement-gt"><a href="#lt-dependenc-gt-与-lt-dependencyManagement-gt" class="headerlink" title="&lt;dependenc&gt;与&lt;dependencyManagement&gt;"></a><code>&lt;dependenc&gt;</code>与<code>&lt;dependencyManagement&gt;</code></h2><p>从前在pom中都只是直接通过<code>&lt;dependency&gt;</code> 进行依赖的添加，今天接触到了<code>&lt;dependencyManagement&gt;</code>。</p>
+<p>对比与从前的项目，我都是直接一个模块做到底，而本次的项目区分了多个模块，而每一个模块都是可以独立开发的，每一个模块都有独立的pom文件。</p>
+<p>在整个项目的pom中使用<code>&lt; dependencyManagement &gt;</code>，其主要是规定版本，而子模块的pom若是需要添加相同的依赖，可以省略版本号，会自动去父pom中寻找依赖。此举简化了一些依赖的版本号的修改。</p>
+<p>父pom：</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!-- 父项目必须是pom类型 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖管理：采购清单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                <span class="comment">&lt;!--被包含在 Management --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注意：父项目自己如果不用，这里就不需要写&lt;dependencies&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>子模块pom</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>child-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                         <span class="comment">&lt;!-- 一个单独的dependency --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号省略！Maven会去父POM的dependencyManagement里找 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号同样省略！ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt"><a href="#如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt" class="headerlink" title="如何理解 : 父项目自己如果不用，这里就不需要写&lt;dependencies&gt;"></a>如何理解 : 父项目自己如果不用，这里就不需要写<code>&lt;dependencies&gt;</code></h3><p>注意上述父pom示例代码注释中的并没有单独的<code>dependencies</code>，他是被包含在<code>dependencyManagement</code>。</p>
+<p>故，这里父pom这里只是规定了一下版本，自己并没有引入。<strong>父项目应该专注于扮演好“管理者”和“标准制定者”的角色，而不是“消费者”。它应该通过 <code>&lt;dependencyManagement&gt;</code> 来管理版本，而把实际引入依赖的决定权交给各个子模块。</strong> 这样可以保持项目的清晰和轻量，避免强制继承带来的冗余和问题。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/03/02/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
@@ -3305,22 +3321,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
 
 <p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>&lt;dependency&gt;与&lt;dependencyManagement&gt;</title>
-    <url>/2025/09/14/dependency-%E4%B8%8E-dependencyManagement/</url>
-    <content><![CDATA[<h2 id="lt-dependenc-gt-与-lt-dependencyManagement-gt"><a href="#lt-dependenc-gt-与-lt-dependencyManagement-gt" class="headerlink" title="&lt;dependenc&gt;与&lt;dependencyManagement&gt;"></a><code>&lt;dependenc&gt;</code>与<code>&lt;dependencyManagement&gt;</code></h2><p>从前在pom中都只是直接通过<code>&lt;dependency&gt;</code> 进行依赖的添加，今天接触到了<code>&lt;dependencyManagement&gt;</code>。</p>
-<p>对比与从前的项目，我都是直接一个模块做到底，而本次的项目区分了多个模块，而每一个模块都是可以独立开发的，每一个模块都有独立的pom文件。</p>
-<p>在整个项目的pom中使用<code>&lt; dependencyManagement &gt;</code>，其主要是规定版本，而子模块的pom若是需要添加相同的依赖，可以省略版本号，会自动去父pom中寻找依赖。此举简化了一些依赖的版本号的修改。</p>
-<p>父pom：</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!-- 父项目必须是pom类型 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖管理：采购清单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                <span class="comment">&lt;!--被包含在 Management --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注意：父项目自己如果不用，这里就不需要写&lt;dependencies&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>子模块pom</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>child-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                         <span class="comment">&lt;!-- 一个单独的dependency --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号省略！Maven会去父POM的dependencyManagement里找 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号同样省略！ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt"><a href="#如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt" class="headerlink" title="如何理解 : 父项目自己如果不用，这里就不需要写&lt;dependencies&gt;"></a>如何理解 : 父项目自己如果不用，这里就不需要写<code>&lt;dependencies&gt;</code></h3><p>注意上述父pom示例代码注释中的并没有单独的<code>dependencies</code>，他是被包含在<code>dependencyManagement</code>。</p>
-<p>故，这里父pom这里只是规定了一下版本，自己并没有引入。<strong>父项目应该专注于扮演好“管理者”和“标准制定者”的角色，而不是“消费者”。它应该通过 <code>&lt;dependencyManagement&gt;</code> 来管理版本，而把实际引入依赖的决定权交给各个子模块。</strong> 这样可以保持项目的清晰和轻量，避免强制继承带来的冗余和问题。</p>
 ]]></content>
   </entry>
   <entry>
@@ -3386,6 +3386,27 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
+    <title>java:构造代码块 和 静态代码块的区别</title>
+    <url>/2023/03/08/java-%E6%9E%84%E9%80%A0%E4%BB%A3%E7%A0%81%E5%9D%97-%E5%92%8C-%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="java-：构造代码块-和-静态代码块"><a href="#java-：构造代码块-和-静态代码块" class="headerlink" title="java ：构造代码块 和 静态代码块"></a>java ：构造代码块 和 静态代码块</h2><p>以下是我对于二者区别浅薄的认识 ：</p>
+<p>构造代码块：</p>
+<ul>
+<li><p>{…}花括号包裹起来的代码我们称之为代码块或代码段。而只有一对花括号包裹起来的代码我们称之为构造代码块。</p>
+</li>
+<li><p>构造代码块在构造方法之前先执行，构造代码块与构造方法一样都是在类被实例化的过程中被调用的。<strong>即每调用一次构造函数，都会在构造函数之前调用 —构造代码块–</strong></p>
+</li>
+</ul>
+<p>如以下案例 ：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.plaf.basic.BasicInternalFrameTitlePane;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> gender;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span> &#123;    <span class="comment">//构造函数的重载</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是无参构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(String name, <span class="type">int</span> age, <span class="type">int</span> gender)</span> &#123;         <span class="comment">//构造函数的重载</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是含参构造方法&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;     </span><br><span class="line">        System.out.println(<span class="string">&quot;我是静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;   <span class="comment">//只有括号而没有任何前缀</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;小明&quot;</span>, <span class="number">20</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 案例运行结果：</span></span><br><span class="line">    我是静态代码块</span><br><span class="line">	我是构造代码块</span><br><span class="line">	我是无参构造方法</span><br><span class="line">	我是构造代码块</span><br><span class="line">	我是有参构造方法</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>由上述运行结果我们不难得出 staic 代码块 即 <strong>静态代码块</strong>的特点：</p>
+<ul>
+<li>静态代码块在类加载的时候运行，<strong>并且只运行一次</strong>；</li>
+<li>静态代码块的执行优先级：优于各种代码块和构造函数；</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>req.getRequestDispatcher  和  resp.sendRedirect()   的区别</title>
     <url>/2023/10/09/req-getRequestDispatcher-%E5%92%8C-resp-sendRedirect-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<p><code>req.getRequestDispatcher()</code> 和 <code>resp.sendRedirect()</code> 是在Java Servlet中用于页面跳转的两种不同方法，它们有一些重要的区别：</p>
@@ -3419,45 +3440,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <li>使用 <code>req.getRequestDispatcher()</code> 实现的是服务器端的跳转，不会改变客户端的地址栏内容，适用于在同一个应用内部进行页面跳转并共享请求信息。</li>
 <li>使用 <code>resp.sendRedirect()</code> 实现的是客户端的重定向，会改变客户端的地址栏内容，适用于跳转到其他应用或者外部URL，或者在跳转时不需要保留之前请求的信息。</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>java:构造代码块 和 静态代码块的区别</title>
-    <url>/2023/03/08/java-%E6%9E%84%E9%80%A0%E4%BB%A3%E7%A0%81%E5%9D%97-%E5%92%8C-%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h2 id="java-：构造代码块-和-静态代码块"><a href="#java-：构造代码块-和-静态代码块" class="headerlink" title="java ：构造代码块 和 静态代码块"></a>java ：构造代码块 和 静态代码块</h2><p>以下是我对于二者区别浅薄的认识 ：</p>
-<p>构造代码块：</p>
-<ul>
-<li><p>{…}花括号包裹起来的代码我们称之为代码块或代码段。而只有一对花括号包裹起来的代码我们称之为构造代码块。</p>
-</li>
-<li><p>构造代码块在构造方法之前先执行，构造代码块与构造方法一样都是在类被实例化的过程中被调用的。<strong>即每调用一次构造函数，都会在构造函数之前调用 —构造代码块–</strong></p>
-</li>
-</ul>
-<p>如以下案例 ：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.plaf.basic.BasicInternalFrameTitlePane;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.lang.System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> gender;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span> &#123;    <span class="comment">//构造函数的重载</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是无参构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(String name, <span class="type">int</span> age, <span class="type">int</span> gender)</span> &#123;         <span class="comment">//构造函数的重载</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是含参构造方法&quot;</span>);</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">        <span class="built_in">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;     </span><br><span class="line">        System.out.println(<span class="string">&quot;我是静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;   <span class="comment">//只有括号而没有任何前缀</span></span><br><span class="line">        System.out.println(<span class="string">&quot;我是构造代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;小明&quot;</span>, <span class="number">20</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 案例运行结果：</span></span><br><span class="line">    我是静态代码块</span><br><span class="line">	我是构造代码块</span><br><span class="line">	我是无参构造方法</span><br><span class="line">	我是构造代码块</span><br><span class="line">	我是有参构造方法</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<p>由上述运行结果我们不难得出 staic 代码块 即 <strong>静态代码块</strong>的特点：</p>
-<ul>
-<li>静态代码块在类加载的时候运行，<strong>并且只运行一次</strong>；</li>
-<li>静态代码块的执行优先级：优于各种代码块和构造函数；</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>关于Post和Get提交数据遇到的问题</title>
-    <url>/2023/10/01/%E5%85%B3%E4%BA%8EPost%E5%92%8CGet%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="关于-Post-和-Get-提交参数遇到的问题"><a href="#关于-Post-和-Get-提交参数遇到的问题" class="headerlink" title="关于 Post 和 Get 提交参数遇到的问题"></a>关于 Post 和 Get 提交参数遇到的问题</h2><p>在对于表单<code>&lt;form   method=get &gt;</code>提交参数时报错，语句如下：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;.....?action=list&quot;</span> method=<span class="string">&quot;get&quot;</span> &gt;</span><br></pre></td></tr></table></figure></div>
-
-<p>但是修改成以下样式问题解决：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;form action=......<span class="string">&quot; method=&quot;</span>get<span class="string">&quot; &gt;</span></span><br><span class="line"><span class="string">    &lt;input type=&quot;</span>hidden<span class="string">&quot; name=&quot;</span>action<span class="string">&quot; value=&quot;</span>lsit<span class="string">&quot;&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>在这里感觉到了困惑，于是去查询。首先说说为什么第二种可行：</p>
-<p>对于 Get 提交参数，我们的表单数据会自动将 action 参数附加到 URL 末尾，从而被接收方解析。而对于第一情况，那是 Post 的提交数据的方式，而若是我们的Get 也采用第一种策略，<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310010849593.png"
-                      alt="image-20231001084948540"
-                ></p>
 ]]></content>
   </entry>
   <entry>
@@ -3514,6 +3496,24 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <p>所以，样式在使用 <code>&lt;jsp:include&gt;</code> 时丢失，可能是因为它们与包含页面的其他内容发生了冲突或覆盖，或者由于运行时执行的原因导致了不一致的行为。而使用 <code>&lt;%@include%&gt;</code> 会直接将被包含的内容合并到包含页面，不会发生这些问题，因此样式可以得到完全保留。但需要注意的是，<code>&lt;%@include%&gt;</code> 是静态的，无法根据运行时条件来动态选择包含哪个页面。</p>
 <p><em>最后我使用 &lt; Jsp：include &gt;的方式包含，并且将一些样式等内容放入被包含页面，最后解决问题</em></p>
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">最后，二者还有一个比较重要的区别：</span><br><span class="line">	动态包含可以给被包含的页面传递参数。</span><br><span class="line">	静态包含不能给被包含的页面传递参数。</span><br></pre></td></tr></table></figure></div>]]></content>
+  </entry>
+  <entry>
+    <title>关于Post和Get提交数据遇到的问题</title>
+    <url>/2023/10/01/%E5%85%B3%E4%BA%8EPost%E5%92%8CGet%E6%8F%90%E4%BA%A4%E6%95%B0%E6%8D%AE%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="关于-Post-和-Get-提交参数遇到的问题"><a href="#关于-Post-和-Get-提交参数遇到的问题" class="headerlink" title="关于 Post 和 Get 提交参数遇到的问题"></a>关于 Post 和 Get 提交参数遇到的问题</h2><p>在对于表单<code>&lt;form   method=get &gt;</code>提交参数时报错，语句如下：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;.....?action=list&quot;</span> method=<span class="string">&quot;get&quot;</span> &gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>但是修改成以下样式问题解决：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">&lt;form action=......<span class="string">&quot; method=&quot;</span>get<span class="string">&quot; &gt;</span></span><br><span class="line"><span class="string">    &lt;input type=&quot;</span>hidden<span class="string">&quot; name=&quot;</span>action<span class="string">&quot; value=&quot;</span>lsit<span class="string">&quot;&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>在这里感觉到了困惑，于是去查询。首先说说为什么第二种可行：</p>
+<p>对于 Get 提交参数，我们的表单数据会自动将 action 参数附加到 URL 末尾，从而被接收方解析。而对于第一情况，那是 Post 的提交数据的方式，而若是我们的Get 也采用第一种策略，<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310010849593.png"
+                      alt="image-20231001084948540"
+                ></p>
+]]></content>
   </entry>
   <entry>
     <title>内网穿透</title>
@@ -3800,140 +3800,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
-    <title>参数校验之 Validation 注解</title>
-    <url>/2024/01/24/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E4%B9%8B-Validation-%E6%B3%A8%E8%A7%A3/</url>
-    <content><![CDATA[<p>在 Controller层 接收前端发送来的参数时，往往对参数有一定的要求，Validation 注解在此处发挥着极大的作用 。</p>
-<h3 id="1、直接对方法中的形参"><a href="#1、直接对方法中的形参" class="headerlink" title="1、直接对方法中的形参"></a>1、直接对方法中的形参</h3><p>对<code>Controller</code>的方法中带的形参有要求，引用  <code>@Pattern(regexp = &quot;正则表达式&quot;)</code>，如下图：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241441510.png"
-                      alt="image-20240124144151450"
-                ></p>
-<h3 id="2、对传递的复杂形参中的某一属性有要求"><a href="#2、对传递的复杂形参中的某一属性有要求" class="headerlink" title="2、对传递的复杂形参中的某一属性有要求"></a>2、对传递的复杂形参中的某一属性有要求</h3><p>往往前端传递回来的 <code>JSON</code>数据,我们会使用<code>@ResultBody</code>封装成一个对象，并对于该形参中的某一个属性有着校验要求，此时就需要去到<code>Pojo层</code>该类的定义处添加要求注解：<code>（@NotEmpty、@NotNull ...）</code>,并且在Controller层中该方法的形参前面加一个<code>@Validated</code>,如下图所例：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241451091.png"
-                      alt="image-20240124145149045" style="zoom:50%;" 
-                >
-
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241452911.png"
-                      alt="image-20240124145258862"
-                ></p>
-<h3 id="3、分组校验-——-某一属性不同情景下的校验规则"><a href="#3、分组校验-——-某一属性不同情景下的校验规则" class="headerlink" title="3、分组校验 —— 某一属性不同情景下的校验规则"></a>3、分组校验 —— 某一属性不同情景下的校验规则</h3><p>在接受校验数据的时候，会有这么一种情形，即某一属性上有多个注解，但是我在不同的方法上，可能注解不全要，该方法只需要此属性头上的一部分注解即可，此时就需要进行分组校验。</p>
-<blockquote>
-<p>PS：若只是一个基本类型参数，而不是复杂对象，我们可以利用上述的第一条<code>@Pattern（regexp=&quot;&quot;）</code>正则进行逐个赋予校验规则，下面主要介绍的是对于复杂对象中的属性的分组校验。</p>
-</blockquote>
-<h4 id="Step-one："><a href="#Step-one：" class="headerlink" title="Step one："></a>Step one：</h4><p>在Pojo层的该类定义处，添加分组接口，例如我要使用两套校验规则应对不同场合，则我在此处定义两个不同的接口，这里我取名分别为：add、updatge</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241508986.png"
-                      alt="image-20240124150829933" style="zoom: 50%;" 
-                >
-
-<h4 id="Step-two"><a href="#Step-two" class="headerlink" title="Step two"></a>Step two</h4><p>在Pojo层，对于该类中属性上的校验注解进行添加<code>groups</code>,注意接口是可以继承<code>extends</code>的，未分组的注解统一归为<code>Default</code>组，<code>groups</code>值可以添加多个组名（组名为第一步定义的接口名+”&#96;&#96;.class&#96;”），表示多个组都需要该注解 ：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241513464.png"
-                      alt="image-20240124151337413" style="zoom:50%;" 
-                >
-
-<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>在<code>Controlle</code>r层，在<code>@validated</code>后添加组名+<code>.class</code>,表示此处使用的校验规则是哪一组。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518403.png"
-                      alt="image-20240124151805367"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518165.png"
-                      alt="image-20240124151821132"
-                ></p>
-<h3 id="4、自定义注解"><a href="#4、自定义注解" class="headerlink" title="4、自定义注解"></a>4、自定义注解</h3><p><code>Validation</code>中自带的注解终究是有限的，无法满足我们所有的校验需求，若我们的某一个复杂对象中的某一属性值只可以是给定值，例，<code>article </code>的状态值<code>State</code>只可以为”草稿”或“已发布”，<code>User</code>中的性别<code>gender</code>只可以是<code>female</code>或<code>male</code>，其他的报错，因此自定义注解应运而生。</p>
-<blockquote>
-<p>下面以新建一个自定义注解<code>@State</code>为例</p>
-<p>步骤图如下：</p>
-</blockquote>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241714898.png"
-                      alt="image-20240124171435830" style="zoom:50%;" 
-                >
-
-
-
-<h4 id="Step-one"><a href="#Step-one" class="headerlink" title="Step one"></a>Step one</h4><p>新建一个类实现接口<code>ConstrainValidator&lt;自定义注解名，被校验的数据类型&gt;</code>，在类中重写<code>isValid</code>方法，在<code>isValid</code>中进行具体的自定义逻辑判断，最后在<code>Pojo层</code>类的属性上加上我们的自定义注解名即可。</p>
-<p>例子中，校验数据以形参s传入，利用<code>equals()</code>进行逻辑判断，true即数据校验无误。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241703027.png"
-                      alt="image-20240124170304976"
-                ></p>
-<h4 id="Step-two-1"><a href="#Step-two-1" class="headerlink" title="Step two"></a>Step two</h4><p>新建一个<code>@interface</code>，其中<code>@Contraint</code>中指定具体的书写逻辑类，即上一步定义的类，其他内容相对固定，如下：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241724583.png"
-                      alt="image-20240124172449540" style="zoom:50%;" 
-                >
-
-<h4 id="Step-three"><a href="#Step-three" class="headerlink" title="Step three"></a>Step three</h4><p>最后在即生成了我们的自定义注解<code> @State</code>。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241727703.png"
-                      alt="image-20240124172707660" style="zoom: 50%;" 
-                >]]></content>
-  </entry>
-  <entry>
-    <title>图床：安装注意点 以及 阿里云OSS相关收费</title>
-    <url>/2023/03/08/%E5%9B%BE%E5%BA%8A%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="图床：安装注意点"><a href="#图床：安装注意点" class="headerlink" title="图床：安装注意点"></a>图床：安装注意点</h2><p>最近发现一个特别明显的现象，即随着网页内容的不断增加和图片的不断插入，这导致我的blog本地文件不断的增大的同时，网页的响应速度也开始变慢，往往图片加载较长时间才会一点一点的揭开面纱。<br>这也就导致我不得不使用图床。</p>
-<p> <strong>在这里我使用的是阿里云OSS和picgo，以下是csdn上一篇教程：<a class="link"   href="https://blog.csdn.net/m0_51321469/article/details/127340237" >教程跳转 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-<h4 id="当然在这里有几点要提一下："><a href="#当然在这里有几点要提一下：" class="headerlink" title="当然在这里有几点要提一下："></a>当然在这里有几点要提一下：</h4><p> <img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081320889.png"
-                      alt="picgo设置"
-                ></p>
-<ul>
-<li><p><strong>keyid和keysecret在复制粘贴时，字串前后都不可以存在，这里点可以在<code>picgo设置</code>的配置文件中检查</strong></p>
-</li>
-<li><p><strong>存储空间名要和阿里云oss中新建的Bucket命名一致，否则上传图片错误</strong></p>
-</li>
-<li><p><strong>指定存储路径指的是：存储在Bucket路径下的某一个目录，例如这里我的是<code>img/</code>，那么在我的阿Bucket目录下也一定要创建一个子目录命名为<code>img/</code></strong></p>
-</li>
-<li><p>至于后两项不是特别重要，我没有填写，可以直接忽略。</p>
-<p> 当然图床的使用也不是没有缺点，首先就是图床崩溃问题，例如，gitee的图床就曾多次出现崩溃，存储的图片也就会丢失，其次就是在使用图片的时候，要先将图片上传进你的Bucket之中。</p>
-</li>
-</ul>
-<h2 id="阿里云OSS相关收费"><a href="#阿里云OSS相关收费" class="headerlink" title="阿里云OSS相关收费"></a>阿里云OSS相关收费</h2><pre><code>         而这两点当然是可以解决的，前者当然是使用付费oss进行存储，但是使用后你会发现为么你在开通oss时候是不收费的呢？原因在这里：
-         1. 首先开通对象存储OSS是不收费的；
-         2. 你在对象存储OSS上创建了Bucket，创建Bucket也是不收费的；
-         3. 你在Bucket中上传了文件，该文件存储是收费的，需要支付存储费；
-         4. 上传文件到Bucket中产的流量是不收费的，OSS流量只收取公网出流量；
-         5. 假设你通过外网下载Bucket中的文件到本地，外网出流量是收费的，需要支付流量费；
-         6. 假设你开通了OSS传输加速功能，开通功能是不收费的；
-         7. 假设你上传或下载使用了传输加速，产生的传输加速流量是收费的。
-         收费详情参考：https://dashi.aliyun.com/site/cloud/oss
-</code></pre>
-<p>​            </p>
-<pre><code>        而你开通了oss之后，文件存储是收费的，需要支付存储费，但是你拥有5 GB/月的免费额度 ，其次，在外网的访问时，也是需要收费的，对象存储OSS分为**包年包月和按量付费两种计费模式**，开通OSS后**默认是按量付费模式**，按量付费是先使用后付费，根据实际使用的存储空间、实际产生的流量，然后乘以对应的单价，来支付对应的费用；包年包月预付费模式，先购买对应的存储包或流量包，实际产生的存储费和流量费，通过存储包或流量包的形式抵扣。
-</code></pre>
-<p>   当然，其实直接开通一年的也不贵，一年9元40GB，对于目前的我来说，只是存储blog图片是足够的。那么，图床崩溃问题是解决了。接下是就是上解决图片上传问题：<br>          <strong>这里实际上利用的是Tpora进行解决，操作很简单，这里也就不多赘述了，附上链接供大家参考:</strong><br>    <a class="link"   href="https://blog.csdn.net/to_free/article/details/114981807?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167825766916800215063593%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=167825766916800215063593&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-6-114981807-null-null.142%5Ev73%5Einsert_down1,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=typora%E5%9B%BE%E5%BA%8A%E2%80%99&spm=1018.2226.3001.4187" >点击跳转 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>初识JSP</title>
     <url>/2023/09/04/%E5%88%9D%E8%AF%86JSP/</url>
     <content><![CDATA[<h2 id="初识JSP"><a href="#初识JSP" class="headerlink" title="初识JSP"></a>初识JSP</h2><p>JSP是简化Servlet编写的一种技术，它将Java代码和HTML语句混合在同一个文件中编写，只对网页中要动态产生的内容采用Java代码来编写。而对固定不变的静态内容采用普通静态HTML页面方式编写。</p>
@@ -4202,30 +4068,137 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
-    <title>微信鉴权</title>
-    <url>/2025/09/17/%E5%BE%AE%E4%BF%A1%E9%89%B4%E6%9D%83/</url>
-    <content><![CDATA[<h2 id="微信鉴权"><a href="#微信鉴权" class="headerlink" title="微信鉴权"></a>微信鉴权</h2><p>梳理一下微信鉴权的整个流程。</p>
-<p>首先，腾讯的服务器集群是无法访问我们的私有ip的，因为我们电脑的ip是被DHCP协议不断地动态分配的，所有公网服务器无法找到我们。</p>
-<p>为了解决这一问题，我们就需要用到内网穿透，内网可以实时的跟踪我们电脑的ip地址并配给一个公网域名来给外部访问。</p>
-<ol>
-<li><p><strong>准备阶段</strong>： 运行natapp，获得了一个公网域名，</p>
+    <title>参数校验之 Validation 注解</title>
+    <url>/2024/01/24/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E4%B9%8B-Validation-%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<p>在 Controller层 接收前端发送来的参数时，往往对参数有一定的要求，Validation 注解在此处发挥着极大的作用 。</p>
+<h3 id="1、直接对方法中的形参"><a href="#1、直接对方法中的形参" class="headerlink" title="1、直接对方法中的形参"></a>1、直接对方法中的形参</h3><p>对<code>Controller</code>的方法中带的形参有要求，引用  <code>@Pattern(regexp = &quot;正则表达式&quot;)</code>，如下图：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241441510.png"
+                      alt="image-20240124144151450"
+                ></p>
+<h3 id="2、对传递的复杂形参中的某一属性有要求"><a href="#2、对传递的复杂形参中的某一属性有要求" class="headerlink" title="2、对传递的复杂形参中的某一属性有要求"></a>2、对传递的复杂形参中的某一属性有要求</h3><p>往往前端传递回来的 <code>JSON</code>数据,我们会使用<code>@ResultBody</code>封装成一个对象，并对于该形参中的某一个属性有着校验要求，此时就需要去到<code>Pojo层</code>该类的定义处添加要求注解：<code>（@NotEmpty、@NotNull ...）</code>,并且在Controller层中该方法的形参前面加一个<code>@Validated</code>,如下图所例：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241451091.png"
+                      alt="image-20240124145149045" style="zoom:50%;" 
+                >
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241452911.png"
+                      alt="image-20240124145258862"
+                ></p>
+<h3 id="3、分组校验-——-某一属性不同情景下的校验规则"><a href="#3、分组校验-——-某一属性不同情景下的校验规则" class="headerlink" title="3、分组校验 —— 某一属性不同情景下的校验规则"></a>3、分组校验 —— 某一属性不同情景下的校验规则</h3><p>在接受校验数据的时候，会有这么一种情形，即某一属性上有多个注解，但是我在不同的方法上，可能注解不全要，该方法只需要此属性头上的一部分注解即可，此时就需要进行分组校验。</p>
+<blockquote>
+<p>PS：若只是一个基本类型参数，而不是复杂对象，我们可以利用上述的第一条<code>@Pattern（regexp=&quot;&quot;）</code>正则进行逐个赋予校验规则，下面主要介绍的是对于复杂对象中的属性的分组校验。</p>
+</blockquote>
+<h4 id="Step-one："><a href="#Step-one：" class="headerlink" title="Step one："></a>Step one：</h4><p>在Pojo层的该类定义处，添加分组接口，例如我要使用两套校验规则应对不同场合，则我在此处定义两个不同的接口，这里我取名分别为：add、updatge</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241508986.png"
+                      alt="image-20240124150829933" style="zoom: 50%;" 
+                >
+
+<h4 id="Step-two"><a href="#Step-two" class="headerlink" title="Step two"></a>Step two</h4><p>在Pojo层，对于该类中属性上的校验注解进行添加<code>groups</code>,注意接口是可以继承<code>extends</code>的，未分组的注解统一归为<code>Default</code>组，<code>groups</code>值可以添加多个组名（组名为第一步定义的接口名+”&#96;&#96;.class&#96;”），表示多个组都需要该注解 ：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241513464.png"
+                      alt="image-20240124151337413" style="zoom:50%;" 
+                >
+
+<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>在<code>Controlle</code>r层，在<code>@validated</code>后添加组名+<code>.class</code>,表示此处使用的校验规则是哪一组。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518403.png"
+                      alt="image-20240124151805367"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518165.png"
+                      alt="image-20240124151821132"
+                ></p>
+<h3 id="4、自定义注解"><a href="#4、自定义注解" class="headerlink" title="4、自定义注解"></a>4、自定义注解</h3><p><code>Validation</code>中自带的注解终究是有限的，无法满足我们所有的校验需求，若我们的某一个复杂对象中的某一属性值只可以是给定值，例，<code>article </code>的状态值<code>State</code>只可以为”草稿”或“已发布”，<code>User</code>中的性别<code>gender</code>只可以是<code>female</code>或<code>male</code>，其他的报错，因此自定义注解应运而生。</p>
+<blockquote>
+<p>下面以新建一个自定义注解<code>@State</code>为例</p>
+<p>步骤图如下：</p>
+</blockquote>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241714898.png"
+                      alt="image-20240124171435830" style="zoom:50%;" 
+                >
+
+
+
+<h4 id="Step-one"><a href="#Step-one" class="headerlink" title="Step one"></a>Step one</h4><p>新建一个类实现接口<code>ConstrainValidator&lt;自定义注解名，被校验的数据类型&gt;</code>，在类中重写<code>isValid</code>方法，在<code>isValid</code>中进行具体的自定义逻辑判断，最后在<code>Pojo层</code>类的属性上加上我们的自定义注解名即可。</p>
+<p>例子中，校验数据以形参s传入，利用<code>equals()</code>进行逻辑判断，true即数据校验无误。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241703027.png"
+                      alt="image-20240124170304976"
+                ></p>
+<h4 id="Step-two-1"><a href="#Step-two-1" class="headerlink" title="Step two"></a>Step two</h4><p>新建一个<code>@interface</code>，其中<code>@Contraint</code>中指定具体的书写逻辑类，即上一步定义的类，其他内容相对固定，如下：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241724583.png"
+                      alt="image-20240124172449540" style="zoom:50%;" 
+                >
+
+<h4 id="Step-three"><a href="#Step-three" class="headerlink" title="Step three"></a>Step three</h4><p>最后在即生成了我们的自定义注解<code> @State</code>。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241727703.png"
+                      alt="image-20240124172707660" style="zoom: 50%;" 
+                >]]></content>
+  </entry>
+  <entry>
+    <title>图床：安装注意点 以及 阿里云OSS相关收费</title>
+    <url>/2023/03/08/%E5%9B%BE%E5%BA%8A%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="图床：安装注意点"><a href="#图床：安装注意点" class="headerlink" title="图床：安装注意点"></a>图床：安装注意点</h2><p>最近发现一个特别明显的现象，即随着网页内容的不断增加和图片的不断插入，这导致我的blog本地文件不断的增大的同时，网页的响应速度也开始变慢，往往图片加载较长时间才会一点一点的揭开面纱。<br>这也就导致我不得不使用图床。</p>
+<p> <strong>在这里我使用的是阿里云OSS和picgo，以下是csdn上一篇教程：<a class="link"   href="https://blog.csdn.net/m0_51321469/article/details/127340237" >教程跳转 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<h4 id="当然在这里有几点要提一下："><a href="#当然在这里有几点要提一下：" class="headerlink" title="当然在这里有几点要提一下："></a>当然在这里有几点要提一下：</h4><p> <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202303081320889.png"
+                      alt="picgo设置"
+                ></p>
+<ul>
+<li><p><strong>keyid和keysecret在复制粘贴时，字串前后都不可以存在，这里点可以在<code>picgo设置</code>的配置文件中检查</strong></p>
 </li>
-<li><p><strong>配置公众号</strong>： 在微信公众号后台配置以下信息：</p>
-<p>URL (服务器地址)： 填写 <code>域名/api路径</code> (假设你的接口写在 <code>/wechat</code> 路径下)</p>
-<p>Token (令牌)： 填写自己设定的、与本地代码中一致的字符串<br><strong>点击“提交”后发生的鉴权流程</strong>：</p>
-<ol>
-<li>微信服务器会向你填写的URL发送一个GET请求，请求中带有一个随机字符串、时间戳等参数。</li>
-<li>这个请求被natapp服务器接收，然后通过隧道<strong>转发</strong>到你本地的 <code>http://localhost:xxxx/api</code>。</li>
-<li>你本地服务器上的代码（api路由下的处理函数）接收到这个GET请求。</li>
-<li>你的代码按照微信规定的算法，用你预设的 <code>Token</code> 和收到的参数进行加密计算，生成一个签名。</li>
-<li>你将计算得到的签名与微信请求中带来的签名进行比对。</li>
-<li><strong>如果一致</strong>，说明这个请求确实来自微信服务器（因为只有你和微信知道相同的Token），你就在响应中返回微信要求的那另一个参数（echostr）。</li>
-<li>这个响应 again，通过natapp的隧道原路返回给微信服务器。</li>
-<li>微信服务器验证响应正确，就在后台显示“配置成功！”。至此，<strong>鉴权完成</strong>，通道打通。</li>
-</ol>
+<li><p><strong>存储空间名要和阿里云oss中新建的Bucket命名一致，否则上传图片错误</strong></p>
 </li>
-</ol>
-<p><strong>鉴权的目的</strong>： 就是微信要确认“这个URL背后的服务器确实是愿意为我这个公众号服务的、合法的服务器”，而不是什么恶意的第三方。</p>
+<li><p><strong>指定存储路径指的是：存储在Bucket路径下的某一个目录，例如这里我的是<code>img/</code>，那么在我的阿Bucket目录下也一定要创建一个子目录命名为<code>img/</code></strong></p>
+</li>
+<li><p>至于后两项不是特别重要，我没有填写，可以直接忽略。</p>
+<p> 当然图床的使用也不是没有缺点，首先就是图床崩溃问题，例如，gitee的图床就曾多次出现崩溃，存储的图片也就会丢失，其次就是在使用图片的时候，要先将图片上传进你的Bucket之中。</p>
+</li>
+</ul>
+<h2 id="阿里云OSS相关收费"><a href="#阿里云OSS相关收费" class="headerlink" title="阿里云OSS相关收费"></a>阿里云OSS相关收费</h2><pre><code>         而这两点当然是可以解决的，前者当然是使用付费oss进行存储，但是使用后你会发现为么你在开通oss时候是不收费的呢？原因在这里：
+         1. 首先开通对象存储OSS是不收费的；
+         2. 你在对象存储OSS上创建了Bucket，创建Bucket也是不收费的；
+         3. 你在Bucket中上传了文件，该文件存储是收费的，需要支付存储费；
+         4. 上传文件到Bucket中产的流量是不收费的，OSS流量只收取公网出流量；
+         5. 假设你通过外网下载Bucket中的文件到本地，外网出流量是收费的，需要支付流量费；
+         6. 假设你开通了OSS传输加速功能，开通功能是不收费的；
+         7. 假设你上传或下载使用了传输加速，产生的传输加速流量是收费的。
+         收费详情参考：https://dashi.aliyun.com/site/cloud/oss
+</code></pre>
+<p>​            </p>
+<pre><code>        而你开通了oss之后，文件存储是收费的，需要支付存储费，但是你拥有5 GB/月的免费额度 ，其次，在外网的访问时，也是需要收费的，对象存储OSS分为**包年包月和按量付费两种计费模式**，开通OSS后**默认是按量付费模式**，按量付费是先使用后付费，根据实际使用的存储空间、实际产生的流量，然后乘以对应的单价，来支付对应的费用；包年包月预付费模式，先购买对应的存储包或流量包，实际产生的存储费和流量费，通过存储包或流量包的形式抵扣。
+</code></pre>
+<p>   当然，其实直接开通一年的也不贵，一年9元40GB，对于目前的我来说，只是存储blog图片是足够的。那么，图床崩溃问题是解决了。接下是就是上解决图片上传问题：<br>          <strong>这里实际上利用的是Tpora进行解决，操作很简单，这里也就不多赘述了，附上链接供大家参考:</strong><br>    <a class="link"   href="https://blog.csdn.net/to_free/article/details/114981807?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167825766916800215063593%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=167825766916800215063593&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-6-114981807-null-null.142%5Ev73%5Einsert_down1,201%5Ev4%5Eadd_ask,239%5Ev2%5Einsert_chatgpt&utm_term=typora%E5%9B%BE%E5%BA%8A%E2%80%99&spm=1018.2226.3001.4187" >点击跳转 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 ]]></content>
   </entry>
   <entry>
@@ -4263,6 +4236,33 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509221258293.png"
                       alt="image-20250922125747641"
                 ></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>微信鉴权</title>
+    <url>/2025/09/17/%E5%BE%AE%E4%BF%A1%E9%89%B4%E6%9D%83/</url>
+    <content><![CDATA[<h2 id="微信鉴权"><a href="#微信鉴权" class="headerlink" title="微信鉴权"></a>微信鉴权</h2><p>梳理一下微信鉴权的整个流程。</p>
+<p>首先，腾讯的服务器集群是无法访问我们的私有ip的，因为我们电脑的ip是被DHCP协议不断地动态分配的，所有公网服务器无法找到我们。</p>
+<p>为了解决这一问题，我们就需要用到内网穿透，内网可以实时的跟踪我们电脑的ip地址并配给一个公网域名来给外部访问。</p>
+<ol>
+<li><p><strong>准备阶段</strong>： 运行natapp，获得了一个公网域名，</p>
+</li>
+<li><p><strong>配置公众号</strong>： 在微信公众号后台配置以下信息：</p>
+<p>URL (服务器地址)： 填写 <code>域名/api路径</code> (假设你的接口写在 <code>/wechat</code> 路径下)</p>
+<p>Token (令牌)： 填写自己设定的、与本地代码中一致的字符串<br><strong>点击“提交”后发生的鉴权流程</strong>：</p>
+<ol>
+<li>微信服务器会向你填写的URL发送一个GET请求，请求中带有一个随机字符串、时间戳等参数。</li>
+<li>这个请求被natapp服务器接收，然后通过隧道<strong>转发</strong>到你本地的 <code>http://localhost:xxxx/api</code>。</li>
+<li>你本地服务器上的代码（api路由下的处理函数）接收到这个GET请求。</li>
+<li>你的代码按照微信规定的算法，用你预设的 <code>Token</code> 和收到的参数进行加密计算，生成一个签名。</li>
+<li>你将计算得到的签名与微信请求中带来的签名进行比对。</li>
+<li><strong>如果一致</strong>，说明这个请求确实来自微信服务器（因为只有你和微信知道相同的Token），你就在响应中返回微信要求的那另一个参数（echostr）。</li>
+<li>这个响应 again，通过natapp的隧道原路返回给微信服务器。</li>
+<li>微信服务器验证响应正确，就在后台显示“配置成功！”。至此，<strong>鉴权完成</strong>，通道打通。</li>
+</ol>
+</li>
+</ol>
+<p><strong>鉴权的目的</strong>： 就是微信要确认“这个URL背后的服务器确实是愿意为我这个公众号服务的、合法的服务器”，而不是什么恶意的第三方。</p>
 ]]></content>
   </entry>
   <entry>
@@ -4347,6 +4347,59 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <blockquote>
 <p>仍旧是路漫漫其修远兮。</p>
 </blockquote>
+]]></content>
+  </entry>
+  <entry>
+    <title>静态代理与动态代理</title>
+    <url>/2025/10/09/%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E2%80%98%E2%80%99/</url>
+    <content><![CDATA[<h1 id="静态代理与动态代理"><a href="#静态代理与动态代理" class="headerlink" title="静态代理与动态代理"></a>静态代理与动态代理</h1><p>代理模式是一种比较好理解的设计模式。简单来说就是 <strong>我们使用代理对象来代替对真实对象(real object)的访问，这样就可以在不修改原目标对象的前提下，提供额外的功能操作，扩展目标对象的功能。</strong></p>
+<p><strong>代理模式的主要作用是扩展目标对象的功能，比如说在目标对象的某个方法执行前后你可以增加一些自定义的操作。</strong></p>
+<hr>
+<h2 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义公共接口</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Processor</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 两个类实现同一个接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassA</span> <span class="keyword">implements</span> <span class="title class_">Processor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;ClassA is processing...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassB</span> <span class="keyword">implements</span> <span class="title class_">Processor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;ClassB is processing...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>统一接口</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ProcessorAgent</span> &#123;    <span class="comment">//代理类</span></span><br><span class="line">    <span class="keyword">private</span> Processor processor;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 通过构造函数注入具体的处理器        这里是静态构造的精髓</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ProcessorAgent</span><span class="params">(Processor processor)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.processor = processor;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 同一段代码，可以处理不同的类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doProcess</span><span class="params">()</span> &#123;</span><br><span class="line">        processor.process(); <span class="comment">// 自动调用真正对象的process方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//==================================== 测试类============================</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ClassA</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassA</span>();</span><br><span class="line">        <span class="type">ClassB</span> <span class="variable">b</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassB</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="type">ProcessorAgent</span> <span class="variable">agent1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProcessorAgent</span>(a);</span><br><span class="line">        <span class="type">ProcessorAgent</span> <span class="variable">agent2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProcessorAgent</span>(b);</span><br><span class="line">        </span><br><span class="line">        agent1.doProcess(); <span class="comment">// 输出：ClassA is processing...</span></span><br><span class="line">        agent2.doProcess(); <span class="comment">// 输出：ClassB is processing...</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 也可以直接使用多态</span></span><br><span class="line">        Processor[] processors = &#123;<span class="keyword">new</span> <span class="title class_">ClassA</span>(), <span class="keyword">new</span> <span class="title class_">ClassB</span>()&#125;;</span><br><span class="line">        <span class="keyword">for</span> (Processor p : processors) &#123;</span><br><span class="line">            p.process(); <span class="comment">// 同一接口，不同实现</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>一般来说，这种比较经典的应用场景就是，<strong>一个接口，多个实现类，那么此时我们可以创建一个代理类</strong>，以达到通过这个代理类来操作各个实现类的目的。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">   <span class="type">ClassA</span> <span class="variable">a</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ClassA</span>();</span><br><span class="line">   <span class="type">ProcessorAgent</span> <span class="variable">agent1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProcessorAgent</span>(a);   <span class="comment">//这里将被代理的类穿进去</span></span><br><span class="line">   agent1.doProcess(); </span><br><span class="line"><span class="comment">// 输出：ClassA is processing...</span></span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<h2 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h2><p>相比于静态代理来说，动态代理更加灵活。我们不需要针对每个目标类都单独创建一个代理类，并且也不需要我们必须实现接口，我们可以直接代理实现类</p>
+<p><strong>在 Java 动态代理机制中 <code>InvocationHandler</code> 接口和 <code>Proxy</code> 类是核心。</strong></p>
+<h4 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h4><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">Proxy类中使用频率最高的方法是：</span><br><span class="line">    newProxyInstance() <span class="comment">//这个方法主要用来生成一个代理对象。</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">newProxyInstance</span><span class="params">(ClassLoader loader,  Class&lt;?&gt;[] interfaces, InvocationHandler h)</span>                                              <span class="keyword">throws</span> IllegalArgumentException    &#123;      ......     &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>这个方法一共有 3 个参数：</p>
+<ol>
+<li><strong>loader</strong> :类加载器，用于加载代理对象。</li>
+<li><strong>interfaces</strong> : 被代理类实现的一些接口；</li>
+<li><strong>h</strong> : 实现了 <code>InvocationHandler</code> 接口的对象；</li>
+</ol>
+<h4 id="InvocationHandler"><a href="#InvocationHandler" class="headerlink" title="InvocationHandler"></a>InvocationHandler</h4><p>要实现动态代理的话，还必须需要实现<code>InvocationHandler</code> 来自定义处理逻辑。 当我们的动态代理对象调用一个方法时，这个方法的调用就会被转发到实现<code>InvocationHandler</code> 接口类的 <code>invoke</code> 方法来调用。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">InvocationHandler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 当你使用代理对象调用方法的时候实际会调用到这个方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy,    Method method,     Object[] args)</span></span><br><span class="line">        <span class="keyword">throws</span> Throwable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>invoke()</code> 方法有下面三个参数：</p>
+<ol>
+<li><strong>proxy</strong> :动态生成的代理类</li>
+<li><strong>method</strong> : 与代理类对象调用的方法相对应</li>
+<li><strong>args</strong> : 当前 method 方法的参数</li>
+</ol>
+<p>也就是说：**<code>Proxy</code> 类的 <code>newProxyInstance()</code> 创建的代理对象在调用方法的时候，实际会调用到实现<code>InvocationHandler</code> 接口的类的 <code>invoke()</code>方法。** 你可以在 <code>invoke()</code> 方法中自定义处理逻辑，比如在方法执行前后做什么事情。</p>
+<h3 id="JDK动态代理的使用步骤"><a href="#JDK动态代理的使用步骤" class="headerlink" title="JDK动态代理的使用步骤"></a>JDK动态代理的使用步骤</h3><p>1、定义一个接口及其实现类；</p>
+<p>2、自定义 <code>InvocationHandler</code> 并重写<code>invoke</code>方法，在 <code>invoke</code> 方法中我们会调用原生方法（被代理类的方法）并自定义一些处理逻辑；</p>
+<p>3、通过 <code>Proxy.newProxyInstance(ClassLoader loader,Class&lt;?&gt;[] interfaces,InvocationHandler h)</code> 方法创建代理对象；</p>
+<hr>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>动态代理的逻辑路线：<br><code>Proxy </code>中的<code>newProxyInstance（）</code>&#x3D;&#x3D;&gt;<code>InvocationHandler</code>中的<code>invoke</code></p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义公共接口</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Processor</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 两个类实现同一个接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ClassA</span> <span class="keyword">implements</span> <span class="title class_">Processor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">process</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;ClassA is processing...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="定义ProxyFactory"><a href="#定义ProxyFactory" class="headerlink" title="定义ProxyFactory"></a>定义ProxyFactory</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">proxyFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title function_">getProxy</span><span class="params">(Object target)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Proxy.newProxyInstance(</span><br><span class="line">                target.getClass().getClassLoader(), <span class="comment">// 目标类的类加载器</span></span><br><span class="line">                target.getClass().getInterfaces(),  <span class="comment">// 代理需要实现的接口，可指定多个</span></span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">ProxyHandler</span>(target)   <span class="comment">// 代理对象对应的自定义 InvocationHandler</span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="定义InvocationHandler"><a href="#定义InvocationHandler" class="headerlink" title="定义InvocationHandler"></a>定义InvocationHandler</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProxyHandler</span> <span class="keyword">implements</span> <span class="title class_">InvocationHandler</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Object target;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ProxyHandler</span><span class="params">(Object target)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.target=target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;before method &quot;</span> + method.getName());</span><br><span class="line"></span><br><span class="line">        <span class="type">Object</span> <span class="variable">result</span> <span class="operator">=</span> method.invoke(target, args);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用方法之后，我们同样可以添加自己的操作</span></span><br><span class="line">        System.out.println(<span class="string">&quot;after method &quot;</span> + method.getName());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h5 id="测试类"><a href="#测试类" class="headerlink" title="测试类"></a>测试类</h5><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">dynamic_test</span> &#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testProcessorAgent</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        Processor processor1=(Processor) proxyFactory.getProxy(<span class="keyword">new</span> <span class="title class_">ClassA</span>());</span><br><span class="line">        processor1.process();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
 ]]></content>
   </entry>
 </search>
