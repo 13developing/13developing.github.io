@@ -18,38 +18,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Git 操作之 Pull 与 Checkout</title>
-    <url>/2025/09/16/Git-%E6%93%8D%E4%BD%9C%E4%B9%8B-Pull-%E4%B8%8E-Checkout/</url>
-    <content><![CDATA[<h2 id="Git-操作之-Pull-与-Checkout"><a href="#Git-操作之-Pull-与-Checkout" class="headerlink" title="Git 操作之 Pull 与 Checkout"></a>Git 操作之 Pull 与 Checkout</h2><p>从前使用 <code>git</code> 都是个人简单项目，所以 git 操作比较少。本次做项目，博主将每一次课程的内容都创建了一个分支，故每次针对性的学习章节内容就可以从这些分支中获取内容。</p>
-<p>创建一个新的项目之后，首先是配置远程仓库。但是配置了项目之后，并不知道项目的分支情况，故需要一次<code>fetch</code>，IDEA 中有按键**<code>Fetch All Remotes</code>** ，其意思是：<strong>与已配置的远程仓库（通常是 <code>origin</code>）进行通信，获取它上面所有分支的最新状态和信息，并更新到本地仓库记录中。</strong></p>
-<p>在获取了<code>All Remotes</code> 之后，如何将分支传输回本地呢？这里是有两个选择的：<code>Checkout</code> 和 <code>Pull</code>.</p>
-<p>首先先说答案，对于第一次拉取该分支，是应该<code>Checkout</code>。</p>
-<ul>
-<li>当你执行 <code>Checkout</code> 一个远程分支（比如 <code>origin/chapter-03</code>）时，Git 会做两件事：<ol>
-<li><strong>以远程分支为蓝本，创建一份一模一样的本地副本</strong>。这个本地副本的名字通常就是 <code>chapter-03</code>（会自动去掉 <code>origin/</code> 前缀）。</li>
-<li><strong>立即把你桌上的东西换成这本书的副本</strong>。你的工作目录里的文件会立刻变成 <code>chapter-03</code> 分支的内容。</li>
-</ol>
-</li>
-<li><strong>关键</strong>：<code>Checkout</code> 主要是一个<strong>切换</strong>和<strong>创建本地分支</strong>的操作。它的目的是让你<strong>开始基于某个分支进行工作</strong></li>
-</ul>
-<h4 id="而Pull是在什么情况下使用呢？"><a href="#而Pull是在什么情况下使用呢？" class="headerlink" title="而Pull是在什么情况下使用呢？"></a>而<code>Pull</code>是在什么情况下使用呢？</h4><ul>
-<li>它的使用场景是：<strong>你已经有本地副本了（比如你之前已经 <code>checkout</code> 了 <code>chapter-03</code>），现在你想更新它</strong>。</li>
-</ul>
-<p>即在你已经 <code>Checkout</code> 之后，远程该分支更新了一次，你先获取最新的该分支，则可使用 <code>Pull</code>,他会把最新的和你的本地副本进行合并(Merge)</p>
-<p>那如果没有本地副本的时候，<code>Checkout</code>和<code>Pull</code>是否是一样的呢？</p>
-<p>答案是否。当无本地分支副本的时候，进行<code>Pull</code>时:</p>
-<ol>
-<li><strong>Git 的行为（它会尝试这样做）：</strong><ul>
-<li>“你想把远程 <code>origin</code> 的 <code>chapter-03</code> 分支拉取下来。”</li>
-<li>“但是我发现你本地没有一个叫 <code>chapter-03</code> 的分支让我合并进去啊？”</li>
-<li>“算了，那我就在你<strong>当前所在的分支</strong>（比如 <code>main</code>）上，尝试把 <code>chapter-03</code> 的内容合并过来吧。”</li>
-</ul>
-</li>
-<li><strong>结果：</strong> 这会导致远程 <code>chapter-03</code> 分支的所有内容被<strong>合并到了你当前的分支（如 <code>main</code>）</strong>，而不是创建一个新的 <code>chapter-03</code> 分支。这会把你的当前分支搞得一团糟，完全不是你想要的结果。</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
     <title>HTML基础</title>
     <url>/2023/03/11/HTML%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="学习及查阅网址"><a href="#学习及查阅网址" class="headerlink" title="学习及查阅网址"></a>学习及查阅网址</h3><p><a href="https://www.w3schools.cn/html/html_colors.asp"><a class="link"   href="https://www.w3schools.cn/html/" >HTML 教程 (w3schools.cn) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></a></p>
@@ -351,6 +319,38 @@
 <div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span> html.test <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;xxx.php&quot;</span> <span class="attr">methed</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    用户名 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;请输入用户名&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;6&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>密码 : <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;12&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--性别这里必须要有相同的 name 才可以实现多选一   label标签  --&gt;</span></span><br><span class="line">    性别 :<span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;sexmale&quot;</span>&gt;</span> 男 <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex0&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sexmale&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;sexfemale&quot;</span>&gt;</span> 女 <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex0&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sexfemale&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--这是多选 --&gt;</span></span><br><span class="line">    爱好 : 吃饭<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span> 睡觉 <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span>&gt;</span>打豆豆<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">checked</span>=<span class="string">&quot;checked&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;免费注册&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>    <span class="comment">&lt;!--submit是将我们的form中的数据提交到后台服务器--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--reset就把表单清空为初始状态呢--&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--    普通按钮  button  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;发送短信验证码&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--    file属性  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传头像&quot;</span> <span class="attr">name</span>=<span class="string">&quot;img&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 
 <h3 id="综合案例"><a href="#综合案例" class="headerlink" title="综合案例"></a>综合案例</h3><div class="highlight-container" data-rel="Html"><figure class="iseeu highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>小胡的图片下载网站<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span>欢迎来到小胡下载网站 <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#links&quot;</span>&gt;</span> 去跳转 <span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/girl.jpg&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span> <span class="attr">title</span>=<span class="string">&quot;girl&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/winter.jpg&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500&quot;</span> <span class="attr">title</span>=<span class="string">&quot;winter&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--注册页面--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    &lt;table align=&quot;center&quot; border=&quot;1&quot; cellpadding=&quot;5&quot; cellspacing=&quot;0&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">&quot;1&quot;</span> <span class="attr">cellspacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">cellpadding</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 姓名 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 密码 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 性别 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;male&quot;</span>&gt;</span> 男 <span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;male&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;female&quot;</span>&gt;</span> 女 <span class="tag">&lt;/<span class="name">label</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">id</span>=<span class="string">&quot;female&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--            &lt;td&gt; &lt;select&gt; &lt;option&gt; 男&lt;/option&gt; &lt;option&gt; 女&lt;/option&gt;&lt;/select&gt;&lt;/td&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">height</span>=<span class="string">&quot;60&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 自我介绍 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">row</span>=<span class="string">&quot;100&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;40&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 籍贯 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 华中<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 西北<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 华南<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">option</span>&gt;</span> 华北<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">select</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--        &lt;tr colspan=&quot;2&quot;&gt;&lt;/tr&gt;--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span> 表格操作 ：<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;免费注册&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>    <span class="comment">&lt;!--submit是将我们的form中的数据提交到后台服务器--&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span>  <span class="comment">&lt;!--reset就把表单清空为初始状态呢--&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;links&quot;</span>&gt;</span> 相关链接 <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;download.html&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h3</span>&gt;</span>下载图片压缩包<span class="tag">&lt;/<span class="name">h3</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.bilibili.com/?spm_id_from=333.1007.0.0&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/bilibili.png&quot;</span></span></span><br><span class="line"><span class="tag">                                                                                   <span class="attr">height</span>=<span class="string">&quot;100&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://lol.qq.com/main.shtml&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/lol.png&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></div>]]></content>
+  </entry>
+  <entry>
+    <title>Git 操作之 Pull 与 Checkout</title>
+    <url>/2025/09/16/Git-%E6%93%8D%E4%BD%9C%E4%B9%8B-Pull-%E4%B8%8E-Checkout/</url>
+    <content><![CDATA[<h2 id="Git-操作之-Pull-与-Checkout"><a href="#Git-操作之-Pull-与-Checkout" class="headerlink" title="Git 操作之 Pull 与 Checkout"></a>Git 操作之 Pull 与 Checkout</h2><p>从前使用 <code>git</code> 都是个人简单项目，所以 git 操作比较少。本次做项目，博主将每一次课程的内容都创建了一个分支，故每次针对性的学习章节内容就可以从这些分支中获取内容。</p>
+<p>创建一个新的项目之后，首先是配置远程仓库。但是配置了项目之后，并不知道项目的分支情况，故需要一次<code>fetch</code>，IDEA 中有按键**<code>Fetch All Remotes</code>** ，其意思是：<strong>与已配置的远程仓库（通常是 <code>origin</code>）进行通信，获取它上面所有分支的最新状态和信息，并更新到本地仓库记录中。</strong></p>
+<p>在获取了<code>All Remotes</code> 之后，如何将分支传输回本地呢？这里是有两个选择的：<code>Checkout</code> 和 <code>Pull</code>.</p>
+<p>首先先说答案，对于第一次拉取该分支，是应该<code>Checkout</code>。</p>
+<ul>
+<li>当你执行 <code>Checkout</code> 一个远程分支（比如 <code>origin/chapter-03</code>）时，Git 会做两件事：<ol>
+<li><strong>以远程分支为蓝本，创建一份一模一样的本地副本</strong>。这个本地副本的名字通常就是 <code>chapter-03</code>（会自动去掉 <code>origin/</code> 前缀）。</li>
+<li><strong>立即把你桌上的东西换成这本书的副本</strong>。你的工作目录里的文件会立刻变成 <code>chapter-03</code> 分支的内容。</li>
+</ol>
+</li>
+<li><strong>关键</strong>：<code>Checkout</code> 主要是一个<strong>切换</strong>和<strong>创建本地分支</strong>的操作。它的目的是让你<strong>开始基于某个分支进行工作</strong></li>
+</ul>
+<h4 id="而Pull是在什么情况下使用呢？"><a href="#而Pull是在什么情况下使用呢？" class="headerlink" title="而Pull是在什么情况下使用呢？"></a>而<code>Pull</code>是在什么情况下使用呢？</h4><ul>
+<li>它的使用场景是：<strong>你已经有本地副本了（比如你之前已经 <code>checkout</code> 了 <code>chapter-03</code>），现在你想更新它</strong>。</li>
+</ul>
+<p>即在你已经 <code>Checkout</code> 之后，远程该分支更新了一次，你先获取最新的该分支，则可使用 <code>Pull</code>,他会把最新的和你的本地副本进行合并(Merge)</p>
+<p>那如果没有本地副本的时候，<code>Checkout</code>和<code>Pull</code>是否是一样的呢？</p>
+<p>答案是否。当无本地分支副本的时候，进行<code>Pull</code>时:</p>
+<ol>
+<li><strong>Git 的行为（它会尝试这样做）：</strong><ul>
+<li>“你想把远程 <code>origin</code> 的 <code>chapter-03</code> 分支拉取下来。”</li>
+<li>“但是我发现你本地没有一个叫 <code>chapter-03</code> 的分支让我合并进去啊？”</li>
+<li>“算了，那我就在你<strong>当前所在的分支</strong>（比如 <code>main</code>）上，尝试把 <code>chapter-03</code> 的内容合并过来吧。”</li>
+</ul>
+</li>
+<li><strong>结果：</strong> 这会导致远程 <code>chapter-03</code> 分支的所有内容被<strong>合并到了你当前的分支（如 <code>main</code>）</strong>，而不是创建一个新的 <code>chapter-03</code> 分支。这会把你的当前分支搞得一团糟，完全不是你想要的结果。</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>CSS基础</title>
@@ -968,6 +968,33 @@
 ]]></content>
   </entry>
   <entry>
+    <title>JSON初识</title>
+    <url>/2024/01/15/JSON%E5%88%9D%E8%AF%86/</url>
+    <content><![CDATA[<h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
+<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
+<li>JSON 没有结束标签,长度更短,读写更快</li>
+<li>JSON 能够直接被JavaScript解释器解析</li>
+<li>JSON 可以使用数组</li>
+</ul>
+<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
+<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
+
+<ol>
+<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
+</ol>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
+
+]]></content>
+  </entry>
+  <entry>
     <title>JAVA基础</title>
     <url>/2023/08/30/JAVA%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h3 id="1、命名规则"><a href="#1、命名规则" class="headerlink" title="1、命名规则"></a>1、命名规则</h3><p>由字母、数字、下划线“_”、美元符号“$”或者“￥”组成，并且首字符不能是数字。</p>
@@ -1272,153 +1299,6 @@
 </tbody></table>
 <p>​	</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>JSON初识</title>
-    <url>/2024/01/15/JSON%E5%88%9D%E8%AF%86/</url>
-    <content><![CDATA[<h2 id="JSON的初识"><a href="#JSON的初识" class="headerlink" title="JSON的初识"></a>JSON的初识</h2><p>JSON 是JS的对象标记法，是一种轻量级（Light-Meight)、基于文本的(Text-Based)、可读的(Human-Readable)格式。目前多数Web接口返回的数据都为json字符串。</p>
-<h3 id="JSON-的语法规则"><a href="#JSON-的语法规则" class="headerlink" title="JSON 的语法规则"></a>JSON 的语法规则</h3><div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line">数组（Array）用方括号(“<span class="punctuation">[</span><span class="punctuation">]</span>”)表示。</span><br><span class="line">对象（<span class="number">0</span>bject）用大括号(“<span class="punctuation">&#123;</span><span class="punctuation">&#125;</span>”)表示。</span><br><span class="line">名称/值对(name/value）组合成数组和对象。</span><br><span class="line">名称(name）置于双引号中，值（value）有字符串、数值、布尔值、<span class="literal"><span class="keyword">null</span></span>、对象和数组。</span><br><span class="line">并列的数据之间用逗号(“<span class="punctuation">,</span>”）分隔</span><br><span class="line">      </span><br><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xdr630&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;favorite&quot;</span><span class="punctuation">:</span> <span class="string">&quot;programming&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="JSON-和-XML-的对比"><a href="#JSON-和-XML-的对比" class="headerlink" title="JSON 和  XML 的对比"></a>JSON 和  XML 的对比</h3><ul>
-<li>JSON 没有结束标签,长度更短,读写更快</li>
-<li>JSON 能够直接被JavaScript解释器解析</li>
-<li>JSON 可以使用数组</li>
-</ul>
-<div class="highlight-container" data-rel="Json"><figure class="iseeu highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;兮动人&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">22</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;fruits&quot;</span><span class="punctuation">:</span><span class="punctuation">[</span><span class="string">&quot;apple&quot;</span><span class="punctuation">,</span><span class="string">&quot;pear&quot;</span><span class="punctuation">,</span><span class="string">&quot;grape&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;root&gt;</span><br><span class="line">	&lt;name&gt;兮动人&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;<span class="number">22</span>&lt;/age&gt;</span><br><span class="line">	&lt;fruits&gt;apple&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;pear&lt;/fruits&gt;</span><br><span class="line">	&lt;fruits&gt;grape&lt;/fruits&gt;</span><br><span class="line">&lt;/root&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="JSON-和-JS-对象的互转"><a href="#JSON-和-JS-对象的互转" class="headerlink" title="JSON  和  JS 对象的互转"></a>JSON  和  JS 对象的互转</h3><ol>
-<li><h4 id="JSON-–-gt-JS-对象-JSON-parse-方法"><a href="#JSON-–-gt-JS-对象-JSON-parse-方法" class="headerlink" title="JSON  –&gt;  JS 对象    JSON.parse()  方法"></a>JSON  –&gt;  JS 对象    <code>JSON.parse()</code>  方法</h4></li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></table></figure></div>
-
-<ol>
-<li><h4 id="JS对象-–-gt-JSON-JSON-stringify-方法"><a href="#JS对象-–-gt-JSON-JSON-stringify-方法" class="headerlink" title="JS对象 –&gt;  JSON    JSON.stringify()  方法"></a>JS对象 –&gt;  JSON    <code>JSON.stringify()</code>  方法</h4></li>
-</ol>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonstr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br></pre></td></tr></table></figure></div>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>ResultSetHandler  和 BeanListHandler 的区别</title>
-    <url>/2023/10/17/ResultSetHandler-%E5%92%8C-BeanListHandler-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>二者都是 Apache Commons DbUtils 库中的类，用于简化 JDBC 操作。</p>
-<ol>
-<li><p><strong>ResultSetHandler</strong>：</p>
-<p><code>ResultSetHandler</code> 是一个接口，它定义了将 SQL 查询结果集（ResultSet）转换为不同类型的对象的方法。</p>
-<p>例如，它可以将查询结果集转换为单个对象、列表、Map 等等。它提供了灵活的方式来处理查询结果。</p>
-</li>
-<li><p><strong>BeanListHandler</strong>：</p>
-<p><code>BeanListHandler</code> 是 <code>ResultSetHandler</code> 的一个具体实现，它将结果集转换为一个包含 JavaBean 对象的列表。</p>
-<p>这是一个常用的操作，特别是当你从数据库中检索一组记录，并希望将每一行映射为一个 JavaBean 对象时。每一行的字段将会与 JavaBean 的属性进行<strong>匹配</strong></p>
-</li>
-</ol>
-<p>使用 BeanListHandler 能够简化操作，详情见以下实例：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">					========未使用  BeanListHandler    的    ResultSetHandler   版本=========</span><br><span class="line"></span><br><span class="line">queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">ResultSetHandler</span>&lt;List&lt;Student&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> List&lt;Student&gt; <span class="title function_">handle</span><span class="params">(ResultSet resultSet)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                    List&lt;Student&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                    <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">                        <span class="type">Student</span> <span class="variable">entity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">                        entity.setId(resultSet.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                        entity.setAge(resultSet.getInt(<span class="string">&quot;age&quot;</span>));</span><br><span class="line">                        entity.setAccount(resultSet.getInt(<span class="string">&quot;account&quot;</span>));</span><br><span class="line">                        entity.setClassid(resultSet.getInt(<span class="string">&quot;classid&quot;</span>));</span><br><span class="line">                        entity.setStuno(resultSet.getString(<span class="string">&quot;stuno&quot;</span>));</span><br><span class="line">                        entity.setName(resultSet.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                        entity.setGender(resultSet.getString(<span class="string">&quot;gender&quot;</span>));</span><br><span class="line">                        entity.setEmail(resultSet.getString(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">                        entity.setTelephone(resultSet.getString(<span class="string">&quot;telephone&quot;</span>));</span><br><span class="line">                        entity.setAddress(resultSet.getString(<span class="string">&quot;adress&quot;</span>));</span><br><span class="line">                        entity.setWechat(resultSet.getString(<span class="string">&quot;wechat&quot;</span>));</span><br><span class="line">                        entity.setClassname(resultSet.getString(<span class="string">&quot;classname&quot;</span>));</span><br><span class="line">                        entity.setDepartname(resultSet.getString(<span class="string">&quot;departname&quot;</span>));</span><br><span class="line">                        entity.setCreatetime(resultSet.getDate(<span class="string">&quot;createtime&quot;</span>));</span><br><span class="line">                        list.add(entity);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> list;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				====================使用BeanListHandler的简化版本================</span><br><span class="line">                    </span><br><span class="line">             List&lt;Student&gt; list = queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">BeanListHandler</span>&lt;Student&gt;(Student.class), pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line">            <span class="keyword">return</span> list;       </span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">				===============================End======================================</span><br><span class="line">                    </span><br></pre></td></tr></table></figure></div>
-
-<p>在未使用 BeanListHandler 的时候，我们需要不断的将 resultset 取到的每一条结果一个个转化为对应类型，并且存储到List 中，但是使用了BeanListHandler 后，我们简化了转化操作 ，以下是代码解释：</p>
-<ol>
-<li><p><code>BeanListHandler&lt;Student&gt;</code>：这部分表示创建了一个 <code>BeanListHandler</code> 的实例，并且指定了它将会处理的对象类型是 <code>Student</code>。<code>BeanListHandler</code> 用于将数据库查询结果转换为一个包含指定类型对象的列List</p>
-</li>
-<li><p><code>(Student.class)</code>：这是一个类参数，指定了要将结果集中的每一行数据映射到的目标类。在这里，它指定了要将每一行数据映射为 <code>Student</code> 类型的对象。也就是说，它会自动的将查询到的数据的属性映射到Bean的属性并存储，不需要我们手动。</p>
-</li>
-<li><p>但是前提是Database中的每一条记录的字段名要与Bean中的每一个属性都相同，见下图</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911222.png"
-                      alt="image-20231017091107092" style="zoom:50%;" 
-                ><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911425.png"
-                      alt="image-20231017091138379" style="zoom:50%;" 
-                ></p>
-</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Retrofit2 与传统 Controller</title>
-    <url>/2025/09/22/Retrofit2-%E4%B8%8E%E4%BC%A0%E7%BB%9F-Controller/</url>
-    <content><![CDATA[<h1 id="Retrofit2-与传统-Controller"><a href="#Retrofit2-与传统-Controller" class="headerlink" title="Retrofit2 与传统 Controller"></a><code>Retrofit2</code> 与传统 <code>Controller</code></h1><p> retrofit是现在比较流行的网络请求框架，可以理解为<code>Okhttp</code>的加强版，底层封装了<code>Okhttp</code>。准确来说，<strong>Retrofit是一个RESTful的http网络请求框架的封装</strong>。因为网络请求工作本质上是由<code>Okhttp</code>来完成，而Retrofit负责网络请求接口的封装。</p>
-<p>在传统的MVC下，只有Controller中才会配置各种各样的api路径，但是本次项目中使用了<code>Retrofit2</code>,并在<code>interface</code>中添加了不少路径。</p>
-<h4 id="这其中最主要的区别是："><a href="#这其中最主要的区别是：" class="headerlink" title="这其中最主要的区别是："></a><strong>这其中最主要的区别是：</strong></h4><p>在过去开发的传统小业务项目中，<code>Controller</code>中都是自己定义的api，是启动后端服务后，<strong>监听</strong>在这个路径上，<strong>等待别人前端来调用</strong>。</p>
-<p>而<code>Retrofit2</code>在<code>interface</code>中的api，是外部的api，如本项目中，调用的是微信提供的api,无需我们实现，我们是调用者。</p>
-<h2 id="Retrofit2的常见使用实例"><a href="#Retrofit2的常见使用实例" class="headerlink" title="Retrofit2的常见使用实例"></a>Retrofit2的常见使用实例</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"> eg.</span><br><span class="line"> </span><br><span class="line"> <span class="meta">@GET(&quot;user&quot;)</span></span><br><span class="line"> Call&lt;ResponseBody&gt; <span class="title function_">getData2</span><span class="params">(<span class="meta">@Query(&quot;id&quot;)</span> <span class="type">long</span> idLon, <span class="meta">@Query(&quot;name&quot;)</span> String nameStr)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@POST(&quot;user/emails&quot;)</span></span><br><span class="line">Call&lt;ResponseBody&gt; <span class="title function_">getPsotDataBody</span><span class="params">(<span class="meta">@Body</span> RequestBody body)</span>;</span><br><span class="line"><span class="comment">//@Body可以传递自定义类型数据给服务器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">eg.</span><br><span class="line">    </span><br><span class="line"><span class="meta">@Slf4j</span> </span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Retrofit2Config</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BASE_URL</span> <span class="operator">=</span> <span class="string">&quot;https://api.weixin.qq.com/&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Retrofit <span class="title function_">retrofit</span><span class="params">()</span> &#123;   <span class="comment">//创建一个对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Retrofit</span>.Builder()</span><br><span class="line">                .baseUrl(BASE_URL)</span><br><span class="line">                .addConverterFactory(JacksonConverterFactory.create())  <span class="comment">//添加自动转化</span></span><br><span class="line">                .build();<span class="comment">//真正构建</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> IWeixinApiService <span class="title function_">weixinApiService</span><span class="params">(Retrofit retrofit)</span> &#123;  <span class="comment">//括号里面加时添加自动代理</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> retrofit.create(IWeixinApiService.class);  <span class="comment">//动态代理</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="Call接口详解"><a href="#Call接口详解" class="headerlink" title="Call接口详解"></a>Call接口详解</h3><p><code>Call</code>是Retrofit网络库的核心接口，用于执行HTTP请求。</p>
-<p><code>Call&lt;T&gt;</code>是Retrofit中表示一个准备执行的HTTP请求的接口，其中<code>T</code>是期望的响应类型。</p>
-<h3 id="Call接口的主要方法"><a href="#Call接口的主要方法" class="headerlink" title="Call接口的主要方法"></a>Call接口的主要方法</h3><table>
-<thead>
-<tr>
-<th align="left">方法</th>
-<th align="left">描述</th>
-<th align="left">示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>execute()</code></td>
-<td align="left">同步执行请求</td>
-<td align="left"><code>Response&lt;T&gt; response = call.execute();</code></td>
-</tr>
-<tr>
-<td align="left"><code>enqueue(Callback&lt;T&gt;)</code></td>
-<td align="left">异步执行请求</td>
-<td align="left"><code>call.enqueue(new Callback&lt;...&gt;() &#123;...&#125;);</code></td>
-</tr>
-<tr>
-<td align="left"><code>clone()</code></td>
-<td align="left">克隆Call对象</td>
-<td align="left"><code>Call&lt;T&gt; newCall = call.clone();</code></td>
-</tr>
-<tr>
-<td align="left"><code>cancel()</code></td>
-<td align="left">取消请求</td>
-<td align="left"><code>call.cancel();</code></td>
-</tr>
-<tr>
-<td align="left"><code>isExecuted()</code></td>
-<td align="left">检查是否已执行</td>
-<td align="left"><code>boolean executed = call.isExecuted();</code></td>
-</tr>
-<tr>
-<td align="left"><code>isCanceled()</code></td>
-<td align="left">检查是否已取消</td>
-<td align="left"><code>boolean canceled = call.isCanceled();</code></td>
-</tr>
-<tr>
-<td align="left"><code>request()</code></td>
-<td align="left">获取Request对象</td>
-<td align="left"><code>okhttp3.Request request = call.request();</code></td>
-</tr>
-</tbody></table>
-<h2 id="同步-vs-异步执行"><a href="#同步-vs-异步执行" class="headerlink" title="同步 vs 异步执行"></a>同步 vs 异步执行</h2><h3 id="同步执行-execute"><a href="#同步执行-execute" class="headerlink" title="同步执行 (execute())"></a>同步执行 (execute())</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 同步请求 - 会阻塞当前线程</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Response&lt;WeixinTokenRes&gt; response = call.execute();</span><br><span class="line">    <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">        <span class="type">WeixinTokenRes</span> <span class="variable">tokenRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">        <span class="comment">// 处理响应</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 处理错误</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    <span class="comment">// 处理异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h3 id="异步执行-enqueue"><a href="#异步执行-enqueue" class="headerlink" title="异步执行 (enqueue())"></a>异步执行 (enqueue())</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步请求 - 不会阻塞当前线程</span></span><br><span class="line">call.enqueue(<span class="keyword">new</span> <span class="title class_">Callback</span>&lt;WeixinTokenRes&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResponse</span><span class="params">(Call&lt;WeixinTokenRes&gt; call, Response&lt;WeixinTokenRes&gt; response)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">            <span class="type">WeixinTokenRes</span> <span class="variable">tokenRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">            <span class="comment">// 处理成功响应</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 处理HTTP错误</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(Call&lt;WeixinTokenRes&gt; call, Throwable t)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理网络错误或异常</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> call.execute().body();</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="第一行：创建Call对象"><a href="#第一行：创建Call对象" class="headerlink" title="第一行：创建Call对象"></a>第一行：创建Call对象</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li><code>weixinApiService.createQrCode()</code> 返回一个 <code>Call&lt;WeixinQrCodeRes&gt;</code> 对象</li>
-<li>此时<strong>还没有</strong>发起网络请求，只是创建了一个可执行的请求对象</li>
-<li><code>Call&lt;WeixinQrCodeRes&gt;</code> 中的泛型 <code>WeixinQrCodeRes</code> 指定了期望的响应数据类型</li>
-</ul>
-<h3 id="第二行：执行请求并获取响应体"><a href="#第二行：执行请求并获取响应体" class="headerlink" title="第二行：执行请求并获取响应体"></a>第二行：执行请求并获取响应体</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> call.execute().body();</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li><code>call.execute()</code>：<strong>同步执行</strong>网络请求，阻塞当前线程直到收到响应</li>
-<li><code>.body()</code>：从响应中提取反序列化后的Java对象</li>
-<li>将结果赋值给 <code>weixinQrCodeRes</code> 变量</li>
-</ul>
-<h2 id="完整流程分解"><a href="#完整流程分解" class="headerlink" title="完整流程分解"></a>完整流程分解</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 创建Call对象（尚未发起请求）</span></span><br><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 执行请求（同步，阻塞当前线程）</span></span><br><span class="line">Response&lt;WeixinQrCodeRes&gt; response = call.execute();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 检查请求是否成功</span></span><br><span class="line"><span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">    <span class="comment">// 4. 获取反序列化后的响应体</span></span><br><span class="line">    <span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">    <span class="comment">// 使用数据...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 处理错误</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">error</span> <span class="operator">=</span> response.errorBody().string();</span><br><span class="line">    <span class="comment">// 或者根据状态码处理</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">statusCode</span> <span class="operator">=</span> response.code();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
   </entry>
   <entry>
     <title>JAVA图形化编程基础</title>
@@ -3004,6 +2884,158 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> cn.itcast.swing.util.ImagePathUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ListCellRendererTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">JFrame</span> <span class="variable">mainWin</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFrame</span>(<span class="string">&quot;好友列表&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String[] friends = &#123;</span><br><span class="line">            <span class="string">&quot;李清照&quot;</span>,</span><br><span class="line">            <span class="string">&quot;苏格拉底&quot;</span>,</span><br><span class="line">            <span class="string">&quot;李白&quot;</span>,</span><br><span class="line">            <span class="string">&quot;弄玉&quot;</span>,</span><br><span class="line">            <span class="string">&quot;虎头&quot;</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义一个JList对象</span></span><br><span class="line">    <span class="type">JList</span> <span class="variable">friendsList</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JList</span>(friends);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//设置JList使用ImageCellRenderer作为列表项绘制器</span></span><br><span class="line">        friendsList.setCellRenderer(<span class="keyword">new</span> <span class="title class_">ImageCellRenderer</span>());</span><br><span class="line"></span><br><span class="line">        mainWin.add(<span class="keyword">new</span> <span class="title class_">JScrollPane</span>(friendsList));</span><br><span class="line">        mainWin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        mainWin.pack();</span><br><span class="line">        mainWin.setVisible(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">ListCellRendererTest</span>().init();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">ImageCellRenderer</span> <span class="keyword">extends</span> <span class="title class_">JPanel</span> <span class="keyword">implements</span> <span class="title class_">ListCellRenderer</span> &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> ImageIcon icon;</span><br><span class="line">        <span class="keyword">private</span> String name;</span><br><span class="line">        <span class="comment">//定义绘制单元格的背景色</span></span><br><span class="line">        <span class="keyword">private</span> Color background;</span><br><span class="line">        <span class="comment">//定义绘制单元格的前景色</span></span><br><span class="line">        <span class="keyword">private</span> Color foreground;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Component <span class="title function_">getListCellRendererComponent</span><span class="params">(JList list, Object value, <span class="type">int</span> index, <span class="type">boolean</span> isSelected, <span class="type">boolean</span> cellHasFocus)</span> &#123;</span><br><span class="line"></span><br><span class="line">            icon = <span class="keyword">new</span> <span class="title class_">ImageIcon</span>(ImagePathUtil.getRealPath(<span class="string">&quot;9\\&quot;</span> + value + <span class="string">&quot;.gif&quot;</span>));</span><br><span class="line">            name = value.toString();</span><br><span class="line">            background = isSelected ? list.getSelectionBackground() : list.getBackground();</span><br><span class="line">            foreground = isSelected ? list.getSelectionForeground() : list.getForeground();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//返回当前JPanel对象，作为列表项绘制器</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">paintComponent</span><span class="params">(Graphics g)</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">width</span> <span class="operator">=</span> icon.getImage().getWidth(<span class="literal">null</span>);</span><br><span class="line">            <span class="type">int</span> <span class="variable">height</span> <span class="operator">=</span> icon.getImage().getHeight(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//填充背景矩形</span></span><br><span class="line">            g.setColor(background);</span><br><span class="line">            g.fillRect(<span class="number">0</span>,<span class="number">0</span>,getWidth(),getHeight());</span><br><span class="line"></span><br><span class="line">            g.setColor(foreground);</span><br><span class="line">            <span class="comment">//绘制好友头像</span></span><br><span class="line">            g.drawImage(icon.getImage(),getWidth()/<span class="number">2</span>-width/<span class="number">2</span>,<span class="number">10</span>,<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//绘制好友昵称</span></span><br><span class="line">            g.setFont(<span class="keyword">new</span> <span class="title class_">Font</span>(<span class="string">&quot;SansSerif&quot;</span>,Font.BOLD,<span class="number">18</span>));</span><br><span class="line">            g.drawString(name,getWidth()/<span class="number">2</span>-name.length()*<span class="number">10</span>,height+<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> Dimension <span class="title function_">getPreferredSize</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Dimension</span>(<span class="number">60</span>,<span class="number">80</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
   </entry>
   <entry>
+    <title>ResultSetHandler  和 BeanListHandler 的区别</title>
+    <url>/2023/10/17/ResultSetHandler-%E5%92%8C-BeanListHandler-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>二者都是 Apache Commons DbUtils 库中的类，用于简化 JDBC 操作。</p>
+<ol>
+<li><p><strong>ResultSetHandler</strong>：</p>
+<p><code>ResultSetHandler</code> 是一个接口，它定义了将 SQL 查询结果集（ResultSet）转换为不同类型的对象的方法。</p>
+<p>例如，它可以将查询结果集转换为单个对象、列表、Map 等等。它提供了灵活的方式来处理查询结果。</p>
+</li>
+<li><p><strong>BeanListHandler</strong>：</p>
+<p><code>BeanListHandler</code> 是 <code>ResultSetHandler</code> 的一个具体实现，它将结果集转换为一个包含 JavaBean 对象的列表。</p>
+<p>这是一个常用的操作，特别是当你从数据库中检索一组记录，并希望将每一行映射为一个 JavaBean 对象时。每一行的字段将会与 JavaBean 的属性进行<strong>匹配</strong></p>
+</li>
+</ol>
+<p>使用 BeanListHandler 能够简化操作，详情见以下实例：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">					========未使用  BeanListHandler    的    ResultSetHandler   版本=========</span><br><span class="line"></span><br><span class="line">queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">ResultSetHandler</span>&lt;List&lt;Student&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> List&lt;Student&gt; <span class="title function_">handle</span><span class="params">(ResultSet resultSet)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                    List&lt;Student&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">                    <span class="keyword">while</span> (resultSet.next()) &#123;</span><br><span class="line">                        <span class="type">Student</span> <span class="variable">entity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">                        entity.setId(resultSet.getInt(<span class="string">&quot;id&quot;</span>));</span><br><span class="line">                        entity.setAge(resultSet.getInt(<span class="string">&quot;age&quot;</span>));</span><br><span class="line">                        entity.setAccount(resultSet.getInt(<span class="string">&quot;account&quot;</span>));</span><br><span class="line">                        entity.setClassid(resultSet.getInt(<span class="string">&quot;classid&quot;</span>));</span><br><span class="line">                        entity.setStuno(resultSet.getString(<span class="string">&quot;stuno&quot;</span>));</span><br><span class="line">                        entity.setName(resultSet.getString(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">                        entity.setGender(resultSet.getString(<span class="string">&quot;gender&quot;</span>));</span><br><span class="line">                        entity.setEmail(resultSet.getString(<span class="string">&quot;email&quot;</span>));</span><br><span class="line">                        entity.setTelephone(resultSet.getString(<span class="string">&quot;telephone&quot;</span>));</span><br><span class="line">                        entity.setAddress(resultSet.getString(<span class="string">&quot;adress&quot;</span>));</span><br><span class="line">                        entity.setWechat(resultSet.getString(<span class="string">&quot;wechat&quot;</span>));</span><br><span class="line">                        entity.setClassname(resultSet.getString(<span class="string">&quot;classname&quot;</span>));</span><br><span class="line">                        entity.setDepartname(resultSet.getString(<span class="string">&quot;departname&quot;</span>));</span><br><span class="line">                        entity.setCreatetime(resultSet.getDate(<span class="string">&quot;createtime&quot;</span>));</span><br><span class="line">                        list.add(entity);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">return</span> list;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				====================使用BeanListHandler的简化版本================</span><br><span class="line">                    </span><br><span class="line">             List&lt;Student&gt; list = queryRunner.query(sql, <span class="keyword">new</span> <span class="title class_">BeanListHandler</span>&lt;Student&gt;(Student.class), pageUtils.getStart(), pageUtils.getPageSize());</span><br><span class="line">            <span class="keyword">return</span> list;       </span><br><span class="line">                    </span><br><span class="line"></span><br><span class="line">				===============================End======================================</span><br><span class="line">                    </span><br></pre></td></tr></table></figure></div>
+
+<p>在未使用 BeanListHandler 的时候，我们需要不断的将 resultset 取到的每一条结果一个个转化为对应类型，并且存储到List 中，但是使用了BeanListHandler 后，我们简化了转化操作 ，以下是代码解释：</p>
+<ol>
+<li><p><code>BeanListHandler&lt;Student&gt;</code>：这部分表示创建了一个 <code>BeanListHandler</code> 的实例，并且指定了它将会处理的对象类型是 <code>Student</code>。<code>BeanListHandler</code> 用于将数据库查询结果转换为一个包含指定类型对象的列List</p>
+</li>
+<li><p><code>(Student.class)</code>：这是一个类参数，指定了要将结果集中的每一行数据映射到的目标类。在这里，它指定了要将每一行数据映射为 <code>Student</code> 类型的对象。也就是说，它会自动的将查询到的数据的属性映射到Bean的属性并存储，不需要我们手动。</p>
+</li>
+<li><p>但是前提是Database中的每一条记录的字段名要与Bean中的每一个属性都相同，见下图</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911222.png"
+                      alt="image-20231017091107092" style="zoom:50%;" 
+                ><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310170911425.png"
+                      alt="image-20231017091138379" style="zoom:50%;" 
+                ></p>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Retrofit2 与传统 Controller</title>
+    <url>/2025/09/22/Retrofit2-%E4%B8%8E%E4%BC%A0%E7%BB%9F-Controller/</url>
+    <content><![CDATA[<h1 id="Retrofit2-与传统-Controller"><a href="#Retrofit2-与传统-Controller" class="headerlink" title="Retrofit2 与传统 Controller"></a><code>Retrofit2</code> 与传统 <code>Controller</code></h1><p> retrofit是现在比较流行的网络请求框架，可以理解为<code>Okhttp</code>的加强版，底层封装了<code>Okhttp</code>。准确来说，<strong>Retrofit是一个RESTful的http网络请求框架的封装</strong>。因为网络请求工作本质上是由<code>Okhttp</code>来完成，而Retrofit负责网络请求接口的封装。</p>
+<p>在传统的MVC下，只有Controller中才会配置各种各样的api路径，但是本次项目中使用了<code>Retrofit2</code>,并在<code>interface</code>中添加了不少路径。</p>
+<h4 id="这其中最主要的区别是："><a href="#这其中最主要的区别是：" class="headerlink" title="这其中最主要的区别是："></a><strong>这其中最主要的区别是：</strong></h4><p>在过去开发的传统小业务项目中，<code>Controller</code>中都是自己定义的api，是启动后端服务后，<strong>监听</strong>在这个路径上，<strong>等待别人前端来调用</strong>。</p>
+<p>而<code>Retrofit2</code>在<code>interface</code>中的api，是外部的api，如本项目中，调用的是微信提供的api,无需我们实现，我们是调用者。</p>
+<h2 id="Retrofit2的常见使用实例"><a href="#Retrofit2的常见使用实例" class="headerlink" title="Retrofit2的常见使用实例"></a>Retrofit2的常见使用实例</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"> eg.</span><br><span class="line"> </span><br><span class="line"> <span class="meta">@GET(&quot;user&quot;)</span></span><br><span class="line"> Call&lt;ResponseBody&gt; <span class="title function_">getData2</span><span class="params">(<span class="meta">@Query(&quot;id&quot;)</span> <span class="type">long</span> idLon, <span class="meta">@Query(&quot;name&quot;)</span> String nameStr)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@POST(&quot;user/emails&quot;)</span></span><br><span class="line">Call&lt;ResponseBody&gt; <span class="title function_">getPsotDataBody</span><span class="params">(<span class="meta">@Body</span> RequestBody body)</span>;</span><br><span class="line"><span class="comment">//@Body可以传递自定义类型数据给服务器</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">eg.</span><br><span class="line">    </span><br><span class="line"><span class="meta">@Slf4j</span> </span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Retrofit2Config</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">BASE_URL</span> <span class="operator">=</span> <span class="string">&quot;https://api.weixin.qq.com/&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Retrofit <span class="title function_">retrofit</span><span class="params">()</span> &#123;   <span class="comment">//创建一个对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Retrofit</span>.Builder()</span><br><span class="line">                .baseUrl(BASE_URL)</span><br><span class="line">                .addConverterFactory(JacksonConverterFactory.create())  <span class="comment">//添加自动转化</span></span><br><span class="line">                .build();<span class="comment">//真正构建</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> IWeixinApiService <span class="title function_">weixinApiService</span><span class="params">(Retrofit retrofit)</span> &#123;  <span class="comment">//括号里面加时添加自动代理</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> retrofit.create(IWeixinApiService.class);  <span class="comment">//动态代理</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="Call接口详解"><a href="#Call接口详解" class="headerlink" title="Call接口详解"></a>Call接口详解</h3><p><code>Call</code>是Retrofit网络库的核心接口，用于执行HTTP请求。</p>
+<p><code>Call&lt;T&gt;</code>是Retrofit中表示一个准备执行的HTTP请求的接口，其中<code>T</code>是期望的响应类型。</p>
+<h3 id="Call接口的主要方法"><a href="#Call接口的主要方法" class="headerlink" title="Call接口的主要方法"></a>Call接口的主要方法</h3><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+<th align="left">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>execute()</code></td>
+<td align="left">同步执行请求</td>
+<td align="left"><code>Response&lt;T&gt; response = call.execute();</code></td>
+</tr>
+<tr>
+<td align="left"><code>enqueue(Callback&lt;T&gt;)</code></td>
+<td align="left">异步执行请求</td>
+<td align="left"><code>call.enqueue(new Callback&lt;...&gt;() &#123;...&#125;);</code></td>
+</tr>
+<tr>
+<td align="left"><code>clone()</code></td>
+<td align="left">克隆Call对象</td>
+<td align="left"><code>Call&lt;T&gt; newCall = call.clone();</code></td>
+</tr>
+<tr>
+<td align="left"><code>cancel()</code></td>
+<td align="left">取消请求</td>
+<td align="left"><code>call.cancel();</code></td>
+</tr>
+<tr>
+<td align="left"><code>isExecuted()</code></td>
+<td align="left">检查是否已执行</td>
+<td align="left"><code>boolean executed = call.isExecuted();</code></td>
+</tr>
+<tr>
+<td align="left"><code>isCanceled()</code></td>
+<td align="left">检查是否已取消</td>
+<td align="left"><code>boolean canceled = call.isCanceled();</code></td>
+</tr>
+<tr>
+<td align="left"><code>request()</code></td>
+<td align="left">获取Request对象</td>
+<td align="left"><code>okhttp3.Request request = call.request();</code></td>
+</tr>
+</tbody></table>
+<h2 id="同步-vs-异步执行"><a href="#同步-vs-异步执行" class="headerlink" title="同步 vs 异步执行"></a>同步 vs 异步执行</h2><h3 id="同步执行-execute"><a href="#同步执行-execute" class="headerlink" title="同步执行 (execute())"></a>同步执行 (execute())</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 同步请求 - 会阻塞当前线程</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Response&lt;WeixinTokenRes&gt; response = call.execute();</span><br><span class="line">    <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">        <span class="type">WeixinTokenRes</span> <span class="variable">tokenRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">        <span class="comment">// 处理响应</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 处理错误</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">    <span class="comment">// 处理异常</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+<h3 id="异步执行-enqueue"><a href="#异步执行-enqueue" class="headerlink" title="异步执行 (enqueue())"></a>异步执行 (enqueue())</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 异步请求 - 不会阻塞当前线程</span></span><br><span class="line">call.enqueue(<span class="keyword">new</span> <span class="title class_">Callback</span>&lt;WeixinTokenRes&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onResponse</span><span class="params">(Call&lt;WeixinTokenRes&gt; call, Response&lt;WeixinTokenRes&gt; response)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">            <span class="type">WeixinTokenRes</span> <span class="variable">tokenRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">            <span class="comment">// 处理成功响应</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 处理HTTP错误</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(Call&lt;WeixinTokenRes&gt; call, Throwable t)</span> &#123;</span><br><span class="line">        <span class="comment">// 处理网络错误或异常</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> call.execute().body();</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="第一行：创建Call对象"><a href="#第一行：创建Call对象" class="headerlink" title="第一行：创建Call对象"></a>第一行：创建Call对象</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>weixinApiService.createQrCode()</code> 返回一个 <code>Call&lt;WeixinQrCodeRes&gt;</code> 对象</li>
+<li>此时<strong>还没有</strong>发起网络请求，只是创建了一个可执行的请求对象</li>
+<li><code>Call&lt;WeixinQrCodeRes&gt;</code> 中的泛型 <code>WeixinQrCodeRes</code> 指定了期望的响应数据类型</li>
+</ul>
+<h3 id="第二行：执行请求并获取响应体"><a href="#第二行：执行请求并获取响应体" class="headerlink" title="第二行：执行请求并获取响应体"></a>第二行：执行请求并获取响应体</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> call.execute().body();</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><code>call.execute()</code>：<strong>同步执行</strong>网络请求，阻塞当前线程直到收到响应</li>
+<li><code>.body()</code>：从响应中提取反序列化后的Java对象</li>
+<li>将结果赋值给 <code>weixinQrCodeRes</code> 变量</li>
+</ul>
+<h2 id="完整流程分解"><a href="#完整流程分解" class="headerlink" title="完整流程分解"></a>完整流程分解</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 创建Call对象（尚未发起请求）</span></span><br><span class="line">Call&lt;WeixinQrCodeRes&gt; call = weixinApiService.createQrCode(accessToken, weixinQrCodeReq);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 执行请求（同步，阻塞当前线程）</span></span><br><span class="line">Response&lt;WeixinQrCodeRes&gt; response = call.execute();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 检查请求是否成功</span></span><br><span class="line"><span class="keyword">if</span> (response.isSuccessful()) &#123;</span><br><span class="line">    <span class="comment">// 4. 获取反序列化后的响应体</span></span><br><span class="line">    <span class="type">WeixinQrCodeRes</span> <span class="variable">weixinQrCodeRes</span> <span class="operator">=</span> response.body();</span><br><span class="line">    <span class="comment">// 使用数据...</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 处理错误</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">error</span> <span class="operator">=</span> response.errorBody().string();</span><br><span class="line">    <span class="comment">// 或者根据状态码处理</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">statusCode</span> <span class="operator">=</span> response.code();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>]]></content>
+  </entry>
+  <entry>
+    <title>初识 SpringBoot 之对比Servlet </title>
+    <url>/2024/01/18/Servlet-%E5%92%8C-SpringBoot-%E7%9A%84%E5%AF%B9%E6%AF%94/</url>
+    <content><![CDATA[<p><em>学习过程中，SpringBoot使用了Mybatis，Servlet项目中使用了Apache整合的数据库工具类Dbutils</em></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181021330.png"
+                      alt="image-20240118102125243"
+                ></p>
+<p>相较于SpringBoot，Servlet中使用的注解明显要少，但是在Maven中添加的依赖确实远远多于SpringBoot，Servlet中比较重要且独特的注解是在Servlet类上声明的@WebSrvlet。</p>
+<p>下面详细对上图中的SpringBoot内容进行解释。</p>
+<h3 id="Conroller层"><a href="#Conroller层" class="headerlink" title="Conroller层"></a>Conroller层</h3><p>在结构上，二者类似，但在具体的实现上，还是有着一定的差别，SpringBoot中对应<code>Servlet</code>层的名为<code>Controller</code>层，这一层在类名上要添加一个<code>@Controller</code>注解，用于声明其是一个控制器，比较方便的是，在Servlet项目中，对于不同的服务，需要一个个的进行<code>new</code>,但是在SpringBoot中，只需在变量名上添加注解<code>@Autowired</code>,即可实现创建。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401180954436.png"
+                      alt="image-20240118095417409"  
+                >
+
+<p>SpringBoot层中有一个极其重要的注解，即<code>@RequestMapping</code>，写在类上，相当Servlet中的<code>@WebServlet（url=xxxxx）</code>,即定下虚拟路径  ，写在 <code>Controller</code> 中的方法名上，则代表前端发送申请到后台该方法的路径。</p>
+<h3 id="Service层-和-Mapper层"><a href="#Service层-和-Mapper层" class="headerlink" title="Service层  和   Mapper层"></a>Service层  和   Mapper层</h3><p>二者的<code>Service</code>层并无太大区别，主体都分为接口（<code>Interface</code>）和实现（<code>impl</code>）两部分,需要注意的是<code>SpringBoot</code>的<code>Service实现类</code>上需要添加 <code>@Service</code>注解以标识自己是一个Service类。</p>
+<p><code>Mapper</code>层对应的实际上就是传统的<code>Dao</code>层，需要再类前添加注解<code>@Mapper</code>，传统Servlet项目中，Dao层也分为Impl和Interface两部分，但是Mapper层中，我们只需要一个Interface，并且在Interface上添加@Mapper注解，将具体实现的Sql语句添加到接口中声明的方法上的@Select &#x2F; @Insert 等注解中进行书写</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181025925.png"
+                      alt="image-20240118102513896"
+                ></p>
+<h3 id="Pojo-和-Entity"><a href="#Pojo-和-Entity" class="headerlink" title="Pojo 和 Entity"></a>Pojo 和 Entity</h3><p>二者极其类似。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>SpringBoot 之配置文件的书写和获取</title>
     <url>/2024/01/17/SpringBoot-%E4%B9%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E4%B9%A6%E5%86%99%E5%92%8C%E8%8E%B7%E5%8F%96/</url>
     <content><![CDATA[<p>SpringBoot的配置文件的后缀分为以下三种：</p>
@@ -3056,38 +3088,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401170941186.png"
                       alt="image-20240117094136147" style="zoom:50%;" 
                 >]]></content>
-  </entry>
-  <entry>
-    <title>初识 SpringBoot 之对比Servlet </title>
-    <url>/2024/01/18/Servlet-%E5%92%8C-SpringBoot-%E7%9A%84%E5%AF%B9%E6%AF%94/</url>
-    <content><![CDATA[<p><em>学习过程中，SpringBoot使用了Mybatis，Servlet项目中使用了Apache整合的数据库工具类Dbutils</em></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181021330.png"
-                      alt="image-20240118102125243"
-                ></p>
-<p>相较于SpringBoot，Servlet中使用的注解明显要少，但是在Maven中添加的依赖确实远远多于SpringBoot，Servlet中比较重要且独特的注解是在Servlet类上声明的@WebSrvlet。</p>
-<p>下面详细对上图中的SpringBoot内容进行解释。</p>
-<h3 id="Conroller层"><a href="#Conroller层" class="headerlink" title="Conroller层"></a>Conroller层</h3><p>在结构上，二者类似，但在具体的实现上，还是有着一定的差别，SpringBoot中对应<code>Servlet</code>层的名为<code>Controller</code>层，这一层在类名上要添加一个<code>@Controller</code>注解，用于声明其是一个控制器，比较方便的是，在Servlet项目中，对于不同的服务，需要一个个的进行<code>new</code>,但是在SpringBoot中，只需在变量名上添加注解<code>@Autowired</code>,即可实现创建。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401180954436.png"
-                      alt="image-20240118095417409"  
-                >
-
-<p>SpringBoot层中有一个极其重要的注解，即<code>@RequestMapping</code>，写在类上，相当Servlet中的<code>@WebServlet（url=xxxxx）</code>,即定下虚拟路径  ，写在 <code>Controller</code> 中的方法名上，则代表前端发送申请到后台该方法的路径。</p>
-<h3 id="Service层-和-Mapper层"><a href="#Service层-和-Mapper层" class="headerlink" title="Service层  和   Mapper层"></a>Service层  和   Mapper层</h3><p>二者的<code>Service</code>层并无太大区别，主体都分为接口（<code>Interface</code>）和实现（<code>impl</code>）两部分,需要注意的是<code>SpringBoot</code>的<code>Service实现类</code>上需要添加 <code>@Service</code>注解以标识自己是一个Service类。</p>
-<p><code>Mapper</code>层对应的实际上就是传统的<code>Dao</code>层，需要再类前添加注解<code>@Mapper</code>，传统Servlet项目中，Dao层也分为Impl和Interface两部分，但是Mapper层中，我们只需要一个Interface，并且在Interface上添加@Mapper注解，将具体实现的Sql语句添加到接口中声明的方法上的@Select &#x2F; @Insert 等注解中进行书写</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401181025925.png"
-                      alt="image-20240118102513896"
-                ></p>
-<h3 id="Pojo-和-Entity"><a href="#Pojo-和-Entity" class="headerlink" title="Pojo 和 Entity"></a>Pojo 和 Entity</h3><p>二者极其类似。</p>
-]]></content>
   </entry>
   <entry>
     <title>Spring容器启动顺序</title>
@@ -3183,6 +3183,60 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
+    <title>Web之正则表达式</title>
+    <url>/2023/10/20/Web%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>即使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。</p>
+<p>下面表示的是一串手机号码的正则表达式：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310201500108.png"
+                      alt="image-20231020150048894"
+                ></p>
+<ul>
+<li>符号  ^  表示以…开始</li>
+<li>中间括号内的表示  或者， 即第二位数字为3~9 之间的任何一个数字</li>
+<li>\d  表示的是可以为任意数字   ，后面跟上一个 { 9 }  表征重复的次数 ，即后面可以是任意的9个数字</li>
+<li>$ 表示结束</li>
+</ul>
+<h3 id="jS中的使用方法"><a href="#jS中的使用方法" class="headerlink" title="jS中的使用方法"></a>jS中的使用方法</h3><ul>
+<li>利用RegExp对象创建  正则表达式</li>
+</ul>
+<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg1=<span class="keyword">new</span> <span class="title class_">RegExp</span>(/abc);</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>利用字面量进行创建</li>
+</ul>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/ abc /</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>test( ) 检测文本是否符合正则的规则  ，返回 true &#x2F;  false</li>
+</ul>
+<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">正则.<span class="title function_">test</span>(要检测的文本) </span><br><span class="line">eg：</span><br><span class="line">				<span class="keyword">var</span> f1=rg2.<span class="title function_">test</span>(<span class="string">&#x27;saddf&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f2=rg2.<span class="title function_">test</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f3=rg2.<span class="title function_">test</span>(<span class="string">&#x27;sabcs&#x27;</span>)   <span class="comment">//  只要包含abc即可</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="常见使用句法"><a href="#常见使用句法" class="headerlink" title="常见使用句法"></a>常见使用句法</h3><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/  ^[a-zA-Z_][a-zA-Z0-9_]&#123;2,9&#125;$ /</span></span><br></pre></td></tr></table></figure></div>
+
+<p>解释：</p>
+<ul>
+<li><p><code>^</code>: 表示字符串的开头。</p>
+</li>
+<li><p><code>[a-zA-Z_]</code>: 匹配一个字母（大小写不限）或下划线。</p>
+</li>
+<li><p>&#96;&#96;&#96;<br>[a-zA-Z0-9_]{2,9}</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  : 匹配2到9个字母（大小写不限）、数字或下划线。</span><br><span class="line"></span><br><span class="line">  - `&#123;2,9&#125;` 表示前面的模式（`[a-zA-Z0-9_]`）重复2到9次。</span><br><span class="line"></span><br><span class="line">- `$`: 表示字符串的结尾。</span><br><span class="line"></span><br><span class="line">这个正则表达式将确保字符串以字母或下划线开头，并且只包含字母、数字和下划线，长度在3到10之间。</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">^\d&#123;4&#125;-\d&#123;7&#125;|\d&#123;3&#125;-\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<p>解释：</p>
+<ul>
+<li><code>^</code>: 表示字符串的开头。</li>
+<li><code>\d</code>: 匹配一个数字字符。</li>
+<li><code>&#123;n&#125;</code>: 匹配前面的模式（这里是数字）恰好 n 次。</li>
+<li><code>-</code>: 匹配一个短横线。</li>
+<li><code>|</code>: 表示或者。</li>
+<li><code>$</code>: 表示字符串的结尾。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>XML的初步了解</title>
     <url>/2023/08/29/XML%E7%9A%84%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="XML的初步了解"><a href="#XML的初步了解" class="headerlink" title="XML的初步了解"></a>XML的初步了解</h2><p>可扩展性标记语言，其目的是用于传输和存储数据，而 HTML 是用于展示数据。XML的标签必须是自定义，同时要注意标签名必须要有一定的含义。</p>
@@ -3250,76 +3304,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 <li>Schema 功能更强大，内置多种简单和复杂的数据类型</li>
 <li>Schema 支持命名空间 (一个XML中可以引入多个约束文档)</li>
 </ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>Web之正则表达式</title>
-    <url>/2023/10/20/Web%E4%B9%8B%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><p>即使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。</p>
-<p>下面表示的是一串手机号码的正则表达式：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310201500108.png"
-                      alt="image-20231020150048894"
-                ></p>
-<ul>
-<li>符号  ^  表示以…开始</li>
-<li>中间括号内的表示  或者， 即第二位数字为3~9 之间的任何一个数字</li>
-<li>\d  表示的是可以为任意数字   ，后面跟上一个 { 9 }  表征重复的次数 ，即后面可以是任意的9个数字</li>
-<li>$ 表示结束</li>
-</ul>
-<h3 id="jS中的使用方法"><a href="#jS中的使用方法" class="headerlink" title="jS中的使用方法"></a>jS中的使用方法</h3><ul>
-<li>利用RegExp对象创建  正则表达式</li>
-</ul>
-<div class="highlight-container" data-rel="Javascript"><figure class="iseeu highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg1=<span class="keyword">new</span> <span class="title class_">RegExp</span>(/abc);</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>利用字面量进行创建</li>
-</ul>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/ abc /</span></span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>test( ) 检测文本是否符合正则的规则  ，返回 true &#x2F;  false</li>
-</ul>
-<div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line">正则.<span class="title function_">test</span>(要检测的文本) </span><br><span class="line">eg：</span><br><span class="line">				<span class="keyword">var</span> f1=rg2.<span class="title function_">test</span>(<span class="string">&#x27;saddf&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f2=rg2.<span class="title function_">test</span>(<span class="string">&#x27;abc&#x27;</span>)</span><br><span class="line">				<span class="keyword">var</span> f3=rg2.<span class="title function_">test</span>(<span class="string">&#x27;sabcs&#x27;</span>)   <span class="comment">//  只要包含abc即可</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="常见使用句法"><a href="#常见使用句法" class="headerlink" title="常见使用句法"></a>常见使用句法</h3><div class="highlight-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> rg2=<span class="regexp">/  ^[a-zA-Z_][a-zA-Z0-9_]&#123;2,9&#125;$ /</span></span><br></pre></td></tr></table></figure></div>
-
-<p>解释：</p>
-<ul>
-<li><p><code>^</code>: 表示字符串的开头。</p>
-</li>
-<li><p><code>[a-zA-Z_]</code>: 匹配一个字母（大小写不限）或下划线。</p>
-</li>
-<li><p>&#96;&#96;&#96;<br>[a-zA-Z0-9_]{2,9}</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  : 匹配2到9个字母（大小写不限）、数字或下划线。</span><br><span class="line"></span><br><span class="line">  - `&#123;2,9&#125;` 表示前面的模式（`[a-zA-Z0-9_]`）重复2到9次。</span><br><span class="line"></span><br><span class="line">- `$`: 表示字符串的结尾。</span><br><span class="line"></span><br><span class="line">这个正则表达式将确保字符串以字母或下划线开头，并且只包含字母、数字和下划线，长度在3到10之间。</span><br><span class="line"></span><br><span class="line">```js</span><br><span class="line">^\d&#123;4&#125;-\d&#123;7&#125;|\d&#123;3&#125;-\d&#123;8&#125;$</span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<p>解释：</p>
-<ul>
-<li><code>^</code>: 表示字符串的开头。</li>
-<li><code>\d</code>: 匹配一个数字字符。</li>
-<li><code>&#123;n&#125;</code>: 匹配前面的模式（这里是数字）恰好 n 次。</li>
-<li><code>-</code>: 匹配一个短横线。</li>
-<li><code>|</code>: 表示或者。</li>
-<li><code>$</code>: 表示字符串的结尾。</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>&lt;dependency&gt;与&lt;dependencyManagement&gt;</title>
-    <url>/2025/09/14/dependency-%E4%B8%8E-dependencyManagement/</url>
-    <content><![CDATA[<h2 id="lt-dependenc-gt-与-lt-dependencyManagement-gt"><a href="#lt-dependenc-gt-与-lt-dependencyManagement-gt" class="headerlink" title="&lt;dependenc&gt;与&lt;dependencyManagement&gt;"></a><code>&lt;dependenc&gt;</code>与<code>&lt;dependencyManagement&gt;</code></h2><p>从前在pom中都只是直接通过<code>&lt;dependency&gt;</code> 进行依赖的添加，今天接触到了<code>&lt;dependencyManagement&gt;</code>。</p>
-<p>对比与从前的项目，我都是直接一个模块做到底，而本次的项目区分了多个模块，而每一个模块都是可以独立开发的，每一个模块都有独立的pom文件。</p>
-<p>在整个项目的pom中使用<code>&lt; dependencyManagement &gt;</code>，其主要是规定版本，而子模块的pom若是需要添加相同的依赖，可以省略版本号，会自动去父pom中寻找依赖。此举简化了一些依赖的版本号的修改。</p>
-<p>父pom：</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!-- 父项目必须是pom类型 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖管理：采购清单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                <span class="comment">&lt;!--被包含在 Management --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注意：父项目自己如果不用，这里就不需要写&lt;dependencies&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>子模块pom</p>
-<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>child-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                         <span class="comment">&lt;!-- 一个单独的dependency --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号省略！Maven会去父POM的dependencyManagement里找 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号同样省略！ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt"><a href="#如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt" class="headerlink" title="如何理解 : 父项目自己如果不用，这里就不需要写&lt;dependencies&gt;"></a>如何理解 : 父项目自己如果不用，这里就不需要写<code>&lt;dependencies&gt;</code></h3><p>注意上述父pom示例代码注释中的并没有单独的<code>dependencies</code>，他是被包含在<code>dependencyManagement</code>。</p>
-<p>故，这里父pom这里只是规定了一下版本，自己并没有引入。<strong>父项目应该专注于扮演好“管理者”和“标准制定者”的角色，而不是“消费者”。它应该通过 <code>&lt;dependencyManagement&gt;</code> 来管理版本，而把实际引入依赖的决定权交给各个子模块。</strong> 这样可以保持项目的清晰和轻量，避免强制继承带来的冗余和问题。</p>
 ]]></content>
   </entry>
   <entry>
@@ -3400,6 +3384,22 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401271507103.png"
                       alt="image-20240127150739068" style="zoom:50%;" 
                 ></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>&lt;dependency&gt;与&lt;dependencyManagement&gt;</title>
+    <url>/2025/09/14/dependency-%E4%B8%8E-dependencyManagement/</url>
+    <content><![CDATA[<h2 id="lt-dependenc-gt-与-lt-dependencyManagement-gt"><a href="#lt-dependenc-gt-与-lt-dependencyManagement-gt" class="headerlink" title="&lt;dependenc&gt;与&lt;dependencyManagement&gt;"></a><code>&lt;dependenc&gt;</code>与<code>&lt;dependencyManagement&gt;</code></h2><p>从前在pom中都只是直接通过<code>&lt;dependency&gt;</code> 进行依赖的添加，今天接触到了<code>&lt;dependencyManagement&gt;</code>。</p>
+<p>对比与从前的项目，我都是直接一个模块做到底，而本次的项目区分了多个模块，而每一个模块都是可以独立开发的，每一个模块都有独立的pom文件。</p>
+<p>在整个项目的pom中使用<code>&lt; dependencyManagement &gt;</code>，其主要是规定版本，而子模块的pom若是需要添加相同的依赖，可以省略版本号，会自动去父pom中寻找依赖。此举简化了一些依赖的版本号的修改。</p>
+<p>父pom：</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span> <span class="comment">&lt;!-- 父项目必须是pom类型 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 依赖管理：采购清单 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                                <span class="comment">&lt;!--被包含在 Management --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>31.1-jre<span class="tag">&lt;/<span class="name">version</span>&gt;</span> <span class="comment">&lt;!-- 在这里统一指定版本 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 注意：父项目自己如果不用，这里就不需要写&lt;dependencies&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p>子模块pom</p>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>parent-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>child-module<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>                         <span class="comment">&lt;!-- 一个单独的dependency --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号省略！Maven会去父POM的dependencyManagement里找 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.guava<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>guava<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 版本号同样省略！ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt"><a href="#如何理解-父项目自己如果不用，这里就不需要写-lt-dependencies-gt" class="headerlink" title="如何理解 : 父项目自己如果不用，这里就不需要写&lt;dependencies&gt;"></a>如何理解 : 父项目自己如果不用，这里就不需要写<code>&lt;dependencies&gt;</code></h3><p>注意上述父pom示例代码注释中的并没有单独的<code>dependencies</code>，他是被包含在<code>dependencyManagement</code>。</p>
+<p>故，这里父pom这里只是规定了一下版本，自己并没有引入。<strong>父项目应该专注于扮演好“管理者”和“标准制定者”的角色，而不是“消费者”。它应该通过 <code>&lt;dependencyManagement&gt;</code> 来管理版本，而把实际引入依赖的决定权交给各个子模块。</strong> 这样可以保持项目的清晰和轻量，避免强制继承带来的冗余和问题。</p>
 ]]></content>
   </entry>
   <entry>
@@ -3530,35 +3530,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202310010849593.png"
                       alt="image-20231001084948540"
                 ></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>内网穿透</title>
-    <url>/2025/09/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
-    <content><![CDATA[<h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><ul>
-<li><h4 id="为什么需要内网穿透？"><a href="#为什么需要内网穿透？" class="headerlink" title="为什么需要内网穿透？"></a>为什么需要内网穿透？</h4></li>
-</ul>
-<p>现实应用场景中，我们周边存在许多“私有网络（内网）”，其出现的原因或是<code>IPV4</code>地址的枯竭，或是出于机密安全性的考虑，导致他们没有公网的IP地址，无法从互联网上直接被访问。</p>
-<ul>
-<li><h4 id="内网穿透的原理"><a href="#内网穿透的原理" class="headerlink" title="内网穿透的原理"></a>内网穿透的原理</h4></li>
-</ul>
-<p>其本质是<strong>在一个拥有公网IP的服务器（中介）的帮助下，打通一条从内网服务到公网的通道</strong>。这个拥有公网IP的服务器被称为“中继服务器”或“跳板服务器”</p>
-<h4 id="经典比喻：邮局信箱"><a href="#经典比喻：邮局信箱" class="headerlink" title="经典比喻：邮局信箱"></a>经典比喻：邮局信箱</h4><p>假设你（内网服务）住在一个不对外公开地址的大院里，你想和外界的朋友（公网用户）通信。</p>
-<ol>
-<li><strong>没有内网穿透</strong>：朋友不知道你的地址，无法给你寄信。</li>
-<li><strong>内网穿透</strong>：你去邮局（中继服务器）租了一个信箱（公网端口）。你告诉所有朋友：“请把信寄到邮局XXX号信箱”。同时，你（内网服务）<strong>主动地、持续地</strong> 与邮局的那个信箱保持联系，定期查看是否有新信。当朋友把信投到信箱后，你就能取到信，并回复他。邮局在这里就起到了中转和代理的作用。</li>
-</ol>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">注意，“内网用户”可以主动对外发起联系，但外部用户无法反过来点对点的对他发起通信</span><br></pre></td></tr></table></figure></div>
-
-<p>代码示意：</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    </span><br><span class="line">    A[内网服务 Client]    &lt;--&gt;   |<span class="number">1.</span> 建立持久控制通道|  &lt;--&gt;  B[公网服务器 Server]</span><br><span class="line">    C[访问者 User]       --&gt;       |<span class="number">2.</span> 请求访问|  B</span><br><span class="line">    B                --&gt;       |<span class="number">3.</span> 转发请求| A</span><br><span class="line">    A                --&gt;       |<span class="number">4.</span> 返回响应数据| B</span><br><span class="line">    B                --&gt;       |<span class="number">5.</span> 返回响应数据| C</span><br></pre></td></tr></table></figure></div>
-
-
-
-
-
-
-
 ]]></content>
   </entry>
   <entry>
@@ -3817,100 +3788,33 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
-    <title>参数校验之 Validation 注解</title>
-    <url>/2024/01/24/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E4%B9%8B-Validation-%E6%B3%A8%E8%A7%A3/</url>
-    <content><![CDATA[<p>在 Controller层 接收前端发送来的参数时，往往对参数有一定的要求，Validation 注解在此处发挥着极大的作用 。</p>
-<h3 id="1、直接对方法中的形参"><a href="#1、直接对方法中的形参" class="headerlink" title="1、直接对方法中的形参"></a>1、直接对方法中的形参</h3><p>对<code>Controller</code>的方法中带的形参有要求，引用  <code>@Pattern(regexp = &quot;正则表达式&quot;)</code>，如下图：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241441510.png"
-                      alt="image-20240124144151450"
-                ></p>
-<h3 id="2、对传递的复杂形参中的某一属性有要求"><a href="#2、对传递的复杂形参中的某一属性有要求" class="headerlink" title="2、对传递的复杂形参中的某一属性有要求"></a>2、对传递的复杂形参中的某一属性有要求</h3><p>往往前端传递回来的 <code>JSON</code>数据,我们会使用<code>@ResultBody</code>封装成一个对象，并对于该形参中的某一个属性有着校验要求，此时就需要去到<code>Pojo层</code>该类的定义处添加要求注解：<code>（@NotEmpty、@NotNull ...）</code>,并且在Controller层中该方法的形参前面加一个<code>@Validated</code>,如下图所例：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241451091.png"
-                      alt="image-20240124145149045" style="zoom:50%;" 
-                >
+    <title>内网穿透</title>
+    <url>/2025/09/15/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    <content><![CDATA[<h2 id="内网穿透"><a href="#内网穿透" class="headerlink" title="内网穿透"></a>内网穿透</h2><ul>
+<li><h4 id="为什么需要内网穿透？"><a href="#为什么需要内网穿透？" class="headerlink" title="为什么需要内网穿透？"></a>为什么需要内网穿透？</h4></li>
+</ul>
+<p>现实应用场景中，我们周边存在许多“私有网络（内网）”，其出现的原因或是<code>IPV4</code>地址的枯竭，或是出于机密安全性的考虑，导致他们没有公网的IP地址，无法从互联网上直接被访问。</p>
+<ul>
+<li><h4 id="内网穿透的原理"><a href="#内网穿透的原理" class="headerlink" title="内网穿透的原理"></a>内网穿透的原理</h4></li>
+</ul>
+<p>其本质是<strong>在一个拥有公网IP的服务器（中介）的帮助下，打通一条从内网服务到公网的通道</strong>。这个拥有公网IP的服务器被称为“中继服务器”或“跳板服务器”</p>
+<h4 id="经典比喻：邮局信箱"><a href="#经典比喻：邮局信箱" class="headerlink" title="经典比喻：邮局信箱"></a>经典比喻：邮局信箱</h4><p>假设你（内网服务）住在一个不对外公开地址的大院里，你想和外界的朋友（公网用户）通信。</p>
+<ol>
+<li><strong>没有内网穿透</strong>：朋友不知道你的地址，无法给你寄信。</li>
+<li><strong>内网穿透</strong>：你去邮局（中继服务器）租了一个信箱（公网端口）。你告诉所有朋友：“请把信寄到邮局XXX号信箱”。同时，你（内网服务）<strong>主动地、持续地</strong> 与邮局的那个信箱保持联系，定期查看是否有新信。当朋友把信投到信箱后，你就能取到信，并回复他。邮局在这里就起到了中转和代理的作用。</li>
+</ol>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">注意，“内网用户”可以主动对外发起联系，但外部用户无法反过来点对点的对他发起通信</span><br></pre></td></tr></table></figure></div>
 
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241452911.png"
-                      alt="image-20240124145258862"
-                ></p>
-<h3 id="3、分组校验-——-某一属性不同情景下的校验规则"><a href="#3、分组校验-——-某一属性不同情景下的校验规则" class="headerlink" title="3、分组校验 —— 某一属性不同情景下的校验规则"></a>3、分组校验 —— 某一属性不同情景下的校验规则</h3><p>在接受校验数据的时候，会有这么一种情形，即某一属性上有多个注解，但是我在不同的方法上，可能注解不全要，该方法只需要此属性头上的一部分注解即可，此时就需要进行分组校验。</p>
-<blockquote>
-<p>PS：若只是一个基本类型参数，而不是复杂对象，我们可以利用上述的第一条<code>@Pattern（regexp=&quot;&quot;）</code>正则进行逐个赋予校验规则，下面主要介绍的是对于复杂对象中的属性的分组校验。</p>
-</blockquote>
-<h4 id="Step-one："><a href="#Step-one：" class="headerlink" title="Step one："></a>Step one：</h4><p>在Pojo层的该类定义处，添加分组接口，例如我要使用两套校验规则应对不同场合，则我在此处定义两个不同的接口，这里我取名分别为：add、updatge</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241508986.png"
-                      alt="image-20240124150829933" style="zoom: 50%;" 
-                >
-
-<h4 id="Step-two"><a href="#Step-two" class="headerlink" title="Step two"></a>Step two</h4><p>在Pojo层，对于该类中属性上的校验注解进行添加<code>groups</code>,注意接口是可以继承<code>extends</code>的，未分组的注解统一归为<code>Default</code>组，<code>groups</code>值可以添加多个组名（组名为第一步定义的接口名+”&#96;&#96;.class&#96;”），表示多个组都需要该注解 ：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241513464.png"
-                      alt="image-20240124151337413" style="zoom:50%;" 
-                >
-
-<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>在<code>Controlle</code>r层，在<code>@validated</code>后添加组名+<code>.class</code>,表示此处使用的校验规则是哪一组。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518403.png"
-                      alt="image-20240124151805367"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518165.png"
-                      alt="image-20240124151821132"
-                ></p>
-<h3 id="4、自定义注解"><a href="#4、自定义注解" class="headerlink" title="4、自定义注解"></a>4、自定义注解</h3><p><code>Validation</code>中自带的注解终究是有限的，无法满足我们所有的校验需求，若我们的某一个复杂对象中的某一属性值只可以是给定值，例，<code>article </code>的状态值<code>State</code>只可以为”草稿”或“已发布”，<code>User</code>中的性别<code>gender</code>只可以是<code>female</code>或<code>male</code>，其他的报错，因此自定义注解应运而生。</p>
-<blockquote>
-<p>下面以新建一个自定义注解<code>@State</code>为例</p>
-<p>步骤图如下：</p>
-</blockquote>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241714898.png"
-                      alt="image-20240124171435830" style="zoom:50%;" 
-                >
+<p>代码示意：</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    </span><br><span class="line">    A[内网服务 Client]    &lt;--&gt;   |<span class="number">1.</span> 建立持久控制通道|  &lt;--&gt;  B[公网服务器 Server]</span><br><span class="line">    C[访问者 User]       --&gt;       |<span class="number">2.</span> 请求访问|  B</span><br><span class="line">    B                --&gt;       |<span class="number">3.</span> 转发请求| A</span><br><span class="line">    A                --&gt;       |<span class="number">4.</span> 返回响应数据| B</span><br><span class="line">    B                --&gt;       |<span class="number">5.</span> 返回响应数据| C</span><br></pre></td></tr></table></figure></div>
 
 
 
-<h4 id="Step-one"><a href="#Step-one" class="headerlink" title="Step one"></a>Step one</h4><p>新建一个类实现接口<code>ConstrainValidator&lt;自定义注解名，被校验的数据类型&gt;</code>，在类中重写<code>isValid</code>方法，在<code>isValid</code>中进行具体的自定义逻辑判断，最后在<code>Pojo层</code>类的属性上加上我们的自定义注解名即可。</p>
-<p>例子中，校验数据以形参s传入，利用<code>equals()</code>进行逻辑判断，true即数据校验无误。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241703027.png"
-                      alt="image-20240124170304976"
-                ></p>
-<h4 id="Step-two-1"><a href="#Step-two-1" class="headerlink" title="Step two"></a>Step two</h4><p>新建一个<code>@interface</code>，其中<code>@Contraint</code>中指定具体的书写逻辑类，即上一步定义的类，其他内容相对固定，如下：</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241724583.png"
-                      alt="image-20240124172449540" style="zoom:50%;" 
-                >
 
-<h4 id="Step-three"><a href="#Step-three" class="headerlink" title="Step three"></a>Step three</h4><p>最后在即生成了我们的自定义注解<code> @State</code>。</p>
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241727703.png"
-                      alt="image-20240124172707660" style="zoom: 50%;" 
-                >]]></content>
+
+
+
+]]></content>
   </entry>
   <entry>
     <title>初识JSP</title>
@@ -4137,6 +4041,102 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
+    <title>参数校验之 Validation 注解</title>
+    <url>/2024/01/24/%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C%E4%B9%8B-Validation-%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<p>在 Controller层 接收前端发送来的参数时，往往对参数有一定的要求，Validation 注解在此处发挥着极大的作用 。</p>
+<h3 id="1、直接对方法中的形参"><a href="#1、直接对方法中的形参" class="headerlink" title="1、直接对方法中的形参"></a>1、直接对方法中的形参</h3><p>对<code>Controller</code>的方法中带的形参有要求，引用  <code>@Pattern(regexp = &quot;正则表达式&quot;)</code>，如下图：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241441510.png"
+                      alt="image-20240124144151450"
+                ></p>
+<h3 id="2、对传递的复杂形参中的某一属性有要求"><a href="#2、对传递的复杂形参中的某一属性有要求" class="headerlink" title="2、对传递的复杂形参中的某一属性有要求"></a>2、对传递的复杂形参中的某一属性有要求</h3><p>往往前端传递回来的 <code>JSON</code>数据,我们会使用<code>@ResultBody</code>封装成一个对象，并对于该形参中的某一个属性有着校验要求，此时就需要去到<code>Pojo层</code>该类的定义处添加要求注解：<code>（@NotEmpty、@NotNull ...）</code>,并且在Controller层中该方法的形参前面加一个<code>@Validated</code>,如下图所例：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241451091.png"
+                      alt="image-20240124145149045" style="zoom:50%;" 
+                >
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241452911.png"
+                      alt="image-20240124145258862"
+                ></p>
+<h3 id="3、分组校验-——-某一属性不同情景下的校验规则"><a href="#3、分组校验-——-某一属性不同情景下的校验规则" class="headerlink" title="3、分组校验 —— 某一属性不同情景下的校验规则"></a>3、分组校验 —— 某一属性不同情景下的校验规则</h3><p>在接受校验数据的时候，会有这么一种情形，即某一属性上有多个注解，但是我在不同的方法上，可能注解不全要，该方法只需要此属性头上的一部分注解即可，此时就需要进行分组校验。</p>
+<blockquote>
+<p>PS：若只是一个基本类型参数，而不是复杂对象，我们可以利用上述的第一条<code>@Pattern（regexp=&quot;&quot;）</code>正则进行逐个赋予校验规则，下面主要介绍的是对于复杂对象中的属性的分组校验。</p>
+</blockquote>
+<h4 id="Step-one："><a href="#Step-one：" class="headerlink" title="Step one："></a>Step one：</h4><p>在Pojo层的该类定义处，添加分组接口，例如我要使用两套校验规则应对不同场合，则我在此处定义两个不同的接口，这里我取名分别为：add、updatge</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241508986.png"
+                      alt="image-20240124150829933" style="zoom: 50%;" 
+                >
+
+<h4 id="Step-two"><a href="#Step-two" class="headerlink" title="Step two"></a>Step two</h4><p>在Pojo层，对于该类中属性上的校验注解进行添加<code>groups</code>,注意接口是可以继承<code>extends</code>的，未分组的注解统一归为<code>Default</code>组，<code>groups</code>值可以添加多个组名（组名为第一步定义的接口名+”&#96;&#96;.class&#96;”），表示多个组都需要该注解 ：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241513464.png"
+                      alt="image-20240124151337413" style="zoom:50%;" 
+                >
+
+<h4 id="Step-Three"><a href="#Step-Three" class="headerlink" title="Step Three"></a>Step Three</h4><p>在<code>Controlle</code>r层，在<code>@validated</code>后添加组名+<code>.class</code>,表示此处使用的校验规则是哪一组。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518403.png"
+                      alt="image-20240124151805367"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241518165.png"
+                      alt="image-20240124151821132"
+                ></p>
+<h3 id="4、自定义注解"><a href="#4、自定义注解" class="headerlink" title="4、自定义注解"></a>4、自定义注解</h3><p><code>Validation</code>中自带的注解终究是有限的，无法满足我们所有的校验需求，若我们的某一个复杂对象中的某一属性值只可以是给定值，例，<code>article </code>的状态值<code>State</code>只可以为”草稿”或“已发布”，<code>User</code>中的性别<code>gender</code>只可以是<code>female</code>或<code>male</code>，其他的报错，因此自定义注解应运而生。</p>
+<blockquote>
+<p>下面以新建一个自定义注解<code>@State</code>为例</p>
+<p>步骤图如下：</p>
+</blockquote>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241714898.png"
+                      alt="image-20240124171435830" style="zoom:50%;" 
+                >
+
+
+
+<h4 id="Step-one"><a href="#Step-one" class="headerlink" title="Step one"></a>Step one</h4><p>新建一个类实现接口<code>ConstrainValidator&lt;自定义注解名，被校验的数据类型&gt;</code>，在类中重写<code>isValid</code>方法，在<code>isValid</code>中进行具体的自定义逻辑判断，最后在<code>Pojo层</code>类的属性上加上我们的自定义注解名即可。</p>
+<p>例子中，校验数据以形参s传入，利用<code>equals()</code>进行逻辑判断，true即数据校验无误。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241703027.png"
+                      alt="image-20240124170304976"
+                ></p>
+<h4 id="Step-two-1"><a href="#Step-two-1" class="headerlink" title="Step two"></a>Step two</h4><p>新建一个<code>@interface</code>，其中<code>@Contraint</code>中指定具体的书写逻辑类，即上一步定义的类，其他内容相对固定，如下：</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241724583.png"
+                      alt="image-20240124172449540" style="zoom:50%;" 
+                >
+
+<h4 id="Step-three"><a href="#Step-three" class="headerlink" title="Step three"></a>Step three</h4><p>最后在即生成了我们的自定义注解<code> @State</code>。</p>
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202401241727703.png"
+                      alt="image-20240124172707660" style="zoom: 50%;" 
+                >]]></content>
+  </entry>
+  <entry>
     <title>反射技术实现 Servlet 请求方法的动态选择</title>
     <url>/2023/10/03/%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0-Servlet-%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95%E7%9A%84%E5%8A%A8%E6%80%81%E9%80%89%E6%8B%A9/</url>
     <content><![CDATA[<p>假设一个Servlet类，其中包含了多个处理请求的方法，那我们在处理请求时就需要进行判断具体使用哪一种处理方法，这其中难免使用到较多的  <code>if - else</code> 语句子，此时就可以使用反射技术。</p>
@@ -4219,39 +4219,6 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
 ]]></content>
   </entry>
   <entry>
-    <title>多线程之 Callable 与 FutureTask</title>
-    <url>/2025/10/31/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B-callable-%E4%B8%8E-future-task/</url>
-    <content><![CDATA[<h2 id="Runable-的局限性"><a href="#Runable-的局限性" class="headerlink" title="Runable 的局限性"></a><code>Runable</code> 的局限性</h2><p>基础的多线程是 <code>Thread</code> + <code>Runable</code> </p>
-<p><code>Thread</code> 类代表了一个<strong>执行线程</strong>，而 <code>Runnable</code> 接口则定义了线程需要<strong>执行的任务</strong>。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p><code>Runnable</code> 是一个<strong>函数式接口</strong>（从 Java 8 开始），它只有一个方法：它定义了线程要执行的任务逻辑。任何实现了 <code>Runnable</code> 接口的类，都必须实现 <code>run()</code> 方法，并将具体的任务代码写在其中。</p>
-<p><strong>但是这里有一个局限，即<code>Runable</code>没有返回值，基于此点，引入<code>Callable</code></strong></p>
-<h2 id="Callable-接口与-FutureTask-类"><a href="#Callable-接口与-FutureTask-类" class="headerlink" title="Callable 接口与 FutureTask   类"></a><code>Callable</code> 接口与 <code>FutureTask  </code> 类</h2><h3 id="Callable-接口"><a href="#Callable-接口" class="headerlink" title="Callable 接口"></a><code>Callable</code> 接口</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt; &#123;</span><br><span class="line">    V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>类似于 <code>Runnable</code>，但可以<strong>返回结果</strong>和<strong>抛出异常</strong></li>
-<li>泛型接口，<code>V</code> 是 call 方法返回值的类型</li>
-<li>主要与线程池 (<code>ExecutorService</code>) 配合使用</li>
-</ul>
-<h3 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a><code>FutureTask</code></h3><p><strong><code>FutureTask</code> 是 <code>Callable</code> 和 <code>Thread</code> 之间的桥梁</strong>，它包装了 <code>Callable</code> 任务，使其可以通过 <code>Thread</code> 来执行。</p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QueryGroupBuyActivityDiscountVOThreadTask</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;GroupBuyActivityDiscountVO&gt; &#123;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String source; <span class="comment">//来源</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String channel;<span class="comment">//渠道</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> IActivityRepository activityRepository; <span class="comment">//活动仓储</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">QueryGroupBuyActivityDiscountVOThreadTask</span><span class="params">(String source, String channel, IActivityRepository activityRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.source = source;</span><br><span class="line">        <span class="built_in">this</span>.channel = channel;</span><br><span class="line">        <span class="built_in">this</span>.activityRepository = activityRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> GroupBuyActivityDiscountVO <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> activityRepository.queryGroupBuyActivityDiscountVO(source, channel);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>注意<code>Callable</code>返回什么就看<code>call</code> 方法返回什么。</li>
-<li><code>implements Callable&lt; GroupBuyActivityDiscountVO &gt;</code>中的泛型要与<code>call</code>的返回类型一致</li>
-</ul>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">multiThread</span><span class="params">(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException, TimeoutException &#123;</span><br><span class="line">    </span><br><span class="line">       <span class="comment">// 异步查询活动配置</span></span><br><span class="line">       <span class="type">QueryGroupBuyActivityDiscountVOThreadTask</span> <span class="variable">queryGroupBuyActivityDiscountVOThreadTask</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">QueryGroupBuyActivityDiscountVOThreadTask</span>(requestParameter.getSource(), requestParameter.getChannel(), repository);<span class="comment">//构造函数</span></span><br><span class="line">    </span><br><span class="line">       FutureTask&lt;GroupBuyActivityDiscountVO&gt; groupBuyActivityDiscountVOFutureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(queryGroupBuyActivityDiscountVOThreadTask);<span class="comment">//结合futureTask</span></span><br><span class="line">    </span><br><span class="line">       threadPoolExecutor.execute(groupBuyActivityDiscountVOFutureTask); <span class="comment">//线程池执行</span></span><br><span class="line">    </span><br><span class="line">       dynamicContext.setGroupBuyActivityDiscountVO(groupBuyActivityDiscountVOFutureTask.get(timeout, TimeUnit.MINUTES));  <span class="comment">//使用get方法获得线程的执行结果</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
-
-<ul>
-<li>首先先是实例化了<code>Callable</code>接口的实现类</li>
-<li><strong>由于线程池不能直接执行这个实现类，所以需要<code>FutureTask</code>包装一下</strong></li>
-<li>包装之后，可以被线程池执行，并且可以使用<code>groupBuyActivityDiscountVOFutureTask.get（）</code>方法得到执行结果</li>
-<li>值得注意的是，<code>FutureTask&lt; T &gt; </code>中的类型要与<code>call</code> 的返回类型一致</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>微信扫码登录流程</title>
     <url>/2025/09/22/%E5%BE%AE%E4%BF%A1%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="微信扫码登录流程"><a href="#微信扫码登录流程" class="headerlink" title="微信扫码登录流程"></a>微信扫码登录流程</h2><p>首先，1、用户点击登录需要二维码，<strong>而二维码生成是不需要走服务端</strong>，直接调用微信的api接口「<a class="link"   href="https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET%E3%80%8D%E3%80%82" >https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TICKET」。 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
@@ -4286,6 +4253,39 @@ Swing 提供的这些优势，让 Java 图形界面程序真正实现了 &quot; 
                      data-src="https://forming1picgo.oss-cn-shanghai.aliyuncs.com/img/202509221258293.png"
                       alt="image-20250922125747641"
                 ></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>多线程之 Callable 与 FutureTask</title>
+    <url>/2025/10/31/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B-callable-%E4%B8%8E-future-task/</url>
+    <content><![CDATA[<h2 id="Runable-的局限性"><a href="#Runable-的局限性" class="headerlink" title="Runable 的局限性"></a><code>Runable</code> 的局限性</h2><p>基础的多线程是 <code>Thread</code> + <code>Runable</code> </p>
+<p><code>Thread</code> 类代表了一个<strong>执行线程</strong>，而 <code>Runnable</code> 接口则定义了线程需要<strong>执行的任务</strong>。</p>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p><code>Runnable</code> 是一个<strong>函数式接口</strong>（从 Java 8 开始），它只有一个方法：它定义了线程要执行的任务逻辑。任何实现了 <code>Runnable</code> 接口的类，都必须实现 <code>run()</code> 方法，并将具体的任务代码写在其中。</p>
+<p><strong>但是这里有一个局限，即<code>Runable</code>没有返回值，基于此点，引入<code>Callable</code></strong></p>
+<h2 id="Callable-接口与-FutureTask-类"><a href="#Callable-接口与-FutureTask-类" class="headerlink" title="Callable 接口与 FutureTask   类"></a><code>Callable</code> 接口与 <code>FutureTask  </code> 类</h2><h3 id="Callable-接口"><a href="#Callable-接口" class="headerlink" title="Callable 接口"></a><code>Callable</code> 接口</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt; &#123;</span><br><span class="line">    V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>类似于 <code>Runnable</code>，但可以<strong>返回结果</strong>和<strong>抛出异常</strong></li>
+<li>泛型接口，<code>V</code> 是 call 方法返回值的类型</li>
+<li>主要与线程池 (<code>ExecutorService</code>) 配合使用</li>
+</ul>
+<h3 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a><code>FutureTask</code></h3><p><strong><code>FutureTask</code> 是 <code>Callable</code> 和 <code>Thread</code> 之间的桥梁</strong>，它包装了 <code>Callable</code> 任务，使其可以通过 <code>Thread</code> 来执行。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QueryGroupBuyActivityDiscountVOThreadTask</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;GroupBuyActivityDiscountVO&gt; &#123;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String source; <span class="comment">//来源</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String channel;<span class="comment">//渠道</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> IActivityRepository activityRepository; <span class="comment">//活动仓储</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">QueryGroupBuyActivityDiscountVOThreadTask</span><span class="params">(String source, String channel, IActivityRepository activityRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.source = source;</span><br><span class="line">        <span class="built_in">this</span>.channel = channel;</span><br><span class="line">        <span class="built_in">this</span>.activityRepository = activityRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> GroupBuyActivityDiscountVO <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> activityRepository.queryGroupBuyActivityDiscountVO(source, channel);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>注意<code>Callable</code>返回什么就看<code>call</code> 方法返回什么。</li>
+<li><code>implements Callable&lt; GroupBuyActivityDiscountVO &gt;</code>中的泛型要与<code>call</code>的返回类型一致</li>
+</ul>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">multiThread</span><span class="params">(MarketProductEntity requestParameter, DefaultActivityStrategyFactory.DynamicContext dynamicContext)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException, TimeoutException &#123;</span><br><span class="line">    </span><br><span class="line">       <span class="comment">// 异步查询活动配置</span></span><br><span class="line">       <span class="type">QueryGroupBuyActivityDiscountVOThreadTask</span> <span class="variable">queryGroupBuyActivityDiscountVOThreadTask</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">QueryGroupBuyActivityDiscountVOThreadTask</span>(requestParameter.getSource(), requestParameter.getChannel(), repository);<span class="comment">//构造函数</span></span><br><span class="line">    </span><br><span class="line">       FutureTask&lt;GroupBuyActivityDiscountVO&gt; groupBuyActivityDiscountVOFutureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(queryGroupBuyActivityDiscountVOThreadTask);<span class="comment">//结合futureTask</span></span><br><span class="line">    </span><br><span class="line">       threadPoolExecutor.execute(groupBuyActivityDiscountVOFutureTask); <span class="comment">//线程池执行</span></span><br><span class="line">    </span><br><span class="line">       dynamicContext.setGroupBuyActivityDiscountVO(groupBuyActivityDiscountVOFutureTask.get(timeout, TimeUnit.MINUTES));  <span class="comment">//使用get方法获得线程的执行结果</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li>首先先是实例化了<code>Callable</code>接口的实现类</li>
+<li><strong>由于线程池不能直接执行这个实现类，所以需要<code>FutureTask</code>包装一下</strong></li>
+<li>包装之后，可以被线程池执行，并且可以使用<code>groupBuyActivityDiscountVOFutureTask.get（）</code>方法得到执行结果</li>
+<li>值得注意的是，<code>FutureTask&lt; T &gt; </code>中的类型要与<code>call</code> 的返回类型一致</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
